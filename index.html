@@ -31,10 +31,9 @@
             color: #f3f4f6; 
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden; /* Prevent horizontal scroll globally */
+            overflow-x: hidden;
         }
         
-        /* Premium Gradients and Colors */
         .text-accent { color: var(--accent-color); } 
         .bg-accent { background-color: var(--accent-color); }
         
@@ -64,7 +63,6 @@
             transform: translateY(-2px);
         }
 
-        /* Form Elements Reset for iOS/Safari uniformity */
         input, select {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -72,7 +70,6 @@
             background-color: rgba(0,0,0,0.6) !important;
         }
         
-        /* Universal Custom Checkbox */
         .white-checkbox {
             appearance: none;
             -webkit-appearance: none;
@@ -103,7 +100,6 @@
             transform: rotate(45deg);
         }
 
-        /* Custom Select Arrow */
         .custom-select {
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ccff00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
@@ -111,7 +107,6 @@
             background-size: 1em;
         }
 
-        /* Animated Accent Button */
         .btn-accent {
             background: linear-gradient(90deg, #5c7a00, #ccff00, #eaff80, #ccff00, #5c7a00);
             background-size: 200% auto;
@@ -134,7 +129,6 @@
             100% { background-position: 200% center; }
         }
 
-        /* Floating 3D Gift Animation */
         @keyframes float3d {
             0% { transform: translateY(0) rotate(-5deg); }
             50% { transform: translateY(-8px) rotate(5deg) scale(1.05); }
@@ -146,7 +140,14 @@
             filter: drop-shadow(0px 10px 10px rgba(204, 255, 0, 0.2));
         }
 
-        /* Timeline vertical line */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
         .timeline-line::before {
             content: '';
             position: absolute;
@@ -159,7 +160,6 @@
             z-index: 0;
         }
 
-        /* Watermark Numbers inside Cards */
         .card-number {
             position: absolute;
             right: -5%;
@@ -181,13 +181,11 @@
             transform: scale(1.05) rotate(-3deg);
         }
 
-        /* Custom Scrollbar */
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(204, 255, 0, 0.3); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(204, 255, 0, 0.6); }
 
-        /* Utilities */
         .text-balance { text-wrap: balance; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -195,7 +193,6 @@
 </head>
 <body class="bg-radial-dark pb-24 selection:bg-[#ccff00] selection:text-black">
 
-    <!-- Language Selector Menu -->
     <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-[60]">
         <div class="relative inline-block text-left" id="language-menu-container">
             <button type="button" class="inline-flex justify-center items-center w-full rounded-lg border border-gray-700/50 shadow-sm px-4 py-2.5 bg-black/80 backdrop-blur-md text-sm font-bold text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-[#ccff00]/50 transition-all" id="language-menu-button" aria-haspopup="true" aria-expanded="false">
@@ -206,7 +203,6 @@
             </button>
             <div id="language-dropdown" class="origin-top-right absolute right-0 mt-2 w-32 rounded-xl shadow-2xl bg-[#0a0a0a] border border-white/10 hidden z-[60] backdrop-blur-xl overflow-hidden transition-all transform opacity-0 scale-95" style="display: none;">
                 <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="language-menu-button">
-                    <!-- Ordered: EN, ES, PT, IT -->
                     <button type="button" onclick="changeLanguage('en')" class="w-full text-left block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">English</button>
                     <button type="button" onclick="changeLanguage('es')" class="w-full text-left block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Español</button>
                     <button type="button" onclick="changeLanguage('pt')" class="w-full text-left block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Português</button>
@@ -217,12 +213,10 @@
     </div>
 
     <header class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
-        <!-- Ambient Glow Background -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] max-w-4xl h-[600px] bg-[#ccff00]/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
         <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             
-            <!-- Branding / Logo -->
             <div class="mb-10 lg:mb-16 flex items-center justify-center lg:justify-start gap-4">
                 <img src="logo-tondo.jpeg" alt="Betting Exchange Room Logo" class="w-14 h-14 sm:w-20 sm:h-20 rounded-full border-2 border-[#ccff00] shadow-[0_0_25px_rgba(204,255,0,0.2)] object-cover bg-black flex-shrink-0" onerror="this.src='https://placehold.co/100x100/000000/ccff00?text=BER'">
                 <span class="text-white font-black text-lg sm:text-2xl md:text-3xl tracking-widest uppercase truncate text-balance">
@@ -232,10 +226,9 @@
 
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
                 
-                <!-- Left Column: Copy & Video -->
+                <!-- Left Column -->
                 <div class="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start w-full">
                     
-                    <!-- Top Badges -->
                     <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
                         <div class="inline-flex items-center glass-card text-gray-200 px-4 py-2 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase border border-[#ccff00]/30 shadow-sm">
                             <span class="relative flex h-2.5 w-2.5 mr-3">
@@ -250,7 +243,6 @@
                         </div>
                     </div>
 
-                    <!-- Video Container -->
                     <div class="w-full max-w-2xl mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(204,255,0,0.1)] relative bg-black aspect-video group">
                         <div class="absolute inset-0 bg-[#ccff00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10 mix-blend-overlay"></div>
                         <video id="hero-video" class="w-full h-full object-cover relative z-0" autoplay muted loop playsinline controls poster="https://placehold.co/800x450/111111/222222?text=Video+Loading...">
@@ -259,7 +251,6 @@
                         </video>
                     </div>
                     
-                    <!-- Main Headline -->
                     <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-6 text-white w-full text-balance" data-i18n="hero_title">
                         Get the <span class="gradient-text">exact</span> system to scale your income with the Exchange.
                     </h1>
@@ -268,7 +259,6 @@
                         In 3 nights discover our Zero to Hero Academy, learn to operate with our top-tier Signal Room, and find out how to zero your subscription by creating a trading-free income.
                     </p>
 
-                    <!-- Trust Badges Desktop -->
                     <div class="hidden lg:flex flex-wrap items-center gap-6 text-xs xl:text-sm font-bold text-gray-500 uppercase tracking-wider">
                         <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> <span data-i18n="trust_1">100% Free</span></div>
                         <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> <span data-i18n="trust_2">No Card Needed</span></div>
@@ -276,10 +266,8 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Registration Form -->
                 <div class="lg:col-span-5 w-full max-w-md mx-auto relative" id="hero-form">
-                    <div class="glass-card rounded-[2rem] p-6 sm:p-8 relative overflow-hidden group">
-                        <!-- Top Accent Bar -->
+                    <div class="glass-card rounded-[2rem] p-6 sm:p-8 relative overflow-hidden group min-h-[450px] flex flex-col justify-center">
                         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#7aa300] via-[#ccff00] to-[#7aa300]"></div>
                         
                         <div class="text-center mb-8 mt-4">
@@ -288,50 +276,63 @@
                         </div>
 
                         <form class="space-y-5" onsubmit="submitForm(event)" id="registrationForm">
-                            <div>
-                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_name" for="nome">Your Name</label>
-                                <input type="text" id="nome" required pattern="[a-zA-ZÀ-ÿ\s]+" title="Letters and spaces only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="E.g. John Doe" data-i18n-ph="ph_name" data-i18n-title="title_name">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_email" for="email">Primary Email</label>
-                                <input type="email" id="email" required class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="Your best email" data-i18n-ph="ph_email">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_phone" for="phone">WhatsApp (For live link)</label>
-                                <div class="flex gap-2">
-                                    <select id="prefix" aria-label="Country Code" class="custom-select bg-black/50 border border-gray-700/50 rounded-xl px-3 py-3.5 text-white focus:outline-none focus:border-[#ccff00] w-[110px] flex-shrink-0 cursor-pointer text-sm font-medium">
-                                        <option value="+44">+44 (UK)</option>
-                                        <option value="+1">+1 (US)</option>
-                                        <option value="+34">+34 (ES)</option>
-                                        <option value="+351">+351 (PT)</option>
-                                        <option value="+39">+39 (IT)</option>
-                                        <option value="+41">+41 (CH)</option>
-                                        <option value="+55">+55 (BR)</option>
-                                        <option value="+52">+52 (MX)</option>
-                                    </select>
-                                    <input type="tel" id="phone" required pattern="[0-9]+" title="Numbers only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="555 1234567" data-i18n-ph="ph_phone" data-i18n-title="title_phone">
+                            <!-- Input Fields Container -->
+                            <div id="form-content" class="transition-all duration-500 ease-in-out opacity-100">
+                                <div class="mb-5">
+                                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_name" for="nome">Your Name</label>
+                                    <input type="text" id="nome" required pattern="[a-zA-ZÀ-ÿ\s]+" title="Letters and spaces only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="E.g. John Doe" data-i18n-ph="ph_name" data-i18n-title="title_name">
+                                </div>
+                                
+                                <div class="mb-5">
+                                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_email" for="email">Primary Email</label>
+                                    <input type="email" id="email" required class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="Your best email" data-i18n-ph="ph_email">
+                                </div>
+                                
+                                <div class="mb-5">
+                                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_phone" for="phone">WhatsApp (For live link)</label>
+                                    <div class="flex gap-2">
+                                        <select id="prefix" aria-label="Country Code" class="custom-select bg-black/50 border border-gray-700/50 rounded-xl px-3 py-3.5 text-white focus:outline-none focus:border-[#ccff00] w-[110px] flex-shrink-0 cursor-pointer text-sm font-medium">
+                                            <option value="+44">+44 (UK)</option>
+                                            <option value="+1">+1 (US)</option>
+                                            <option value="+34">+34 (ES)</option>
+                                            <option value="+351">+351 (PT)</option>
+                                            <option value="+39">+39 (IT)</option>
+                                            <option value="+41">+41 (CH)</option>
+                                            <option value="+55">+55 (BR)</option>
+                                            <option value="+52">+52 (MX)</option>
+                                        </select>
+                                        <input type="tel" id="phone" required pattern="[0-9]+" title="Numbers only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="555 1234567" data-i18n-ph="ph_phone" data-i18n-title="title_phone">
+                                    </div>
+                                </div>
+
+                                <div class="pt-4 mb-4">
+                                    <button type="submit" id="submit-btn" class="btn-accent w-full font-black text-lg sm:text-xl px-6 py-4 rounded-xl uppercase tracking-widest flex justify-center items-center gap-2">
+                                        <span data-i18n="btn_submit">Register for Free</span>
+                                        <svg class="w-5 h-5 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                    </button>
+                                </div>
+                                
+                                <div class="flex items-start mt-4 bg-white/5 p-3 rounded-lg border border-white/5">
+                                    <input type="checkbox" required class="white-checkbox mt-0.5" id="privacy-check">
+                                    <label for="privacy-check" class="ml-3 text-[11px] sm:text-xs text-gray-400 leading-snug cursor-pointer select-none">
+                                        <span data-i18n="privacy_1">I accept the</span> <a href="#" onclick="openPrivacyModal(event)" class="text-white font-bold underline hover:text-[#ccff00] transition-colors" data-i18n="privacy_2">Privacy Policy</a> <span data-i18n="privacy_3">and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.</span>
+                                    </label>
                                 </div>
                             </div>
-
-                            <div class="pt-4">
-                                <button type="submit" id="submit-btn" class="btn-accent w-full font-black text-lg sm:text-xl px-6 py-4 rounded-xl uppercase tracking-widest flex justify-center items-center gap-2">
-                                    <span data-i18n="btn_submit">Register for Free</span>
-                                    <svg class="w-5 h-5 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </button>
-                                <p class="text-center text-xs text-[#ccff00] mt-4 font-semibold tracking-wide" data-i18n="form_notice">
-                                    Access links will arrive via Email and WhatsApp within 5 minutes.
-                                </p>
-                            </div>
-                            
-                            <div class="flex items-start mt-4 bg-white/5 p-3 rounded-lg border border-white/5">
-                                <input type="checkbox" required class="white-checkbox mt-0.5" id="privacy-check">
-                                <label for="privacy-check" class="ml-3 text-[11px] sm:text-xs text-gray-400 leading-snug cursor-pointer select-none">
-                                    <span data-i18n="privacy_1">I accept the</span> <a href="#" onclick="openPrivacyModal(event)" class="text-white font-bold underline hover:text-[#ccff00] transition-colors" data-i18n="privacy_2">Privacy Policy</a> <span data-i18n="privacy_3">and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.</span>
-                                </label>
-                            </div>
                         </form>
+
+                        <div id="success-state" class="hidden flex-col items-center justify-center text-center absolute inset-0 bg-[#0f0f0f]/95 backdrop-blur-xl rounded-[2rem] p-6 sm:p-8 z-20">
+                            <div class="w-20 h-20 bg-[#ccff00]/10 rounded-full flex items-center justify-center mb-6 border-2 border-[#ccff00]/30 shadow-[0_0_30px_rgba(204,255,0,0.2)]">
+                                <svg class="w-10 h-10 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <h4 class="text-3xl font-black text-white mb-3" data-i18n="success_title">Registration Complete!</h4>
+                            <p class="text-gray-400 mb-10 text-base" data-i18n="success_sub">Click below to get your instant gift.</p>
+                            
+                            <a href="https://full-zero-to-hero-academy-betting-e.vercel.app/" id="academy-link-btn" class="btn-accent w-full font-black text-xl sm:text-2xl px-6 py-5 rounded-2xl uppercase tracking-widest flex justify-center items-center gap-3 shadow-2xl">
+                                <span class="text-3xl animate-float-3d mr-1">🎁</span>
+                                <span data-i18n="btn_access_now">ACCEDI ADESSO</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -341,12 +342,10 @@
 
     <section class="container mx-auto px-4 sm:px-6 py-12 lg:py-24 max-w-6xl relative z-20">
         <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 border border-[#ccff00]/20">
-            <!-- 3D Card Graphic -->
             <div class="w-full lg:w-1/3 flex justify-center order-2 lg:order-1 relative">
                 <div class="absolute inset-0 bg-[#ccff00]/20 blur-[80px] rounded-full pointer-events-none"></div>
                 
                 <div class="relative bg-gradient-to-br from-gray-900 via-[#0a0a0a] to-[#111] w-56 sm:w-72 aspect-[3/4] border border-[#ccff00]/40 shadow-[0_40px_80px_rgba(0,0,0,0.9)] flex items-center justify-center text-center p-6 rounded-3xl transform lg:-rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500 z-10 overflow-hidden group">
-                    <!-- Decor elements -->
                     <div class="absolute top-0 right-0 w-20 h-20 bg-[#ccff00]/10 rounded-bl-full pointer-events-none transition-transform group-hover:scale-125"></div>
                     <div class="absolute bottom-0 left-0 w-20 h-20 bg-[#ccff00]/10 rounded-tr-full pointer-events-none transition-transform group-hover:scale-125"></div>
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-gradient-to-b from-transparent to-[#ccff00]/5 pointer-events-none"></div>
@@ -364,7 +363,6 @@
                 </div>
             </div>
             
-            <!-- Bonus Text Copy -->
             <div class="w-full lg:w-2/3 order-1 lg:order-2 text-center lg:text-left">
                 <div class="inline-flex items-center justify-center lg:justify-start border border-[#ccff00]/30 bg-[#ccff00]/10 text-[#ccff00] px-4 py-2 rounded-full font-black uppercase tracking-widest text-xs mb-8">
                     <span class="text-lg mr-2 animate-float-3d shrink-0">🎁</span> <span data-i18n="bonus_pill">Instant Gift with Registration</span>
@@ -392,7 +390,6 @@
     <section class="py-20 sm:py-28 bg-[#020202] relative border-y border-white/5">
         <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
             
-            <!-- Problem -->
             <div class="mb-24 sm:mb-32">
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-4xl sm:text-5xl font-black text-gray-800 tracking-tighter">01</span>
@@ -410,7 +407,6 @@
                 </div>
             </div>
 
-            <!-- Solution -->
             <div>
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-4xl sm:text-5xl font-black text-gray-800 tracking-tighter">02</span>
@@ -428,7 +424,6 @@
     </section>
 
     <section class="py-20 sm:py-28 lg:py-40 relative overflow-hidden">
-        <!-- Background Glow -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[800px] bg-[#ccff00]/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
         <div class="container mx-auto px-4 sm:px-6 max-w-5xl relative z-10">
@@ -483,7 +478,7 @@
                     </ul>
                 </div>
 
-                <!-- MODULE 3 (Masterclass Highlight) -->
+                <!-- MODULE 3 -->
                 <div class="glass-card rounded-[2rem] p-6 sm:p-10 md:p-14 relative border-[#ccff00]/40 shadow-[0_0_40px_rgba(204,255,0,0.1)] timeline-line pl-10 sm:pl-14 md:pl-20 overflow-hidden bg-gradient-to-br from-[#0a0a0a] to-[#ccff00]/10 transform md:scale-[1.02]">
                     <span class="card-number !text-[rgba(204,255,0,0.05)]" aria-hidden="true">3</span>
                     <div class="absolute left-[-1px] top-10 sm:top-14 w-2 h-24 bg-gradient-to-b from-[#eaff80] to-[#7aa300] rounded-r-lg shadow-[0_0_25px_rgba(204,255,0,0.8)] z-10"></div>
@@ -525,7 +520,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
-                <!-- Bad Choice -->
                 <div class="glass-card rounded-[2rem] p-8 sm:p-12 border-gray-800/80 bg-black/40 hover:bg-black/60 transition-colors">
                     <div class="text-gray-500 font-black tracking-widest text-xs sm:text-sm mb-6 uppercase flex items-center gap-3">
                         <span class="w-2 h-2 rounded-full bg-gray-600"></span> <span data-i18n="bad_badge">If you do nothing</span>
@@ -538,7 +532,6 @@
                     </ul>
                 </div>
                 
-                <!-- Good Choice -->
                 <div class="glass-card rounded-[2rem] p-8 sm:p-12 border-[#ccff00]/50 relative shadow-[0_0_50px_rgba(204,255,0,0.1)] overflow-hidden bg-gradient-to-b from-[#111] to-[#000]">
                     <div class="absolute inset-0 bg-gradient-to-br from-[#ccff00]/10 to-transparent pointer-events-none"></div>
                     <div class="relative z-10">
@@ -605,10 +598,8 @@
     </div>
 
     <script>
-        // Set dynamic year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // --- 1. TRANSLATION DICTIONARY (i18n) ---
         const translations = {
             en: {
                 meta_title: "Betting Exchange Room | 3 Live Nights",
@@ -626,9 +617,12 @@
                 label_email: "Primary Email", ph_email: "Your best email",
                 label_phone: "WhatsApp (For live link)", ph_phone: "555 1234567", title_phone: "Numbers only",
                 btn_submit: "Register for Free",
-                form_notice: "Access links will arrive via Email and WhatsApp within 5 minutes.",
                 privacy_1: "I accept the", privacy_2: "Privacy Policy", privacy_3: "and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.",
                 btn_sending: "Sending...",
+                
+                success_title: "Registration Complete!",
+                success_sub: "Click below to get your instant gift.",
+                btn_access_now: "ACCESS NOW",
                 
                 bonus_badge: "INSTANT UNLOCK", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Room", 
                 bonus_pill: "Instant Gift with Registration",
@@ -667,7 +661,6 @@
                 good_l1: "3 nights of exact system, zero fluff.", good_l2: "Learn the mathematical skill of the Exchange.", good_l3: "Enter the network and scale commissions.",
                 
                 foot_title: "THE LAST CALL.", foot_sub: "The workshop is free. Your next 12 months are not.", foot_btn: "Go Back and Register Free",
-                f_terms: "Terms and Conditions", f_privacy: "Privacy Policy", f_cookie: "Cookie Policy",
                 foot_disc1: "DISCLAIMER: Sports trading carries a high level of risk. Consider your objectives and risk before investing. Do not invest money you cannot afford to lose.",
                 foot_disc2: "Results shown represent experiences of people who applied the methodologies. Success depends on your commitment.",
                 sticky_btn: "Register Free for the Workshop",
@@ -699,9 +692,12 @@
                 label_email: "Email principal", ph_email: "Tu mejor email",
                 label_phone: "WhatsApp (Para el enlace)", ph_phone: "600 123456", title_phone: "Solo números",
                 btn_submit: "Inscríbeme Gratis",
-                form_notice: "Los enlaces llegarán por Email y WhatsApp en 5 minutos.",
                 privacy_1: "Acepto la", privacy_2: "Política de Privacidad", privacy_3: "y consiento recibir comunicaciones por Email/WhatsApp para el workshop.",
                 btn_sending: "Enviando...",
+                
+                success_title: "¡Registro Completado!",
+                success_sub: "Haz clic abajo para obtener tu regalo.",
+                btn_access_now: "ACCEDE AHORA",
                 
                 bonus_badge: "DESBLOQUEO INMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
                 bonus_pill: "Regalo Inmediato al Inscribirte",
@@ -740,7 +736,6 @@
                 good_l1: "3 noches de sistema exacto, sin relleno.", good_l2: "Aprendes la habilidad matemática del Exchange.", good_l3: "Entras en la red y escalas comisiones.",
                 
                 foot_title: "LA ÚLTIMA LLAMADA.", foot_sub: "El workshop es gratis. Tus próximos 12 meses no.", foot_btn: "Vuelve arriba e Inscríbete",
-                f_terms: "Términos y Condiciones", f_privacy: "Política de Privacidad", f_cookie: "Política de Cookies",
                 foot_disc1: "DISCLAIMER: El trading deportivo conlleva un alto riesgo. No inviertas dinero que no puedas perder.",
                 foot_disc2: "Los resultados mostrados representan experiencias reales. El éxito depende de tu compromiso.",
                 sticky_btn: "Inscríbeme Gratis al Workshop",
@@ -772,9 +767,12 @@
                 label_email: "E-mail principal", ph_email: "Seu melhor e-mail",
                 label_phone: "WhatsApp (Para o link)", ph_phone: "900 123456", title_phone: "Apenas números",
                 btn_submit: "Inscreva-me Grátis",
-                form_notice: "Os links chegarão por E-mail e WhatsApp em até 5 minutos.",
                 privacy_1: "Eu aceito a", privacy_2: "Política de Privacidade", privacy_3: "e concordo em receber comunicações para acessar o workshop.",
                 btn_sending: "Enviando...",
+                
+                success_title: "Inscrição Concluída!",
+                success_sub: "Clique abaixo para receber seu presente.",
+                btn_access_now: "ACESSE AGORA",
                 
                 bonus_badge: "DESBLOQUEIO IMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
                 bonus_pill: "Presente Imediato com a Inscrição",
@@ -813,7 +811,6 @@
                 good_l1: "3 noites de sistema exato, sem enrolação.", good_l2: "Aprende a habilidade matemática do Exchange.", good_l3: "Entra na rede e escala comissões.",
                 
                 foot_title: "A ÚLTIMA CHAMADA.", foot_sub: "O workshop é grátis. Seus próximos 12 meses não.", foot_btn: "Volte ao topo e Inscreva-se",
-                f_terms: "Termos e Condições", f_privacy: "Política de Privacidade", f_cookie: "Política de Cookies",
                 foot_disc1: "DISCLAIMER: O trading esportivo envolve alto risco. Não invista dinheiro que não pode perder.",
                 foot_disc2: "Os resultados mostrados representam experiências reais. O sucesso depende do seu esforço.",
                 sticky_btn: "Inscreva-me Grátis no Workshop",
@@ -845,9 +842,12 @@
                 label_email: "Email principale", ph_email: "La tua migliore email",
                 label_phone: "WhatsApp (Per il link live)", ph_phone: "333 1234567", title_phone: "Solo numeri",
                 btn_submit: "Iscrivimi Gratis",
-                form_notice: "I link di accesso arriveranno via Email e WhatsApp entro 5 minuti.",
                 privacy_1: "Accetto la", privacy_2: "Privacy Policy", privacy_3: "e acconsento a ricevere comunicazioni per accedere al workshop.",
                 btn_sending: "Invio in corso...",
+                
+                success_title: "Registrazione Completata!",
+                success_sub: "Clicca qui sotto per ritirare il tuo regalo.",
+                btn_access_now: "ACCEDI ADESSO",
                 
                 bonus_badge: "SBLOCCO IMMEDIATO", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
                 bonus_pill: "Regalo Immediato con l'Iscrizione",
@@ -886,9 +886,8 @@
                 good_l1: "3 serate di sistema esatto, zero fuffa.", good_l2: "Impari la competenza matematica dell'Exchange.", good_l3: "Entri nel network e scali le commissioni.",
                 
                 foot_title: "L'ULTIMA CHIAMATA.", foot_sub: "Il workshop è gratuito. I tuoi prossimi 12 mesi no.", foot_btn: "Torna su e Iscriviti Gratis",
-                f_terms: "Termini e Condizioni", f_privacy: "Privacy Policy", f_cookie: "Cookie Policy",
                 foot_disc1: "DISCLAIMER: Il trading sportivo comporta un alto rischio. Non investire denaro che non puoi permetterti di perdere.",
-                foot_disc2: "I risultati mostrati rappresentano esperienze reali. Il successo dipende dal tuo impegno.",
+                foot_disc2: "I risultati mostrados rappresentano esperienze reali. Il successo dipende dal tuo impegno.",
                 sticky_btn: "Iscrivimi Gratis al Workshop",
                 
                 privacy_modal_title: "Privacy Policy", privacy_modal_close: "Chiudi",
@@ -911,30 +910,25 @@
             'it': 'spotitcapture.mp4'
         };
 
-        // --- 2. LANGUAGE INITIALIZATION & HANDLING ---
         function initLanguage() {
             let lang = localStorage.getItem('userLang');
             if (!lang) {
-                // Auto-detect browser language
                 const browserLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
-                // Map to supported languages, default to 'en'
                 lang = ['en', 'es', 'pt', 'it'].includes(browserLang) ? browserLang : 'en';
             }
             changeLanguage(lang);
         }
 
         function changeLanguage(lang) {
-            if (!translations[lang]) lang = 'en'; // Safe fallback
+            if (!translations[lang]) lang = 'en'; 
             
             localStorage.setItem('userLang', lang);
             document.documentElement.lang = lang;
             document.getElementById('current-lang-display').textContent = lang.toUpperCase();
             
-            // Update Page Title and Meta Description dynamically
             document.title = translations[lang]['meta_title'];
             document.getElementById('meta-description').setAttribute('content', translations[lang]['meta_desc']);
 
-            // Translate innerHTML
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
@@ -942,7 +936,6 @@
                 }
             });
 
-            // Translate Placeholders
             document.querySelectorAll('[data-i18n-ph]').forEach(el => {
                 const key = el.getAttribute('data-i18n-ph');
                 if (translations[lang][key]) {
@@ -950,7 +943,6 @@
                 }
             });
 
-            // Translate Title Attributes
             document.querySelectorAll('[data-i18n-title]').forEach(el => {
                 const key = el.getAttribute('data-i18n-title');
                 if (translations[lang][key]) {
@@ -958,13 +950,11 @@
                 }
             });
 
-            // Update Privacy Modal Content
             const privacyContent = document.getElementById('privacy-modal-content');
             if(privacyContent && translations[lang]['privacy_full_text']) {
                 privacyContent.innerHTML = translations[lang]['privacy_full_text'];
             }
 
-            // Update Video dynamically ensuring cross-browser autoplay rules
             const videoElement = document.getElementById('hero-video');
             const sourceElement = document.getElementById('hero-video-source');
             if (videoElement && sourceElement && videoMap[lang]) {
@@ -972,28 +962,23 @@
                 if (currentSrc !== videoMap[lang]) {
                     sourceElement.setAttribute('src', videoMap[lang]);
                     videoElement.load();
-                    videoElement.muted = true; // Crucial for autoplay
+                    videoElement.muted = true;
                     const playPromise = videoElement.play();
                     if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.log("Autoplay handled natively:", error);
-                        });
+                        playPromise.catch(error => console.log("Autoplay handled natively:", error));
                     }
                 }
             }
 
-            // Set default phone prefix based on language
             const prefixSelect = document.getElementById('prefix');
             const prefixMap = { 'it': '+39', 'es': '+34', 'pt': '+351', 'en': '+44' };
             if(prefixMap[lang]) {
                 prefixSelect.value = prefixMap[lang];
             }
             
-            // Close dropdown if open
             closeLanguageMenu();
         }
 
-        // --- 3. UI INTERACTIONS ---
         const langBtn = document.getElementById('language-menu-button');
         const langDropdown = document.getElementById('language-dropdown');
         const langContainer = document.getElementById('language-menu-container');
@@ -1003,7 +988,6 @@
             const isHidden = langDropdown.style.display === 'none';
             if (isHidden) {
                 langDropdown.style.display = 'block';
-                // Trigger reflow for animation
                 void langDropdown.offsetWidth;
                 langDropdown.classList.remove('opacity-0', 'scale-95');
                 langDropdown.classList.add('opacity-100', 'scale-100');
@@ -1019,19 +1003,17 @@
             langBtn.setAttribute('aria-expanded', 'false');
             setTimeout(() => {
                 langDropdown.style.display = 'none';
-            }, 150); // matches transition duration
+            }, 150);
         }
 
         langBtn.addEventListener('click', toggleLanguageMenu);
 
-        // Close menu clicking outside
         document.addEventListener('click', function(e) {
             if (!langContainer.contains(e.target)) {
                 closeLanguageMenu();
             }
         });
 
-        // Intersection Observer for Sticky Button
         document.addEventListener("DOMContentLoaded", function() {
             initLanguage(); 
             
@@ -1042,12 +1024,10 @@
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting || window.scrollY < 200) {
-                            // Hide if form is visible OR at the very top of page
                             stickyBtn.classList.add('opacity-0', 'translate-y-10');
                             stickyBtn.classList.remove('opacity-100', 'translate-y-0');
                             stickyBtn.style.pointerEvents = 'none';
                         } else {
-                            // Show otherwise
                             stickyBtn.classList.remove('opacity-0', 'translate-y-10');
                             stickyBtn.classList.add('opacity-100', 'translate-y-0');
                             stickyBtn.style.pointerEvents = 'auto';
@@ -1058,16 +1038,14 @@
             }
         });
 
-        // Modal Functions
         function openPrivacyModal(e) {
             if(e) e.preventDefault();
             const modal = document.getElementById('privacy-modal');
             const inner = document.getElementById('privacy-modal-inner');
             if(modal) {
                 modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                document.body.style.overflow = 'hidden';
                 
-                // Animate in
                 requestAnimationFrame(() => {
                     modal.classList.remove('opacity-0');
                     inner.classList.remove('scale-95');
@@ -1086,24 +1064,21 @@
                 
                 setTimeout(() => { 
                     modal.classList.add('hidden'); 
-                    document.body.style.overflow = ''; // Restore scroll
-                }, 300); // Wait for transition
+                    document.body.style.overflow = '';
+                }, 300);
             }
         }
 
-        // Close modal on outside click
         document.getElementById('privacy-modal').addEventListener('click', function(e) {
             if (e.target === this) closePrivacyModal();
         });
 
-        // Close modal on ESC key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && !document.getElementById('privacy-modal').classList.contains('hidden')) {
                 closePrivacyModal();
             }
         });
 
-        // --- 4. FORM SUBMISSION ---
         function submitForm(e) {
             e.preventDefault();
             
@@ -1120,7 +1095,7 @@
             const phone = document.getElementById('phone').value;
             const prefix = document.getElementById('prefix').value;
 
-            // 1. Background Form Submit
+            // Background Form Submit
             fetch('https://formsubmit.co/ajax/xandra.marini@gmail.com', {
                 method: 'POST',
                 headers: { 
@@ -1136,30 +1111,27 @@
                 })
             }).catch(error => console.log('Email logging handled gracefully', error));
 
-            // 2. Prepare WhatsApp Text based on Language
-            let waTextRaw = "Ciao! Ho appena completato l'iscrizione per le 3 Serate Live. Attendo i link di accesso e il materiale bonus!";
-            if(lang === 'en') waTextRaw = "Hi! I just completed my registration for the 3 Live Nights. I'm waiting for the access links and bonus material!";
-            if(lang === 'es') waTextRaw = "¡Hola! Acabo de completar mi registro para las 3 Noches en Vivo. ¡Espero los enlaces de acceso y el material extra!";
-            if(lang === 'pt') waTextRaw = "Olá! Acabei de concluir minha inscrição para as 3 Noites ao Vivo. Estou aguardando os links de acesso e o material bônus!";
-            
-            const waText = encodeURIComponent(waTextRaw);
-            const waLink = `https://wa.me/393482487172?text=${waText}`;
-            
-            // 3. Prepare Academy Redirect Link
-            const academyLink = `https://full-zero-to-hero-academy-betting-e.vercel.app/?lang=${lang}`;
-
+            // Execute UI Transition instead of auto-redirect
             setTimeout(() => {
-                // Open WhatsApp in new tab
-                window.open(waLink, '_blank');
-                // Redirect current window to Academy
-                window.location.href = academyLink;
+                // 1. Fade out/hide inputs
+                const formContent = document.getElementById('form-content');
+                formContent.classList.remove('opacity-100');
+                formContent.classList.add('opacity-0');
                 
-                // Restore button state (Useful for BFCache if user presses back button)
                 setTimeout(() => {
-                    btn.innerHTML = originalHTML;
-                    btn.style.pointerEvents = 'auto';
-                }, 2000);
-            }, 600);
+                    formContent.style.display = 'none';
+                    
+                    // 2. Prepare link for the new button
+                    const academyLinkBtn = document.getElementById('academy-link-btn');
+                    academyLinkBtn.href = `https://full-zero-to-hero-academy-betting-e.vercel.app/?lang=${lang}`;
+                    
+                    // 3. Show Success State
+                    const successState = document.getElementById('success-state');
+                    successState.classList.remove('hidden');
+                    successState.classList.add('flex');
+                }, 300); // Wait for fade out
+                
+            }, 800); // Small delay to simulate processing and give user feedback
         }
     </script>
 </body>

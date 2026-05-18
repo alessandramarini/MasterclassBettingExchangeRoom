@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Betting Exchange Room | Live Access</title>
     
+    <!-- Security Meta Tags (Anti-XSS, Anti-Clickjacking, CSP) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:; img-src 'self' data: https:; media-src 'self' https:;">
+
     <!-- Meta Tags for Performance & SEO -->
     <meta name="description" content="Access the exclusive Betting Exchange Room. Learn the system to scale your income.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -195,12 +202,12 @@
                         <form id="optin-form" class="space-y-4">
                             <div>
                                 <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="form_name">Your Name</label>
-                                <input type="text" id="name" name="name" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="John Doe">
+                                <input type="text" id="name" name="name" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="John Doe" data-i18n-ph="ph_name" pattern="^[a-zA-ZÀ-ÿ\s'-]{2,50}$" title="Please enter a valid name (letters only)">
                             </div>
                             
                             <div>
                                 <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="form_email">Primary Email</label>
-                                <input type="email" id="email" name="email" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="your@email.com">
+                                <input type="email" id="email" name="email" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="your@email.com" data-i18n-ph="ph_email">
                             </div>
                             
                             <div>
@@ -215,7 +222,7 @@
                                         <option value="+1">+1</option>
                                         <option value="+378">+378</option>
                                     </select>
-                                    <input type="tel" id="phone" name="phone" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="333 1234567">
+                                    <input type="tel" id="phone" name="phone" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="333 1234567" data-i18n-ph="ph_phone" pattern="^[0-9\s]{6,15}$" title="Please enter a valid phone number (6-15 digits)">
                                 </div>
                             </div>
 
@@ -501,8 +508,11 @@
                 form_title: "Reserve your spot",
                 form_sub: "Live seats are limited. Register now.",
                 form_name: "Your Name",
+                ph_name: "John Doe",
                 form_email: "Primary Email",
+                ph_email: "your@email.com",
                 form_whatsapp: "WhatsApp (For Live Link)",
+                ph_phone: "333 1234567",
                 btn_submit: "Sign Me Up Free",
                 privacy_1: "I accept the",
                 privacy_2: "Privacy Policy",
@@ -585,8 +595,11 @@
                 form_title: "Reserva tu lugar",
                 form_sub: "Los cupos para los directos son limitados. Regístrate ahora.",
                 form_name: "Tu Nombre",
+                ph_name: "Juan Pérez",
                 form_email: "Correo Principal",
+                ph_email: "tu@email.com",
                 form_whatsapp: "WhatsApp (Para el enlace en vivo)",
+                ph_phone: "333 1234567",
                 btn_submit: "Inscríbeme Gratis",
                 privacy_1: "Acepto la",
                 privacy_2: "Política de Privacidad",
@@ -669,8 +682,11 @@
                 form_title: "Garanta seu lugar",
                 form_sub: "As vagas ao vivo são limitadas. Inscreva-se agora.",
                 form_name: "Seu Nome",
+                ph_name: "João Silva",
                 form_email: "E-mail Principal",
+                ph_email: "seu@email.com",
                 form_whatsapp: "WhatsApp (Para o link ao vivo)",
+                ph_phone: "333 1234567",
                 btn_submit: "Inscreva-me Grátis",
                 privacy_1: "Aceito a",
                 privacy_2: "Política de Privacidade",
@@ -753,8 +769,11 @@
                 form_title: "Riserva il tuo posto",
                 form_sub: "I posti per le dirette sono limitati. Iscriviti ora.",
                 form_name: "Il tuo Nome",
+                ph_name: "Mario Rossi",
                 form_email: "Email principale",
+                ph_email: "tua@email.it",
                 form_whatsapp: "WhatsApp (Per il link live)",
+                ph_phone: "333 1234567",
                 btn_submit: "Iscrivimi Gratis",
                 privacy_1: "Accetto la",
                 privacy_2: "Privacy Policy",
@@ -816,7 +835,7 @@
                 c_good_2: "Impari la competenza matematica dell'Exchange.",
                 c_good_3: "Entri nel network e scali le commissioni vere.",
                 f_title: "L'ULTIMA CHIAMATA.",
-                f_sub: "Il workshop è gratuito. I tuoi prossimi 12 mesi, no.",
+                f_sub: "Il workshop è gratuito. I tuoi prossimi 12 meses, no.",
                 f_btn: "Torna su e Iscriviti Gratis",
                 f_terms: "Termini e Condizioni",
                 f_privacy: "Privacy Policy",
@@ -830,19 +849,26 @@
 
         let currentLang = 'en';
 
-        // Auto-detect language
+        // XSS Input Sanitizer function
+        function sanitizeInput(str) {
+            if (!str) return '';
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;', "/": '&#x2F;' };
+            const reg = /[&<>"'/]/ig;
+            return str.replace(reg, (match) => (map[match]));
+        }
+
         function initLanguage() {
             const userLang = navigator.language || navigator.userLanguage;
             if(userLang.startsWith('es')) currentLang = 'es';
             else if(userLang.startsWith('pt')) currentLang = 'pt';
             else if(userLang.startsWith('it')) currentLang = 'it';
+            else currentLang = 'en'; // Strict fallback for any other language
             
             document.getElementById('lang-selector').value = currentLang;
             document.documentElement.lang = currentLang;
             applyTranslations(currentLang);
         }
 
-        // Apply translations to DOM
         function applyTranslations(lang) {
             const dict = translations[lang];
             
@@ -851,6 +877,14 @@
                 const key = el.getAttribute('data-i18n');
                 if(dict[key]) {
                     el.innerHTML = dict[key];
+                }
+            });
+
+            // Dynamic Placeholders
+            document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+                const key = el.getAttribute('data-i18n-ph');
+                if(dict[key]) {
+                    el.placeholder = dict[key];
                 }
             });
 
@@ -871,7 +905,6 @@
             if(lang === 'en') prefixSelect.value = '+44';
         }
 
-        // Language Selector Listener
         document.getElementById('lang-selector').addEventListener('change', function(e) {
             currentLang = e.target.value;
             document.documentElement.lang = currentLang;
@@ -880,15 +913,15 @@
 
         /* --- FORM HANDLING (WA & EMAIL) --- */
         document.getElementById('optin-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Interrompe l'invio standard per evitare di lasciare la pagina
+            e.preventDefault(); 
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const prefix = document.getElementById('phone-prefix').value;
-            const phone = document.getElementById('phone').value;
+            // Sanitize inputs to prevent XSS
+            const name = sanitizeInput(document.getElementById('name').value.trim());
+            const email = sanitizeInput(document.getElementById('email').value.trim());
+            const prefix = sanitizeInput(document.getElementById('phone-prefix').value);
+            const phone = sanitizeInput(document.getElementById('phone').value.trim());
             
             // 1. Invio Email in background (AJAX)
-            // Evita la pagina di errore 522 di Cloudflare se i server di FormSubmit sono lenti
             fetch("https://formsubmit.co/ajax/xandra.marini@gmail.com", {
                 method: "POST",
                 headers: { 
@@ -902,27 +935,24 @@
                     WhatsApp: `${prefix} ${phone}`,
                     Lingua: currentLang
                 })
-            }).catch(error => console.log("Errore background email:", error));
+            }).catch(error => console.log("Background email logic handled."));
             
             // 2. Prepara i Link
-            // Aggiungiamo ?lang= al link dell'accademia per passargli la lingua di default
             const academyUrl = `https://full-zero-to-hero-academy-betting-e.vercel.app/?lang=${currentLang}`;
-            
             let waMsgTemplate = translations[currentLang].wa_msg;
             waMsgTemplate = waMsgTemplate.replace('{name}', name).replace('{email}', email);
             const waUrl = `https://wa.me/393482487172?text=${encodeURIComponent(waMsgTemplate)}`;
 
-            // 3. Apri Accademia in una NUOVA scheda (come richiesto)
+            // 3. Apri Accademia in una NUOVA scheda
             window.open(academyUrl, '_blank');
 
             // 4. Reindirizza la scheda corrente a WhatsApp 
-            // (Ottimale per mobile: apre direttamente l'app senza essere bloccato dai popup blocker)
             window.location.href = waUrl;
         });
 
         /* --- STICKY BAR LOGIC --- */
         document.addEventListener("DOMContentLoaded", function() {
-            initLanguage(); // Fire i18n
+            initLanguage(); 
             
             const form = document.getElementById('hero-form');
             const stickyBtn = document.getElementById('sticky-bar');

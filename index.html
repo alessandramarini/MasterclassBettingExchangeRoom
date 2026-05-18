@@ -880,41 +880,44 @@
 
         /* --- FORM HANDLING (WA & EMAIL) --- */
         document.getElementById('optin-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop standard behavior temporarily
+            e.preventDefault(); // Interrompe l'invio standard per evitare di lasciare la pagina
             
-            const form = this;
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const prefix = document.getElementById('phone-prefix').value;
+            const phone = document.getElementById('phone').value;
             
-            // 1. WhatsApp Action (Opens in new tab)
+            // 1. Invio Email in background (AJAX)
+            // Evita la pagina di errore 522 di Cloudflare se i server di FormSubmit sono lenti
+            fetch("https://formsubmit.co/ajax/xandra.marini@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _subject: `Nuovo Lead Room - ${name}`,
+                    Nome: name,
+                    Email: email,
+                    WhatsApp: `${prefix} ${phone}`,
+                    Lingua: currentLang
+                })
+            }).catch(error => console.log("Errore background email:", error));
+            
+            // 2. Prepara i Link
+            // Aggiungiamo ?lang= al link dell'accademia per passargli la lingua di default
+            const academyUrl = `https://full-zero-to-hero-academy-betting-e.vercel.app/?lang=${currentLang}`;
+            
             let waMsgTemplate = translations[currentLang].wa_msg;
             waMsgTemplate = waMsgTemplate.replace('{name}', name).replace('{email}', email);
             const waUrl = `https://wa.me/393482487172?text=${encodeURIComponent(waMsgTemplate)}`;
-            window.open(waUrl, '_blank');
 
-            // 2. Email Action (Uses Formsubmit to send to Xandra and redirect current page)
-            form.action = "https://formsubmit.co/xandra.marini@gmail.com";
-            form.method = "POST";
-            
-            // Helper to dynamically inject hidden inputs for Formsubmit
-            const addHiddenInput = (name, value) => {
-                let input = form.querySelector(`input[name="${name}"]`);
-                if (!input) {
-                    input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = name;
-                    form.appendChild(input);
-                }
-                input.value = value;
-            };
+            // 3. Apri Accademia in una NUOVA scheda (come richiesto)
+            window.open(academyUrl, '_blank');
 
-            // Set Redirect URL and bypass Captcha for seamless experience
-            addHiddenInput('_next', 'https://full-zero-to-hero-academy-betting-e.vercel.app/');
-            addHiddenInput('_captcha', 'false');
-            addHiddenInput('_subject', `Nuovo Lead Room - ${name}`);
-
-            // Programmatically submit the form to send the email and trigger the redirect
-            form.submit();
+            // 4. Reindirizza la scheda corrente a WhatsApp 
+            // (Ottimale per mobile: apre direttamente l'app senza essere bloccato dai popup blocker)
+            window.location.href = waUrl;
         });
 
         /* --- STICKY BAR LOGIC --- */

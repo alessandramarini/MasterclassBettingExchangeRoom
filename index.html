@@ -607,8 +607,8 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // --- CHANGE THIS TO YOUR ACTUAL ADMIN WHATSAPP NUMBER (including country code, e.g. "393331234567") ---
-        const ADMIN_WHATSAPP_NUMBER = "393330000000"; 
+        // Updated Admin WhatsApp Number based on request
+        const ADMIN_WHATSAPP_NUMBER = "393482487172"; 
         
         const translations = {
             en: {
@@ -634,7 +634,7 @@
                 success_sub: "Step 1: Request your Live Link on WhatsApp. <br>Step 2: Access your Bonus.",
                 success_or: "AND THEN",
                 wa_btn: "REQUEST LINK VIA WHATSAPP",
-                wa_msg: "Hi! I just registered for the Betting Exchange Room. Could you send me the link for the live event? I am {name}.",
+                wa_msg: "Hi! I just registered for the Betting Exchange Room. Could you send me the link for the live event? My name is {name}, email: {email}, phone: {phone}.",
                 btn_access_now: "ACCESS YOUR BONUS",
                 
                 bonus_badge: "INSTANT UNLOCK", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Room", 
@@ -712,7 +712,7 @@
                 success_sub: "Paso 1: Solicita tu Enlace en WhatsApp. <br>Paso 2: Accede a tu Bonus.",
                 success_or: "Y LUEGO",
                 wa_btn: "SOLICITAR ENLACE POR WHATSAPP",
-                wa_msg: "¡Hola! Me acabo de registrar en la Betting Exchange Room. ¿Podrías enviarme el enlace para el evento en vivo? Soy {name}.",
+                wa_msg: "¡Hola! Me acabo de registrar en la Betting Exchange Room. ¿Podrías enviarme el enlace para el evento en vivo? Soy {name}, email: {email}, teléfono: {phone}.",
                 btn_access_now: "ACCEDE A TU BONUS",
                 
                 bonus_badge: "DESBLOQUEO INMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
@@ -790,10 +790,10 @@
                 success_sub: "Passo 1: Solicite seu Link pelo WhatsApp. <br>Passo 2: Acesse seu Bônus.",
                 success_or: "E ENTÃO",
                 wa_btn: "SOLICITAR LINK PELO WHATSAPP",
-                wa_msg: "Olá! Acabei de me registrar na Betting Exchange Room. Você poderia me enviar o link do evento ao vivo? Sou {name}.",
+                wa_msg: "Olá! Acabei de me registrar na Betting Exchange Room. Você poderia me enviar o link do evento ao vivo? Sou {name}, e-mail: {email}, telefone: {phone}.",
                 btn_access_now: "ACESSE SEU BÔNUS",
                 
-                bonus_badge: "DESBLOQUEIO IMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
+                bonus_badge: "DESBLOQUEO IMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
                 bonus_pill: "Presente Imediato com a Inscrição",
                 bonus_h2: "Receba instantaneamente a 1ª Aula da Academia e Acesso à Sala de Sinais Livre.",
                 bonus_p: "Assim que confirmar sua inscrição, você desbloqueia acesso imediato ao módulo introdutório da Academia 'Zero to Hero' e entrada para a Sala de Sinais.",
@@ -868,7 +868,7 @@
                 success_sub: "Step 1: Richiedi il link live su WhatsApp. <br>Step 2: Accedi al tuo Bonus.",
                 success_or: "E POI",
                 wa_btn: "RICHIEDI IL LINK SU WHATSAPP",
-                wa_msg: "Ciao! Mi sono appena registrato alla Betting Exchange Room. Potresti inviarmi il link per l'evento live? Sono {name}.",
+                wa_msg: "Ciao! Mi sono appena registrato alla Betting Exchange Room. Potresti inviarmi il link per l'evento live? Sono {name}, email: {email}, telefono: {phone}.",
                 btn_access_now: "ACCEDI AL TUO BONUS",
                 
                 bonus_badge: "SBLOCCO IMMEDIATO", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
@@ -1150,10 +1150,13 @@
                     const academyLinkBtn = document.getElementById('academy-link-btn');
                     academyLinkBtn.href = `https://full-zero-to-hero-academy-betting-e.vercel.app/?lang=${lang}`;
                     
-                    // Prepare WhatsApp Message Link based on chosen language
+                    // Prepare WhatsApp Message Link based on chosen language & inserted user details
                     const waBtn = document.getElementById('wa-link-btn');
                     let waMsgRaw = translations[lang]['wa_msg'];
-                    let waMsgFormatted = waMsgRaw.replace('{name}', name);
+                    let waMsgFormatted = waMsgRaw
+                        .replace('{name}', name)
+                        .replace('{email}', email)
+                        .replace('{phone}', fullPhone);
                     
                     // Creates wa.me link ensuring text is URI Encoded
                     waBtn.href = `https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${encodeURIComponent(waMsgFormatted)}`;

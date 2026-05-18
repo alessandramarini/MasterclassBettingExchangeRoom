@@ -97,15 +97,15 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #ccff00, transparent);
-            border-radius: 4px;
-        }
-
+        /* Wrapper Sticky Bar */
         #sticky-bar {
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
+
+        /* Custom Scrollbar for Modal Privacy */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #000; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #ccff00; border-radius: 10px; }
         
         /* Language Switcher */
         .lang-switch {
@@ -228,14 +228,15 @@
 
                             <div class="pt-4">
                                 <button type="submit" class="btn-accent w-full font-black text-lg sm:text-xl px-6 py-4 rounded-xl uppercase tracking-wider" data-i18n="btn_submit">
-                                    Sign Me Up Free
+                                    Iscrivimi Gratis
                                 </button>
                             </div>
                             
                             <div class="flex items-start mt-4 p-1">
-                                <input type="checkbox" required class="w-4 h-4 rounded border-gray-600 text-accent focus:ring-accent bg-transparent cursor-pointer mt-0.5">
+                                <!-- Casella Checkbox Bianca -->
+                                <input type="checkbox" required class="w-4 h-4 rounded border-2 border-white bg-white text-accent accent-white focus:ring-accent cursor-pointer mt-0.5">
                                 <p class="ml-2.5 text-[10px] text-gray-500 leading-tight">
-                                    <span data-i18n="privacy_1">I accept the</span> <a href="#" class="text-gray-400 underline" data-i18n="privacy_2">Privacy Policy</a> <span data-i18n="privacy_3">and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.</span>
+                                    <span data-i18n="privacy_1">Accetto la</span> <a href="#" class="text-white font-bold underline" data-i18n="privacy_2" onclick="openPrivacyModal(event)">Privacy Policy</a> <span data-i18n="privacy_3">e acconsento a ricevere comunicazioni via Email/WhatsApp per accedere al workshop e ai bonus.</span>
                                 </p>
                             </div>
                         </form>
@@ -476,8 +477,9 @@
             <div class="mt-20 pt-10 border-t border-white/10 text-[10px] sm:text-xs text-gray-600 space-y-6 max-w-3xl mx-auto leading-relaxed text-left sm:text-center">
                 <p class="font-bold text-gray-500 uppercase tracking-widest">Company Name Inc | ©2026 | All Rights Reserved</p>
                 <div class="flex flex-wrap justify-start sm:justify-center gap-6">
-                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_terms">Terms and Conditions</a>
-                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_terms">Termini e Condizioni</a>
+                    <!-- Link al Modal Privacy -->
+                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_privacy" onclick="openPrivacyModal(event)">Privacy Policy</a>
                     <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_cookie">Cookie Policy</a>
                 </div>
                 <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
@@ -490,8 +492,29 @@
     <!-- STICKY BOTTOM BUTTON SCROLL -->
     <div id="sticky-bar" class="fixed bottom-0 left-0 w-full z-50 p-4 sm:p-6 bg-gradient-to-t from-black via-black/90 to-transparent flex justify-center pointer-events-none opacity-0 translate-y-5">
         <a href="#hero-form" class="btn-accent pointer-events-auto inline-flex items-center justify-center font-black text-sm sm:text-lg px-6 py-4 rounded-xl uppercase tracking-widest w-full max-w-md text-center shadow-[0_10px_40px_rgba(0,0,0,0.8)] border-t border-[#ccff00]/30" data-i18n="sticky_btn">
-            Sign me up for the Workshop
+            Iscrivimi Gratis al Workshop
         </a>
+    </div>
+
+    <!-- PRIVACY POLICY MODAL (Nascosto di default) -->
+    <div id="privacy-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-[#111] border border-[#ccff00]/30 rounded-2xl w-full max-w-2xl max-h-[85vh] flex flex-col m-4 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+            <!-- Header Modal -->
+            <div class="flex justify-between items-center p-5 border-b border-white/10">
+                <h3 class="text-xl font-black text-white uppercase tracking-widest" data-i18n="privacy_modal_title">Privacy Policy</h3>
+                <button onclick="closePrivacyModal()" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <!-- Contenuto scrollabile Modal -->
+            <div class="p-6 overflow-y-auto custom-scrollbar text-sm text-gray-300 space-y-4" data-i18n="privacy_modal_content">
+                <!-- Verrà riempito in base alla lingua -->
+            </div>
+            <!-- Footer Modal -->
+            <div class="p-5 border-t border-white/10 text-right bg-black/40 rounded-b-2xl">
+                <button onclick="closePrivacyModal()" class="bg-white text-black px-6 py-2 rounded-xl font-bold uppercase text-xs tracking-widest hover:bg-gray-200 transition-colors" data-i18n="privacy_modal_close">Close</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -582,7 +605,10 @@
                 f_disc1: "DISCLAIMER: Sports trading (Betting Exchange) involves a high level of risk and may not be suitable for everyone. Before deciding to invest, you should carefully consider your objectives, level of experience, and risk appetite. There is a possibility that you may sustain a loss of some or all of your initial investment. Do not invest money that you cannot afford to lose.",
                 f_disc2: "The results shown represent the experiences of individuals who have applied the methodologies. Joining does not guarantee results. Success depends on your commitment.",
                 sticky_btn: "Sign me up for the Workshop",
-                wa_msg: "Hi! I would like to access the Betting Exchange Room. Name: {name}, Email: {email}"
+                wa_msg: "Hi! I would like to access the Betting Exchange Room. Name: {name}, Email: {email}",
+                privacy_modal_title: "Privacy Policy",
+                privacy_modal_close: "Close",
+                privacy_modal_content: "<h4 class='text-white font-bold text-base mb-2'>1. Data Controller</h4><p>We process your personal data in accordance with the GDPR. The data controller is Company Name Inc.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>2. Purpose of Processing</h4><p>Your data (Name, Email, Phone) is used strictly to provide access to the Betting Exchange Room and send educational materials.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>3. Data Retention</h4><p>Data will be stored as long as you are subscribed to our lists. You can opt-out at any time.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>4. Your Rights</h4><p>You have the right to request access, modification, or deletion of your data by contacting our support team.</p>"
             },
             es: {
                 hero_badge: "MASTERCLASS · 3 NOCHES EN VIVO",
@@ -669,7 +695,10 @@
                 f_disc1: "DESCARGO DE RESPONSABILIDAD: El trading deportivo (Betting Exchange) implica un alto nivel de riesgo y puede no ser adecuado para todos. Antes de decidir invertir, debes considerar cuidadosamente tus objetivos, nivel de experiencia y apetito por el riesgo. Existe la posibilidad de que pierdas parte o la totalidad de tu inversión inicial. No inviertas dinero que no puedas permitirte perder.",
                 f_disc2: "Los resultados mostrados representan las experiencias de personas que han aplicado las metodologías. Unirse no garantiza resultados. El éxito depende de tu compromiso.",
                 sticky_btn: "Inscríbeme Gratis en el Taller",
-                wa_msg: "¡Hola! Quiero acceder a la Betting Exchange Room. Nombre: {name}, Correo: {email}"
+                wa_msg: "¡Hola! Quiero acceder a la Betting Exchange Room. Nombre: {name}, Correo: {email}",
+                privacy_modal_title: "Política de Privacidad",
+                privacy_modal_close: "Cerrar",
+                privacy_modal_content: "<h4 class='text-white font-bold text-base mb-2'>1. Responsable del Tratamiento</h4><p>Tratamos sus datos personales de acuerdo con el RGPD. El responsable del tratamiento es Company Name Inc.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>2. Finalidad del Tratamiento</h4><p>Sus datos (Nombre, Correo, Teléfono) se utilizan exclusivamente para proporcionarle acceso a la Betting Exchange Room y enviar material educativo.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>3. Conservación de Datos</h4><p>Los datos se conservarán mientras esté suscrito a nuestras listas. Puede darse de baja en cualquier momento.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>4. Sus Derechos</h4><p>Tiene derecho a solicitar el acceso, modificación o eliminación de sus datos contactando con nuestro soporte.</p>"
             },
             pt: {
                 hero_badge: "MASTERCLASS · 3 NOITES AO VIVO",
@@ -756,7 +785,10 @@
                 f_disc1: "AVISO LEGAL: O trading esportivo (Betting Exchange) envolve alto nível de risco e pode não ser adequado para todos. Antes de decidir investir, você deve considerar cuidadosamente seus objetivos, nível de experiência e apetite pelo risco. Existe a possibilidade de você perder parte ou a totalidade do seu investimento inicial. Não invista dinheiro que não pode perder.",
                 f_disc2: "Os resultados mostrados representam experiências de pessoas que aplicaram as metodologias. A adesão não garante resultados. O sucesso depende do seu empenho.",
                 sticky_btn: "Inscreva-me Grátis no Workshop",
-                wa_msg: "Olá! Quero acessar a Betting Exchange Room. Nome: {name}, Email: {email}"
+                wa_msg: "Olá! Quero acessar a Betting Exchange Room. Nome: {name}, Email: {email}",
+                privacy_modal_title: "Política de Privacidade",
+                privacy_modal_close: "Fechar",
+                privacy_modal_content: "<h4 class='text-white font-bold text-base mb-2'>1. Responsável pelo Tratamento</h4><p>Processamos seus dados pessoais de acordo com o RGPD. O responsável pelo tratamento é Company Name Inc.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>2. Finalidade do Tratamento</h4><p>Seus dados (Nome, E-mail, Telefone) são usados exclusivamente para fornecer acesso à Betting Exchange Room e enviar material educacional.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>3. Retenção de Dados</h4><p>Os dados serão armazenados enquanto você estiver inscrito em nossas listas. Você pode cancelar a inscrição a qualquer momento.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>4. Seus Direitos</h4><p>Você tem o direito de solicitar acesso, modificação ou exclusão de seus dados entrando em contato com nosso suporte.</p>"
             },
             it: {
                 hero_badge: "MASTERCLASS · 3 SERATE LIVE",
@@ -843,7 +875,10 @@
                 f_disc1: "DISCLAIMER: Il trading sportivo (Betting Exchange) comporta un alto livello di rischio e potrebbe non essere adatto a tutti. Prima di decidere di investire, dovresti considerare attentamente i tuoi obiettivi, il livello di esperienza e la propensione al rischio. Esiste la possibilità di subire una perdita parziale o totale del tuo investimento iniziale. Non investire denaro che non puoi permetterti di perdere.",
                 f_disc2: "I risultati mostrati rappresentano esperienze di persone che hanno applicato le metodologie. L'adesione non costituisce garanzia di risultati. Il successo dipende dal tuo impegno.",
                 sticky_btn: "Iscrivimi Gratis al Workshop",
-                wa_msg: "Ciao! Vorrei accedere alla Betting Exchange Room. Nome: {name}, Email: {email}"
+                wa_msg: "Ciao! Vorrei accedere alla Betting Exchange Room. Nome: {name}, Email: {email}",
+                privacy_modal_title: "Informativa sulla Privacy",
+                privacy_modal_close: "Chiudi",
+                privacy_modal_content: "<h4 class='text-white font-bold text-base mb-2'>1. Titolare del Trattamento</h4><p>Trattiamo i tuoi dati personali nel rispetto del GDPR. Il titolare del trattamento è Company Name Inc.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>2. Finalità del Trattamento</h4><p>I tuoi dati (Nome, Email, Telefono) sono utilizzati esclusivamente per fornirti l'accesso alla Betting Exchange Room e inviare materiale formativo.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>3. Conservazione dei Dati</h4><p>I dati verranno conservati finché sarai iscritto alle nostre liste. Puoi cancellarti in qualsiasi momento.</p><h4 class='text-white font-bold text-base mb-2 mt-4'>4. I Tuoi Diritti</h4><p>Hai il diritto di richiedere l'accesso, la modifica o la cancellazione dei tuoi dati contattando il nostro supporto.</p>"
             }
         };
 
@@ -990,6 +1025,33 @@
             }, { threshold: 0.1 });
             
             if(form) observer.observe(form);
+        });
+
+        /* --- PRIVACY MODAL LOGIC --- */
+        const privacyModal = document.getElementById('privacy-modal');
+        
+        function openPrivacyModal(e) {
+            if(e) e.preventDefault();
+            privacyModal.classList.remove('hidden');
+            // Timeout per far scattare la transizione di opacità fluida
+            setTimeout(() => { privacyModal.classList.remove('opacity-0'); }, 10);
+            document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina dietro
+        }
+        
+        function closePrivacyModal() {
+            privacyModal.classList.add('opacity-0');
+            // Aspetta che finisca la transizione per nascondere il div
+            setTimeout(() => { 
+                privacyModal.classList.add('hidden'); 
+                document.body.style.overflow = 'auto'; // Ripristina lo scroll
+            }, 300);
+        }
+
+        // Chiudi il modal se si clicca fuori dal riquadro
+        privacyModal.addEventListener('click', function(e) {
+            if (e.target === privacyModal) {
+                closePrivacyModal();
+            }
         });
     </script>
 </body>

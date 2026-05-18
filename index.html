@@ -165,8 +165,8 @@
                     </div>
                     
                     <div class="mb-6 sm:mb-8 relative rounded-2xl overflow-hidden border border-[#ccff00]/30 shadow-[0_0_30px_rgba(204,255,0,0.15)] aspect-video bg-black/50">
-                        <video class="w-full h-full object-cover" controls autoplay muted loop playsinline>
-                            <source src="spotitcapture.mp4" type="video/mp4">
+                        <video id="hero-video" class="w-full h-full object-cover" controls autoplay muted loop playsinline>
+                            <source id="hero-video-source" src="spotencapture.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -498,7 +498,7 @@
         /* --- INTERNATIONALIZATION (i18n) DICTIONARY --- */
         const translations = {
             en: {
-                hero_badge: "3 LIVE EVENINGS · ELITE ACCESS",
+                hero_badge: "MASTERCLASS · 3 LIVE EVENINGS",
                 hero_subtitle: "Betting Exchange Room",
                 hero_title_html: "Get the <span class='gradient-text'>exact</span> system to scale your income with Exchange.",
                 hero_desc: "In 3 evenings discover our Zero to Hero Academy, learn to trade with our top-tier Signal Room, and discover how to zero out your subscription by creating an income independent of trading.",
@@ -585,7 +585,7 @@
                 wa_msg: "Hi! I would like to access the Betting Exchange Room. Name: {name}, Email: {email}"
             },
             es: {
-                hero_badge: "3 NOCHES EN VIVO · ACCESO ÉLITE",
+                hero_badge: "MASTERCLASS · 3 NOCHES EN VIVO",
                 hero_subtitle: "Sala de Betting Exchange",
                 hero_title_html: "Obtén el sistema <span class='gradient-text'>exacto</span> para escalar tus ingresos con Exchange.",
                 hero_desc: "En 3 noches descubre nuestra Academia Zero to Hero, aprende a operar con nuestra Sala de Señales de primer nivel y descubre cómo anular tu suscripción creando ingresos independientes del trading.",
@@ -672,7 +672,7 @@
                 wa_msg: "¡Hola! Quiero acceder a la Betting Exchange Room. Nombre: {name}, Correo: {email}"
             },
             pt: {
-                hero_badge: "3 NOITES AO VIVO · ACESSO ELITE",
+                hero_badge: "MASTERCLASS · 3 NOITES AO VIVO",
                 hero_subtitle: "Sala de Betting Exchange",
                 hero_title_html: "Obtenha o sistema <span class='gradient-text'>exato</span> para escalar seus ganhos com o Exchange.",
                 hero_desc: "Em 3 noites, descubra nossa Academia Zero to Hero, aprenda a operar com nossa Sala de Sinais de alto nível e descubra como zerar sua assinatura criando uma renda independente do trading.",
@@ -759,7 +759,7 @@
                 wa_msg: "Olá! Quero acessar a Betting Exchange Room. Nome: {name}, Email: {email}"
             },
             it: {
-                hero_badge: "3 SERATE LIVE · ACCESSO ELITE",
+                hero_badge: "MASTERCLASS · 3 SERATE LIVE",
                 hero_subtitle: "Betting Exchange Room",
                 hero_title_html: "Ottieni il sistema <span class='gradient-text'>esatto</span> per scalare le tue entrate con l'Exchange.",
                 hero_desc: "In 3 sere scopri la nostra Accademia Zero to Hero, impari a operare con la nostra Sala Segnali di altissimo livello e scopri come azzerare l'abbonamento creando una rendita slegata dal trading.",
@@ -903,6 +903,24 @@
             if(lang === 'es') prefixSelect.value = '+34';
             if(lang === 'pt') prefixSelect.value = '+55';
             if(lang === 'en') prefixSelect.value = '+44';
+
+            const videoElement = document.getElementById('hero-video');
+            const videoSource = document.getElementById('hero-video-source');
+            if (videoElement && videoSource) {
+                const videoFiles = {
+                    en: 'spotencapture.mp4',
+                    es: 'spotescapture.mp4',
+                    pt: 'spotptcapture.mp4',
+                    it: 'spotitcapture.mp4'
+                };
+                
+                // Change source and reload only if it's a different video
+                if (!videoSource.src.endsWith(videoFiles[lang])) {
+                    videoSource.src = videoFiles[lang];
+                    videoElement.load(); // Reload the video element to pick up new source
+                    videoElement.play().catch(e => console.log("Autoplay handled by browser.", e));
+                }
+            }
         }
 
         document.getElementById('lang-selector').addEventListener('change', function(e) {

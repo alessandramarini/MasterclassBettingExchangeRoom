@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Betting Exchange Room | 3 Serate Live | Accesso Esclusivo</title>
+    <title>Betting Exchange Room | Live Access</title>
+    
+    <!-- Meta Tags for Performance & SEO -->
+    <meta name="description" content="Access the exclusive Betting Exchange Room. Learn the system to scale your income.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap');
         
@@ -16,8 +24,8 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Colori e Gradienti Premium (Verde Acido/Nero) */
-        .text-accent { color: #ccff00; } /* Verde Acido */
+        /* Premium Colors (Acid Green / Black) */
+        .text-accent { color: #ccff00; }
         .bg-accent { background-color: #ccff00; }
         
         .gradient-text { 
@@ -31,7 +39,7 @@
             background: radial-gradient(circle at 50% 0%, #111111 0%, #030303 70%);
         }
 
-        /* Glassmorphism Cards Elite */
+        /* Glassmorphism Cards */
         .glass-card { 
             background: rgba(15, 15, 15, 0.6);
             backdrop-filter: blur(16px);
@@ -40,7 +48,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
         }
 
-        /* Reset iOS/Safari Form */
+        /* iOS/Safari Form Reset */
         input, select {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -48,7 +56,7 @@
             background-color: rgba(0,0,0,0.6) !important;
         }
         
-        /* Custom Select Arrow Verde Acido */
+        /* Custom Select Arrow */
         .custom-select {
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ccff00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
@@ -56,7 +64,7 @@
             background-size: 1em;
         }
 
-        /* Pulsante Animato Verde Acido Elegante */
+        /* Animated Button */
         .btn-accent {
             background: linear-gradient(90deg, #5c7a00, #ccff00, #eaff80, #ccff00, #5c7a00);
             background-size: 200% auto;
@@ -76,7 +84,7 @@
             100% { background-position: 200% center; }
         }
 
-        /* Linee verticali per i moduli (Verde Acido) */
+        /* Timeline Lines */
         .timeline-line::before {
             content: '';
             position: absolute;
@@ -88,105 +96,139 @@
             border-radius: 4px;
         }
 
-        /* Wrapper Sticky Bar */
         #sticky-bar {
             transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        
+        /* Language Switcher */
+        .lang-switch {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(204,255,0,0.3);
+            color: white;
+            border-radius: 8px;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
         }
     </style>
 </head>
 <body class="overflow-x-hidden bg-radial-dark pb-24">
 
-    <!-- HERO SECTION CON FORM ABOVE THE FOLD -->
-    <header class="relative pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
+    <!-- HERO SECTION -->
+    <header class="relative pt-6 pb-20 lg:pt-8 lg:pb-28 overflow-hidden">
         <!-- Glow background effect -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-[#ccff00]/10 blur-[130px] rounded-full pointer-events-none"></div>
 
         <div class="container mx-auto px-5 sm:px-6 max-w-7xl relative z-10">
             
-            <!-- Logo Aziendale -->
-            <div class="mb-8 lg:mb-12 flex items-center justify-center lg:justify-start gap-4">
-                <img src="logo-tondo.jpeg" alt="Betting Exchange Room Logo" class="w-16 h-16 rounded-full border-2 border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)] object-cover bg-black">
-                <span class="text-white font-black text-xl md:text-2xl tracking-widest uppercase hidden sm:block">
-                    Betting Exchange <span class="text-accent">Room</span>
-                </span>
+            <!-- Top Bar: Logo & Lang Switcher -->
+            <div class="mb-8 lg:mb-12 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <!-- Placeholder Logo (used generic block color for robustness) -->
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)] bg-black flex items-center justify-center overflow-hidden">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    </div>
+                    <span class="text-white font-black text-lg md:text-2xl tracking-widest uppercase hidden sm:block">
+                        Betting Exchange <span class="text-accent">Room</span>
+                    </span>
+                </div>
+                
+                <!-- Language Selector -->
+                <div>
+                    <select id="lang-selector" class="lang-switch uppercase">
+                        <option value="en">EN</option>
+                        <option value="es">ES</option>
+                        <option value="pt">PT</option>
+                        <option value="it">IT</option>
+                    </select>
+                </div>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                
-                <!-- Colonna Testo (Sinistra) -->
+                <!-- Text Column (Left) -->
                 <div class="lg:col-span-7 text-center lg:text-left">
                     <div class="inline-flex items-center glass-card text-gray-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-widest uppercase mb-6 sm:mb-8 border border-[#ccff00]/30">
                         <span class="relative flex h-3 w-3 mr-3">
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ccff00] opacity-75"></span>
                           <span class="relative inline-flex rounded-full h-3 w-3 bg-[#ccff00]"></span>
                         </span>
-                        <span class="text-[#ccff00]">3 SERATE LIVE · ACCESSO ELITE</span>
+                        <span class="text-[#ccff00]" data-i18n="hero_badge">3 LIVE EVENINGS · ELITE ACCESS</span>
                     </div>
                     
-                    <h2 class="text-accent font-black tracking-widest text-xs sm:text-sm md:text-base uppercase mb-3 sm:mb-4">
-                        Betting Exchange Room
-                    </h2>
+                    <div class="mb-6 sm:mb-8 relative rounded-2xl overflow-hidden border border-[#ccff00]/30 shadow-[0_0_30px_rgba(204,255,0,0.15)] aspect-video bg-black/50">
+                        <video class="w-full h-full object-cover" controls autoplay muted loop playsinline>
+                            <source src="spotitcapture.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                     
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black leading-[1.1] mb-6 text-white">
-                        Ottieni il sistema <span class="gradient-text">esatto</span> per scalare le tue entrate con l'Exchange.
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black leading-[1.1] mb-6 text-white" id="hero_title">
+                        <!-- Filled by JS -->
                     </h1>
                     
-                    <p class="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-                        In 3 sere scopri la nostra Accademia Zero to Hero, impari a operare con la nostra Sala Segnali di altissimo livello e scopri come azzerare l'abbonamento creando una rendita slegata dal trading.
+                    <p class="text-lg sm:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light" data-i18n="hero_desc">
+                        In 3 evenings discover our Zero to Hero Academy, learn to trade with our top-tier Signal Room, and discover how to zero out your subscription by creating an income independent of trading.
                     </p>
 
-                    <!-- Trust Badges Visivi su Desktop -->
+                    <!-- Trust Badges -->
                     <div class="hidden lg:flex items-center gap-6 text-sm font-bold text-gray-500 uppercase tracking-wider">
-                        <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> 100% Gratuito</div>
-                        <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Nessuna Carta</div>
-                        <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Accesso Immediato</div>
+                        <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> <span data-i18n="trust_1">100% Free</span></div>
+                        <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> <span data-i18n="trust_2">No Credit Card</span></div>
+                        <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> <span data-i18n="trust_3">Instant Access</span></div>
                     </div>
                 </div>
 
-                <!-- Colonna Form (Destra) -->
+                <!-- Form Column (Right) -->
                 <div class="lg:col-span-5 w-full max-w-md mx-auto lg:ml-auto" id="hero-form">
                     <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group shadow-[0_0_40px_rgba(204,255,0,0.08)]">
-                        <!-- Barra top glowing verde acido -->
+                        <!-- Top Green Bar -->
                         <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#7aa300] via-[#ccff00] to-[#7aa300]"></div>
                         
                         <div class="text-center mb-6">
-                            <h3 class="text-2xl sm:text-3xl font-black text-white mb-2">Riserva il tuo posto</h3>
-                            <p class="text-sm text-gray-400 font-medium">I posti per le dirette sono limitati. Iscriviti ora.</p>
+                            <h3 class="text-2xl sm:text-3xl font-black text-white mb-2" data-i18n="form_title">Reserve your spot</h3>
+                            <p class="text-sm text-gray-400 font-medium" data-i18n="form_sub">Live seats are limited. Register now.</p>
                         </div>
 
-                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Demo Landing Page. Collegalo al tuo CRM.');">
+                        <!-- Form that triggers JS handling -->
+                        <form id="optin-form" class="space-y-4">
                             <div>
-                                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1">Il tuo Nome</label>
-                                <input type="text" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="Es. Mario Rossi">
+                                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="form_name">Your Name</label>
+                                <input type="text" id="name" name="name" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="John Doe">
                             </div>
                             
                             <div>
-                                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1">Email principale</label>
-                                <input type="email" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="La tua migliore email">
+                                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="form_email">Primary Email</label>
+                                <input type="email" id="email" name="email" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="your@email.com">
                             </div>
                             
                             <div>
-                                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1">WhatsApp (Per il link live)</label>
+                                <label class="block text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="form_whatsapp">WhatsApp (For Live Link)</label>
                                 <div class="flex gap-2">
-                                    <select class="custom-select border border-gray-700/50 rounded-xl px-3 py-3.5 text-white focus:outline-none focus:border-accent w-[90px] sm:w-[100px] flex-shrink-0 cursor-pointer text-sm">
-                                        <option>+39</option>
-                                        <option>+41</option>
-                                        <option>+378</option>
+                                    <select id="phone-prefix" name="prefix" class="custom-select border border-gray-700/50 rounded-xl px-3 py-3.5 text-white focus:outline-none focus:border-accent w-[90px] sm:w-[100px] flex-shrink-0 cursor-pointer text-sm">
+                                        <option value="+39">+39</option>
+                                        <option value="+41">+41</option>
+                                        <option value="+34">+34</option>
+                                        <option value="+55">+55</option>
+                                        <option value="+44">+44</option>
+                                        <option value="+1">+1</option>
+                                        <option value="+378">+378</option>
                                     </select>
-                                    <input type="tel" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="333 1234567">
+                                    <input type="tel" id="phone" name="phone" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600" placeholder="333 1234567">
                                 </div>
                             </div>
 
                             <div class="pt-4">
-                                <button type="submit" class="btn-accent w-full font-black text-lg sm:text-xl px-6 py-4 rounded-xl uppercase tracking-wider">
-                                    Iscrivimi Gratis
+                                <button type="submit" class="btn-accent w-full font-black text-lg sm:text-xl px-6 py-4 rounded-xl uppercase tracking-wider" data-i18n="btn_submit">
+                                    Sign Me Up Free
                                 </button>
                             </div>
                             
                             <div class="flex items-start mt-4 p-1">
                                 <input type="checkbox" required class="w-4 h-4 rounded border-gray-600 text-accent focus:ring-accent bg-transparent cursor-pointer mt-0.5">
                                 <p class="ml-2.5 text-[10px] text-gray-500 leading-tight">
-                                    Accetto la <a href="#" class="text-gray-400 underline">Privacy Policy</a> e acconsento a ricevere comunicazioni via Email/WhatsApp per accedere al workshop e ai bonus.
+                                    <span data-i18n="privacy_1">I accept the</span> <a href="#" class="text-gray-400 underline" data-i18n="privacy_2">Privacy Policy</a> <span data-i18n="privacy_3">and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.</span>
                                 </p>
                             </div>
                         </form>
@@ -197,202 +239,172 @@
         </div>
     </header>
 
-    <!-- SOCIAL PROOF STRIP -->
-    <div class="border-y border-white/5 bg-black/60 backdrop-blur-md py-8 sm:py-10 relative z-20">
-        <div class="container mx-auto px-5 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center max-w-6xl">
-            <div>
-                <p class="text-2xl sm:text-4xl font-black text-white mb-1">+8.500</p>
-                <p class="text-[10px] sm:text-xs text-accent uppercase font-black tracking-widest">Membri attivi</p>
-            </div>
-            <div>
-                <p class="text-2xl sm:text-4xl font-black text-white mb-1">78.4%</p>
-                <p class="text-[10px] sm:text-xs text-accent uppercase font-black tracking-widest">Win Rate Segnali</p>
-            </div>
-            <div>
-                <p class="text-2xl sm:text-4xl font-black text-white mb-1">€1.2M+</p>
-                <p class="text-[10px] sm:text-xs text-accent uppercase font-black tracking-widest">Commissioni Pagate</p>
-            </div>
-            <div>
-                <p class="text-2xl sm:text-4xl font-black text-white mb-1">24/7</p>
-                <p class="text-[10px] sm:text-xs text-accent uppercase font-black tracking-widest">Supporto Live</p>
-            </div>
-        </div>
-    </div>
-
     <!-- BONUS SECTION -->
-    <section class="container mx-auto px-5 sm:px-6 py-20 lg:py-28 max-w-6xl">
+    <section class="container mx-auto px-5 sm:px-6 py-12 lg:py-20 max-w-6xl">
         <div class="glass-card rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             <div class="w-full lg:w-1/3 flex justify-center order-2 lg:order-1 relative">
-                <!-- Effetto luce dietro la card vip -->
+                <!-- Light Effect -->
                 <div class="absolute inset-0 bg-[#ccff00]/10 blur-[60px] rounded-full"></div>
                 
                 <div class="relative bg-gradient-to-br from-gray-900 via-black to-[#111] w-56 sm:w-64 h-80 sm:h-96 border border-[#ccff00]/30 shadow-[0_30px_60px_rgba(0,0,0,0.9)] flex items-center justify-center text-center p-6 rounded-2xl transform lg:-rotate-6 hover:rotate-0 transition duration-500 z-10 overflow-hidden">
-                    <!-- Decorazione Tech -->
                     <div class="absolute top-0 right-0 w-16 h-16 bg-[#ccff00]/10 rounded-bl-full"></div>
                     <div class="absolute bottom-0 left-0 w-16 h-16 bg-[#ccff00]/10 rounded-tr-full"></div>
                     
                     <div class="flex flex-col items-center relative z-20">
-                        <p class="text-[10px] sm:text-xs text-accent font-black mb-4 tracking-widest border border-[#ccff00]/40 px-3 py-1 rounded-full">SBLOCCO IMMEDIATO</p>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight uppercase mb-4">Academy<br><span class="text-[#ccff00]">+</span><br>Sala Free</h3>
+                        <p class="text-[10px] sm:text-xs text-accent font-black mb-4 tracking-widest border border-[#ccff00]/40 px-3 py-1 rounded-full" data-i18n="bonus_badge">INSTANT UNLOCK</p>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight uppercase mb-4">Academy<br><span class="text-[#ccff00]">+</span><br>Free Room</h3>
                         
-                        <!-- Icona Play -->
                         <div class="w-16 h-16 rounded-full bg-[#ccff00]/10 flex items-center justify-center border border-[#ccff00]/50 mb-4 shadow-[0_0_15px_rgba(204,255,0,0.4)]">
                             <svg class="w-8 h-8 text-accent ml-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                             </svg>
                         </div>
                         
-                        <p class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest font-bold">Accesso Esclusivo</p>
+                        <p class="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest font-bold" data-i18n="bonus_exclusive">Exclusive Access</p>
                     </div>
                 </div>
             </div>
             <div class="w-full lg:w-2/3 order-1 lg:order-2 text-center lg:text-left">
-                <div class="inline-block border border-accent/30 bg-accent/10 text-accent px-4 py-1.5 rounded-full font-black uppercase tracking-widest text-xs mb-6">
-                    🎁 Regalo Immediato con l'Iscrizione
+                <div class="inline-block border border-accent/30 bg-accent/10 text-accent px-4 py-1.5 rounded-full font-black uppercase tracking-widest text-xs mb-6 break-words whitespace-normal" data-i18n="bonus_gift">
+                    🎁 Instant Gift with Registration
                 </div>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 leading-tight text-white">
-                    Ricevi subito il pacchetto completo della 1ª Lezione dell'Academy e l'Accesso alla Sala Segnali Free.
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 leading-tight text-white" data-i18n="bonus_h2">
+                    Immediately receive the complete 1st Academy Lesson package and access to the Free Signal Room.
                 </h2>
-                <p class="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed">
-                    Appena confermi l'iscrizione in alto, sblocchi l'accesso immediato all'intero modulo introduttivo della nostra Accademia "Zero to Hero" (non solo un video, ma un vero ecosistema formativo) e l'ingresso esclusivo alla nostra Sala Segnali gratuita.
+                <p class="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed" data-i18n="bonus_p">
+                    As soon as you confirm your registration above, you unlock immediate access to the entire introductory module of our "Zero to Hero" Academy (not just a video, but a true educational ecosystem) and exclusive entry to our free Signal Room.
                 </p>
                 <ul class="text-gray-300 space-y-5 mb-8 text-left max-w-2xl mx-auto lg:mx-0">
                     <li class="flex items-start glass-card p-4 rounded-xl border border-white/5">
-                        <div class="bg-[#ccff00]/10 p-2 rounded-lg mr-4 mt-1"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                        <span class="leading-relaxed"><b class="text-white">Il Kit della 1ª Lezione Multi-Formato:</b> Esperienza immersiva che include Video, Podcast, eBook, Quiz di verifica, Demo, una Simulazione di Trade Interattiva e un Gioco Educativo per imparare senza rischi.</span>
+                        <div class="bg-[#ccff00]/10 p-2 rounded-lg mr-4 mt-1 flex-shrink-0"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <span class="leading-relaxed"><b class="text-white" data-i18n="bonus_li1_b">Multi-Format 1st Lesson Kit:</b> <span data-i18n="bonus_li1_p">Immersive experience including Videos, Podcasts, eBooks, Verification Quizzes, Demos, an Interactive Trade Simulation, and an Educational Game to learn without risk.</span></span>
                     </li>
                     <li class="flex items-start glass-card p-4 rounded-xl border border-white/5">
-                        <div class="bg-[#ccff00]/10 p-2 rounded-lg mr-4 mt-1"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg></div>
-                        <span class="leading-relaxed"><b class="text-white">Accesso alla Sala Segnali (Free):</b> Entra nella community, osserva l'operatività reale e guarda come vengono condivise le prime operazioni di mercato.</span>
+                        <div class="bg-[#ccff00]/10 p-2 rounded-lg mr-4 mt-1 flex-shrink-0"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg></div>
+                        <span class="leading-relaxed"><b class="text-white" data-i18n="bonus_li2_b">Signal Room Access (Free):</b> <span data-i18n="bonus_li2_p">Enter the community, observe real trading, and watch how the first market operations are shared.</span></span>
                     </li>
                 </ul>
-                <p class="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-widest">
-                    I link di accesso arriveranno via Email e WhatsApp entro 5 minuti.
+                <p class="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-widest" data-i18n="bonus_footer">
+                    Access links will arrive via Email and WhatsApp within 5 minutes.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- IL PROBLEMA & LA SOLUZIONE (Copy Section) -->
-    <section class="py-20 bg-[#020202] relative border-y border-white/5">
+    <!-- PROBLEM & SOLUTION -->
+    <section class="py-16 sm:py-20 bg-[#020202] relative border-y border-white/5">
         <div class="container mx-auto px-5 sm:px-6 max-w-3xl">
-            
-            <!-- Blocco 01 -->
+            <!-- Block 01 -->
             <div class="mb-24">
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-4xl font-black text-gray-800">01</span>
-                    <h3 class="text-accent font-black text-sm sm:text-base uppercase tracking-widest">Dove sei adesso</h3>
+                    <h3 class="text-accent font-black text-sm sm:text-base uppercase tracking-widest" data-i18n="p_step1">Where you are now</h3>
                 </div>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-8 text-white leading-tight">È domenica sera.<br>E ti rendi conto di...</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-8 text-white leading-tight" data-i18n="p_h1">It's Sunday evening.<br>And you realize...</h2>
                 
                 <div class="prose prose-invert prose-lg max-w-none text-gray-400 leading-relaxed font-light">
-                    <p>Hai seguito l'ennesimo "tipster" su Telegram. Tre multiple da 10 euro. Apri l'app per i risultati e il "listone infallibile" è saltato per il pareggio di una squadra norvegese di Serie B.</p>
-                    <p>Poi nel feed di Instagram compare quello che fino a 6 mesi fa lavorava in fabbrica con te. Adesso posta screenshot di profitti sull'Exchange e viaggia grazie alle commissioni del suo team.</p>
+                    <p data-i18n="p_p1">You followed yet another 'tipster' on Telegram. Three multiples of 10 euros. You open the app for the results and the 'infallible list' blew up due to a draw by a Norwegian Serie B team.</p>
+                    <p data-i18n="p_p2">Then in your Instagram feed appears the guy who worked in the factory with you 6 months ago. Now he posts screenshots of profits on the Exchange and travels thanks to his team's commissions.</p>
                     <blockquote class="border-l-4 border-accent pl-6 py-2 my-8 bg-accent/5 rounded-r-xl italic text-gray-300">
-                        Il pensiero che ti rimane non è "beato lui". È peggio. È: <b>"Se continuo a scommettere a caso sperando nella fortuna, tra un anno sarò ancora qui."</b>
+                        <span data-i18n="p_quote">The thought that remains is not 'lucky him'. It's worse. It is: <b>"If I continue to bet randomly hoping for luck, in a year I will still be here."</b></span>
                     </blockquote>
-                    <p>Quel pensiero si chiama <i>gap di sistema</i>. Non ti manca la "fortuna". Ti manca un ecosistema che lavora al posto tuo.</p>
+                    <p data-i18n="p_p3">That thought is called a <i>system gap</i>. You don't lack 'luck'. You lack an ecosystem that works for you.</p>
                 </div>
             </div>
 
-            <!-- Blocco 02 -->
+            <!-- Block 02 -->
             <div>
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-4xl font-black text-gray-800">02</span>
-                    <h3 class="text-accent font-black text-sm sm:text-base uppercase tracking-widest">Il punto cieco</h3>
+                    <h3 class="text-accent font-black text-sm sm:text-base uppercase tracking-widest" data-i18n="p_step2">The blind spot</h3>
                 </div>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-8 text-white leading-tight">Quello che ti hanno venduto fino a ieri era sbagliato.</h2>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-8 text-white leading-tight" data-i18n="p_h2">What they sold you until yesterday was wrong.</h2>
                 
                 <div class="prose prose-invert prose-lg max-w-none text-gray-400 leading-relaxed font-light">
-                    <p>Non in malafede. <i>Sbagliato.</i> Ti hanno detto che bastava comprare il pacchetto VIP del Guru di turno e copiare le giocate ad occhi chiusi.</p>
-                    <p>Il risultato? Un buco nel portafoglio. È il momento di dire la verità che fa male: <b class="text-white">il Betting tradizionale è matematicamente strutturato per farti perdere.</b></p>
-                    <p>I soldi veri si fanno con l'Exchange (bancare quote) e costruendo un <b>Network</b>. Un sistema dove impari una competenza e vieni pagato per creare la tua rete. 9 persone su 10 ignorano questo mondo. Questo workshop parte esattamente da qui.</p>
+                    <p data-i18n="p_p4">Not in bad faith. <i>Wrong.</i> They told you it was enough to buy the VIP package of the Guru on duty and blindly copy the plays.</p>
+                    <p><span data-i18n="p_p5">The result? A hole in your wallet. It's time to tell the truth that hurts:</span> <b class="text-white" data-i18n="p_p5b">traditional Betting is mathematically structured to make you lose.</b></p>
+                    <p data-i18n="p_p6">Real money is made with the Exchange (laying odds) and building a <b>Network</b>. A system where you learn a skill and get paid to build your network. 9 out of 10 people ignore this world. This workshop starts exactly from here.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- I MODULI DEL WORKSHOP -->
+    <!-- MODULES -->
     <section class="py-20 lg:py-32 relative overflow-hidden">
-        <!-- Decorazione Sfondo -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-[#ccff00]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div class="container mx-auto px-5 sm:px-6 max-w-5xl relative z-10">
             <div class="text-center mb-16 lg:mb-24">
-                <span class="inline-block text-gray-600 font-black text-lg mb-4 uppercase tracking-widest border border-gray-800 rounded-full px-6 py-2">03 — IL SISTEMA</span>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight">
-                    Tre serate. Un <span class="gradient-text">sistema operativo</span><br class="hidden md:block"> che gira da solo.
+                <span class="inline-block text-gray-600 font-black text-lg mb-4 uppercase tracking-widest border border-gray-800 rounded-full px-6 py-2" data-i18n="m_step">03 — THE SYSTEM</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight" id="m_h1">
+                    <!-- Filled dynamically via JS -->
                 </h2>
             </div>
 
             <div class="space-y-12 sm:space-y-16">
-                <!-- SERATA 1 -->
+                <!-- Night 1 -->
                 <div class="glass-card rounded-3xl p-8 md:p-12 relative timeline-line pl-10 md:pl-12">
                     <div class="absolute left-[-1px] top-8 w-1 h-20 bg-accent rounded-r-lg shadow-[0_0_15px_rgba(204,255,0,0.6)]"></div>
-                    
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/5 pb-6">
                         <div>
-                            <span class="text-accent font-black tracking-widest text-sm uppercase block mb-2">Serata 1</span>
-                            <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">L'Accademia Zero to Hero:<br>Costruisci le Fondamenta</h3>
+                            <span class="text-accent font-black tracking-widest text-sm uppercase block mb-2" data-i18n="m1_badge">Evening 1</span>
+                            <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight" id="m1_title"></h3>
                         </div>
                     </div>
                     <ul class="grid md:grid-cols-2 gap-6 text-gray-400 text-sm sm:text-base">
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
-                            <span><b class="text-gray-200">Formazione Immersiva:</b> 30 video lezioni, podcast, eBook, quiz, demo, simulazioni e giochi educativi.</span>
+                            <span><b class="text-gray-200" data-i18n="m1_b1">Immersive Training:</b> <span data-i18n="m1_p1">30 video lessons, podcasts, eBooks, quizzes, demos, simulations, and educational games.</span></span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
-                            <span><b class="text-gray-200">Teoria e Pratica:</b> impara le strategie avanzate e scopri come leggere e interpretare i segnali in totale autonomia.</span>
+                            <span><b class="text-gray-200" data-i18n="m1_b2">Theory and Practice:</b> <span data-i18n="m1_p2">learn advanced strategies and discover how to read and interpret signals entirely on your own.</span></span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- SERATA 2 -->
+                <!-- Night 2 -->
                 <div class="glass-card rounded-3xl p-8 md:p-12 relative timeline-line pl-10 md:pl-12">
                     <div class="absolute left-[-1px] top-8 w-1 h-20 bg-accent rounded-r-lg shadow-[0_0_15px_rgba(204,255,0,0.6)]"></div>
-                    
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/5 pb-6">
                         <div>
-                            <span class="text-accent font-black tracking-widest text-sm uppercase block mb-2">Serata 2</span>
-                            <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">La Sala Segnali:<br>Esecuzione di Altissimo Livello</h3>
+                            <span class="text-accent font-black tracking-widest text-sm uppercase block mb-2" data-i18n="m2_badge">Evening 2</span>
+                            <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight" id="m2_title"></h3>
                         </div>
                     </div>
                     <ul class="grid md:grid-cols-2 gap-6 text-gray-400 text-sm sm:text-base">
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
-                            <span><b class="text-gray-200">Dietro le Quinte:</b> scopri esattamente come vengono generati, filtrati e distribuiti i nostri segnali profittevoli.</span>
+                            <span><b class="text-gray-200" data-i18n="m2_b1">Behind the Scenes:</b> <span data-i18n="m2_p1">discover exactly how our profitable signals are generated, filtered, and distributed.</span></span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
-                            <span><b class="text-gray-200">Il Tuo Primo Trade:</b> ti mostriamo live come prendere un segnale, aprire l'Exchange e applicarlo in pochi secondi.</span>
+                            <span><b class="text-gray-200" data-i18n="m2_b2">Your First Trade:</b> <span data-i18n="m2_p2">we show you live how to take a signal, open the Exchange, and apply it in seconds.</span></span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- SERATA 3 -->
+                <!-- Night 3 -->
                 <div class="glass-card rounded-3xl p-8 md:p-12 relative border-accent/40 shadow-[0_0_30px_rgba(204,255,0,0.1)] timeline-line pl-10 md:pl-12 bg-gradient-to-br from-[#0f0f0f] to-[#ccff00]/10">
                     <div class="absolute left-[-1px] top-8 w-1 h-20 bg-gradient-to-b from-[#eaff80] to-[#7aa300] rounded-r-lg shadow-[0_0_20px_rgba(204,255,0,0.8)]"></div>
-                    
                     <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/10 pb-6">
                         <div>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#eaff80] to-[#99cc00] font-black tracking-widest text-sm uppercase block mb-2">Serata 3 — Masterclass</span>
-                            <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight">Porta un Amico:<br>Crea una Rendita Parallela</h3>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#eaff80] to-[#99cc00] font-black tracking-widest text-sm uppercase block mb-2" data-i18n="m3_badge">Evening 3 — Masterclass</span>
+                            <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight" id="m3_title"></h3>
                         </div>
-                        <div class="bg-[#ccff00]/10 border border-[#ccff00]/30 text-accent text-xs font-black px-4 py-2 rounded-full uppercase tracking-widest">
-                            Il Business Scalabile
+                        <div class="bg-[#ccff00]/10 border border-[#ccff00]/30 text-accent text-xs font-black px-4 py-2 rounded-full uppercase tracking-widest flex-shrink-0" data-i18n="m3_tag">
+                            The Scalable Business
                         </div>
                     </div>
-                    <p class="text-white font-bold mb-6 text-lg border-l-2 border-accent pl-4">Il modulo per creare un'entrata completamente slegata dall'esito delle partite.</p>
+                    <p class="text-white font-bold mb-6 text-lg border-l-2 border-accent pl-4" data-i18n="m3_subtitle">The module to create an income completely independent of match outcomes.</p>
                     <ul class="grid md:grid-cols-2 gap-6 text-gray-300 text-sm sm:text-base">
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
-                            <span><b class="text-white">Azzera l'Abbonamento:</b> il sistema esatto per invitare altre persone e ottenere l'accesso gratuito per sempre.</span>
+                            <span><b class="text-white" data-i18n="m3_b1">Zero the Subscription:</b> <span data-i18n="m3_p1">the exact system to invite other people and get free access forever.</span></span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
-                            <span><b class="text-white">Rendita Extra:</b> strumenti, script e strategie per costruire un reddito slegato dal trading.</span>
+                            <span><b class="text-white" data-i18n="m3_b2">Extra Income:</b> <span data-i18n="m3_p2">tools, scripts, and strategies to build an income independent of trading.</span></span>
                         </li>
                     </ul>
                 </div>
@@ -400,27 +412,25 @@
         </div>
     </section>
 
-    <!-- LA SCELTA (Crossroads) -->
+    <!-- CROSSROADS -->
     <section class="py-20 bg-[#020202] border-t border-white/5">
         <div class="container mx-auto px-5 sm:px-6 max-w-5xl">
             <div class="text-center mb-16">
-                <span class="inline-block text-gray-600 font-black text-lg mb-4 uppercase tracking-widest border border-gray-800 rounded-full px-6 py-2">04 — LA SCELTA</span>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight">
-                    Tra 6 mesi sarai nello stesso punto.<br>O tre livelli sopra.
-                </h2>
+                <span class="inline-block text-gray-600 font-black text-lg mb-4 uppercase tracking-widest border border-gray-800 rounded-full px-6 py-2" data-i18n="c_step">04 — THE CHOICE</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight" id="c_h1"></h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Bad Choice -->
                 <div class="glass-card rounded-3xl p-8 sm:p-10 border-gray-800 opacity-60 hover:opacity-100 transition-opacity">
                     <div class="text-gray-500 font-black tracking-widest text-xs sm:text-sm mb-6 uppercase flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-gray-600"></span> Se non fai niente
+                        <span class="w-2 h-2 rounded-full bg-gray-600"></span> <span data-i18n="c_bad_badge">If you do nothing</span>
                     </div>
-                    <h3 class="text-2xl font-black text-gray-300 mb-6">Status Quo.</h3>
+                    <h3 class="text-2xl font-black text-gray-300 mb-6" data-i18n="c_bad_title">Status Quo.</h3>
                     <ul class="space-y-5 text-gray-500 text-sm sm:text-base">
-                        <li class="flex gap-3"><span class="text-gray-700 mt-1">—</span> Continui a comprare segnali a caso.</li>
-                        <li class="flex gap-3"><span class="text-gray-700 mt-1">—</span> Guardi gli altri fare margini sui social.</li>
-                        <li class="flex gap-3"><span class="text-gray-700 mt-1">—</span> Rimani spettatore di un'industria in boom.</li>
+                        <li class="flex gap-3"><span class="text-gray-700 mt-1">—</span> <span data-i18n="c_bad_1">You continue to buy random signals.</span></li>
+                        <li class="flex gap-3"><span class="text-gray-700 mt-1">—</span> <span data-i18n="c_bad_2">You watch others make margins on social media.</span></li>
+                        <li class="flex gap-3"><span class="text-gray-700 mt-1">—</span> <span data-i18n="c_bad_3">You remain a spectator in a booming industry.</span></li>
                     </ul>
                 </div>
                 
@@ -429,13 +439,13 @@
                     <div class="absolute inset-0 bg-gradient-to-br from-[#ccff00]/10 to-transparent"></div>
                     <div class="relative z-10">
                         <div class="text-accent font-black tracking-widest text-xs sm:text-sm mb-6 uppercase flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.8)]"></span> Se ti iscrivi
+                            <span class="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.8)]"></span> <span data-i18n="c_good_badge">If you sign up</span>
                         </div>
-                        <h3 class="text-2xl font-black text-white mb-6">Tre Livelli Sopra.</h3>
+                        <h3 class="text-2xl font-black text-white mb-6" data-i18n="c_good_title">Three Levels Up.</h3>
                         <ul class="space-y-5 text-gray-200 text-sm sm:text-base font-medium">
-                            <li class="flex gap-3 items-start"><span class="text-accent text-xl leading-none">✓</span> 3 serate di sistema esatto, zero fuffa.</li>
-                            <li class="flex gap-3 items-start"><span class="text-accent text-xl leading-none">✓</span> Impari la competenza matematica dell'Exchange.</li>
-                            <li class="flex gap-3 items-start"><span class="text-accent text-xl leading-none">✓</span> Entri nel network e scali le commissioni vere.</li>
+                            <li class="flex gap-3 items-start"><span class="text-accent text-xl leading-none">✓</span> <span data-i18n="c_good_1">3 evenings of exact system, zero fluff.</span></li>
+                            <li class="flex gap-3 items-start"><span class="text-accent text-xl leading-none">✓</span> <span data-i18n="c_good_2">You learn the mathematical skill of Exchange.</span></li>
+                            <li class="flex gap-3 items-start"><span class="text-accent text-xl leading-none">✓</span> <span data-i18n="c_good_3">You enter the network and scale real commissions.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -443,69 +453,492 @@
         </div>
     </section>
 
-    <!-- FOOTER CTA & DISCLAIMERS -->
+    <!-- FOOTER -->
     <footer class="py-16 sm:py-24 border-t border-white/5 relative overflow-hidden text-center">
-        <!-- Glow footer -->
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-[#ccff00]/5 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div class="container mx-auto px-5 sm:px-6 max-w-4xl relative z-10">
-            <h2 class="text-4xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tight">L'ULTIMA CHIAMATA.</h2>
-            <p class="text-lg sm:text-xl text-gray-400 mb-12 font-light">Il workshop è gratuito. I tuoi prossimi 12 mesi, no.</p>
+            <h2 class="text-4xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tight" data-i18n="f_title">THE LAST CALL.</h2>
+            <p class="text-lg sm:text-xl text-gray-400 mb-12 font-light" data-i18n="f_sub">The workshop is free. Your next 12 months are not.</p>
             
-            <a href="#hero-form" class="btn-accent inline-block font-black text-lg sm:text-xl px-10 py-5 rounded-xl uppercase tracking-widest w-full sm:w-auto">
-                Torna su e Iscriviti Gratis
+            <a href="#hero-form" class="btn-accent inline-block font-black text-lg sm:text-xl px-10 py-5 rounded-xl uppercase tracking-widest w-full sm:w-auto" data-i18n="f_btn">
+                Scroll Up and Sign Up Free
             </a>
 
             <!-- Legals -->
             <div class="mt-20 pt-10 border-t border-white/10 text-[10px] sm:text-xs text-gray-600 space-y-6 max-w-3xl mx-auto leading-relaxed text-left sm:text-center">
                 <p class="font-bold text-gray-500 uppercase tracking-widest">Company Name Inc | ©2026 | All Rights Reserved</p>
                 <div class="flex flex-wrap justify-start sm:justify-center gap-6">
-                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider">Termini e Condizioni</a>
-                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider">Privacy Policy</a>
-                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider">Cookie Policy</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_terms">Terms and Conditions</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_cookie">Cookie Policy</a>
                 </div>
                 <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
-                <p>DISCLAIMER: Il trading sportivo (Betting Exchange) comporta un alto livello di rischio e potrebbe non essere adatto a tutti. Prima di decidere di investire, dovresti considerare attentamente i tuoi obiettivi, il livello di esperienza e la propensione al rischio. Esiste la possibilità di subire una perdita parziale o totale del tuo investimento iniziale. Non investire denaro che non puoi permetterti di perdere.</p>
-                <p>I risultati mostrati rappresentano esperienze di persone che hanno applicato le metodologie. L'adesione non costituisce garanzia di risultati. Il successo dipende dal tuo impegno.</p>
+                <p data-i18n="f_disc1">DISCLAIMER: Sports trading (Betting Exchange) involves a high level of risk and may not be suitable for everyone. Before deciding to invest, you should carefully consider your objectives, level of experience, and risk appetite. There is a possibility that you may sustain a loss of some or all of your initial investment. Do not invest money that you cannot afford to lose.</p>
+                <p data-i18n="f_disc2">The results shown represent the experiences of individuals who have applied the methodologies. Joining does not guarantee results. Success depends on your commitment.</p>
             </div>
         </div>
     </footer>
 
     <!-- STICKY BOTTOM BUTTON SCROLL -->
     <div id="sticky-bar" class="fixed bottom-0 left-0 w-full z-50 p-4 sm:p-6 bg-gradient-to-t from-black via-black/90 to-transparent flex justify-center pointer-events-none opacity-0 translate-y-5">
-        <a href="#hero-form" class="btn-accent pointer-events-auto inline-flex items-center justify-center font-black text-sm sm:text-lg px-6 py-4 rounded-xl uppercase tracking-widest w-full max-w-md text-center shadow-[0_10px_40px_rgba(0,0,0,0.8)] border-t border-[#ccff00]/30">
-            Iscrivimi Gratis al Workshop
+        <a href="#hero-form" class="btn-accent pointer-events-auto inline-flex items-center justify-center font-black text-sm sm:text-lg px-6 py-4 rounded-xl uppercase tracking-widest w-full max-w-md text-center shadow-[0_10px_40px_rgba(0,0,0,0.8)] border-t border-[#ccff00]/30" data-i18n="sticky_btn">
+            Sign me up for the Workshop
         </a>
     </div>
 
-    <!-- SCRIPT PER GESTIRE LA STICKY BAR -->
     <script>
+        /* --- INTERNATIONALIZATION (i18n) DICTIONARY --- */
+        const translations = {
+            en: {
+                hero_badge: "3 LIVE EVENINGS · ELITE ACCESS",
+                hero_subtitle: "Betting Exchange Room",
+                hero_title_html: "Get the <span class='gradient-text'>exact</span> system to scale your income with Exchange.",
+                hero_desc: "In 3 evenings discover our Zero to Hero Academy, learn to trade with our top-tier Signal Room, and discover how to zero out your subscription by creating an income independent of trading.",
+                trust_1: "100% Free",
+                trust_2: "No Credit Card",
+                trust_3: "Instant Access",
+                form_title: "Reserve your spot",
+                form_sub: "Live seats are limited. Register now.",
+                form_name: "Your Name",
+                form_email: "Primary Email",
+                form_whatsapp: "WhatsApp (For Live Link)",
+                btn_submit: "Sign Me Up Free",
+                privacy_1: "I accept the",
+                privacy_2: "Privacy Policy",
+                privacy_3: "and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.",
+                bonus_badge: "INSTANT UNLOCK",
+                bonus_exclusive: "Exclusive Access",
+                bonus_gift: "🎁 Instant Gift with Registration",
+                bonus_h2: "Immediately receive the complete 1st Academy Lesson package and access to the Free Signal Room.",
+                bonus_p: "As soon as you confirm your registration above, you unlock immediate access to the entire introductory module of our 'Zero to Hero' Academy (not just a video, but a true educational ecosystem) and exclusive entry to our free Signal Room.",
+                bonus_li1_b: "Multi-Format 1st Lesson Kit:",
+                bonus_li1_p: "Immersive experience including Videos, Podcasts, eBooks, Verification Quizzes, Demos, an Interactive Trade Simulation, and an Educational Game to learn without risk.",
+                bonus_li2_b: "Signal Room Access (Free):",
+                bonus_li2_p: "Enter the community, observe real trading, and watch how the first market operations are shared.",
+                bonus_footer: "Access links will arrive via Email and WhatsApp within 5 minutes.",
+                p_step1: "Where you are now",
+                p_h1: "It's Sunday evening.<br>And you realize...",
+                p_p1: "You followed yet another 'tipster' on Telegram. Three multiples of 10 euros. You open the app for the results and the 'infallible list' blew up due to a draw by a Norwegian Serie B team.",
+                p_p2: "Then in your Instagram feed appears the guy who worked in the factory with you 6 months ago. Now he posts screenshots of profits on the Exchange and travels thanks to his team's commissions.",
+                p_quote: "The thought that remains is not 'lucky him'. It's worse. It is: <b>\"If I continue to bet randomly hoping for luck, in a year I will still be here.\"</b>",
+                p_p3: "That thought is called a <i>system gap</i>. You don't lack 'luck'. You lack an ecosystem that works for you.",
+                p_step2: "The blind spot",
+                p_h2: "What they sold you until yesterday was wrong.",
+                p_p4: "Not in bad faith. <i>Wrong.</i> They told you it was enough to buy the VIP package of the Guru on duty and blindly copy the plays.",
+                p_p5: "The result? A hole in your wallet. It's time to tell the truth that hurts:",
+                p_p5b: "traditional Betting is mathematically structured to make you lose.",
+                p_p6: "Real money is made with the Exchange (laying odds) and building a <b>Network</b>. A system where you learn a skill and get paid to build your network. 9 out of 10 people ignore this world. This workshop starts exactly from here.",
+                m_step: "03 — THE SYSTEM",
+                m_h1_html: "Three evenings. An <span class='gradient-text'>operating system</span><br class='hidden md:block'> that runs itself.",
+                m1_badge: "Evening 1",
+                m1_title_html: "The Zero to Hero Academy:<br>Build the Foundations",
+                m1_b1: "Immersive Training:",
+                m1_p1: "30 video lessons, podcasts, eBooks, quizzes, demos, simulations, and educational games.",
+                m1_b2: "Theory and Practice:",
+                m1_p2: "learn advanced strategies and discover how to read and interpret signals entirely on your own.",
+                m2_badge: "Evening 2",
+                m2_title_html: "The Signal Room:<br>Top-Tier Execution",
+                m2_b1: "Behind the Scenes:",
+                m2_p1: "discover exactly how our profitable signals are generated, filtered, and distributed.",
+                m2_b2: "Your First Trade:",
+                m2_p2: "we show you live how to take a signal, open the Exchange, and apply it in seconds.",
+                m3_badge: "Evening 3 — Masterclass",
+                m3_tag: "The Scalable Business",
+                m3_title_html: "Bring a Friend:<br>Create a Parallel Income",
+                m3_subtitle: "The module to create an income completely independent of match outcomes.",
+                m3_b1: "Zero the Subscription:",
+                m3_p1: "the exact system to invite other people and get free access forever.",
+                m3_b2: "Extra Income:",
+                m3_p2: "tools, scripts, and strategies to build an income independent of trading.",
+                c_step: "04 — THE CHOICE",
+                c_h1_html: "In 6 months you will be in the same spot.<br>Or three levels up.",
+                c_bad_badge: "If you do nothing",
+                c_bad_title: "Status Quo.",
+                c_bad_1: "You continue to buy random signals.",
+                c_bad_2: "You watch others make margins on social media.",
+                c_bad_3: "You remain a spectator in a booming industry.",
+                c_good_badge: "If you sign up",
+                c_good_title: "Three Levels Up.",
+                c_good_1: "3 evenings of exact system, zero fluff.",
+                c_good_2: "You learn the mathematical skill of Exchange.",
+                c_good_3: "You enter the network and scale real commissions.",
+                f_title: "THE LAST CALL.",
+                f_sub: "The workshop is free. Your next 12 months are not.",
+                f_btn: "Scroll Up and Sign Up Free",
+                f_terms: "Terms and Conditions",
+                f_privacy: "Privacy Policy",
+                f_cookie: "Cookie Policy",
+                f_disc1: "DISCLAIMER: Sports trading (Betting Exchange) involves a high level of risk and may not be suitable for everyone. Before deciding to invest, you should carefully consider your objectives, level of experience, and risk appetite. There is a possibility that you may sustain a loss of some or all of your initial investment. Do not invest money that you cannot afford to lose.",
+                f_disc2: "The results shown represent the experiences of individuals who have applied the methodologies. Joining does not guarantee results. Success depends on your commitment.",
+                sticky_btn: "Sign me up for the Workshop",
+                wa_msg: "Hi! I would like to access the Betting Exchange Room. Name: {name}, Email: {email}"
+            },
+            es: {
+                hero_badge: "3 NOCHES EN VIVO · ACCESO ÉLITE",
+                hero_subtitle: "Sala de Betting Exchange",
+                hero_title_html: "Obtén el sistema <span class='gradient-text'>exacto</span> para escalar tus ingresos con Exchange.",
+                hero_desc: "En 3 noches descubre nuestra Academia Zero to Hero, aprende a operar con nuestra Sala de Señales de primer nivel y descubre cómo anular tu suscripción creando ingresos independientes del trading.",
+                trust_1: "100% Gratis",
+                trust_2: "Sin Tarjeta",
+                trust_3: "Acceso Inmediato",
+                form_title: "Reserva tu lugar",
+                form_sub: "Los cupos para los directos son limitados. Regístrate ahora.",
+                form_name: "Tu Nombre",
+                form_email: "Correo Principal",
+                form_whatsapp: "WhatsApp (Para el enlace en vivo)",
+                btn_submit: "Inscríbeme Gratis",
+                privacy_1: "Acepto la",
+                privacy_2: "Política de Privacidad",
+                privacy_3: "y consiento recibir comunicaciones por Email/WhatsApp para acceder al taller y los bonos.",
+                bonus_badge: "DESBLOQUEO INMEDIATO",
+                bonus_exclusive: "Acceso Exclusivo",
+                bonus_gift: "🎁 Regalo Inmediato con la Inscripción",
+                bonus_h2: "Recibe de inmediato el paquete completo de la 1ª Lección de la Academia y el Acceso a la Sala de Señales Gratuita.",
+                bonus_p: "Apenas confirmes la inscripción arriba, desbloqueas el acceso inmediato a todo el módulo introductorio de nuestra Academia 'Zero to Hero' (no solo un video, sino un verdadero ecosistema educativo) y la entrada exclusiva a nuestra Sala de Señales gratuita.",
+                bonus_li1_b: "Kit de la 1ª Lección Multi-Formato:",
+                bonus_li1_p: "Experiencia inmersiva que incluye Videos, Podcasts, eBooks, Cuestionarios de verificación, Demos, una Simulación de Trading Interactiva y un Juego Educativo para aprender sin riesgos.",
+                bonus_li2_b: "Acceso a la Sala de Señales (Gratis):",
+                bonus_li2_p: "Entra a la comunidad, observa la operatividad real y mira cómo se comparten las primeras operaciones de mercado.",
+                bonus_footer: "Los enlaces de acceso llegarán por Email y WhatsApp en 5 minutos.",
+                p_step1: "Dónde estás ahora",
+                p_h1: "Es domingo por la noche.<br>Y te das cuenta de...",
+                p_p1: "Seguiste a otro 'tipster' más en Telegram. Tres combinadas de 10 euros. Abres la aplicación para ver los resultados y la 'lista infalible' saltó por el empate de un equipo noruego de la Serie B.",
+                p_p2: "Luego, en tu feed de Instagram aparece el chico que hace 6 meses trabajaba en la fábrica contigo. Ahora publica capturas de pantalla de ganancias en el Exchange y viaja gracias a las comisiones de su equipo.",
+                p_quote: "El pensamiento que te queda no es 'qué suerte tiene'. Es peor. Es: <b>\"Si sigo apostando al azar esperando tener suerte, dentro de un año seguiré aquí.\"</b>",
+                p_p3: "Ese pensamiento se llama <i>brecha de sistema</i>. No te falta 'suerte'. Te falta un ecosistema que trabaje por ti.",
+                p_step2: "El punto ciego",
+                p_h2: "Lo que te vendieron hasta ayer estaba equivocado.",
+                p_p4: "No de mala fe. <i>Equivocado.</i> Te dijeron que bastaba con comprar el paquete VIP del Gurú de turno y copiar las jugadas a ciegas.",
+                p_p5: "¿El resultado? Un agujero en tu billetera. Es hora de decir la verdad que duele:",
+                p_p5b: "el Betting tradicional está estructurado matemáticamente para hacerte perder.",
+                p_p6: "El dinero de verdad se hace con el Exchange (apostar en contra) y construyendo un <b>Network</b>. Un sistema donde aprendes una habilidad y te pagan por construir tu red. 9 de cada 10 personas ignoran este mundo. Este taller empieza exactamente aquí.",
+                m_step: "03 — EL SISTEMA",
+                m_h1_html: "Tres noches. Un <span class='gradient-text'>sistema operativo</span><br class='hidden md:block'> que funciona solo.",
+                m1_badge: "Noche 1",
+                m1_title_html: "La Academia Zero to Hero:<br>Construye los Cimientos",
+                m1_b1: "Formación Inmersiva:",
+                m1_p1: "30 lecciones en video, podcasts, eBooks, cuestionarios, demos, simulaciones y juegos educativos.",
+                m1_b2: "Teoría y Práctica:",
+                m1_p2: "aprende estrategias avanzadas y descubre cómo leer e interpretar señales de forma totalmente autónoma.",
+                m2_badge: "Noche 2",
+                m2_title_html: "La Sala de Señales:<br>Ejecución de Primer Nivel",
+                m2_b1: "Detrás de Escena:",
+                m2_p1: "descubre exactamente cómo se generan, filtran y distribuyen nuestras señales rentables.",
+                m2_b2: "Tu Primer Trade:",
+                m2_p2: "te mostramos en vivo cómo tomar una señal, abrir el Exchange y aplicarla en segundos.",
+                m3_badge: "Noche 3 — Masterclass",
+                m3_tag: "El Negocio Escalable",
+                m3_title_html: "Trae un Amigo:<br>Crea un Ingreso Paralelo",
+                m3_subtitle: "El módulo para crear un ingreso completamente independiente del resultado de los partidos.",
+                m3_b1: "Anula la Suscripción:",
+                m3_p1: "el sistema exacto para invitar a otras personas y obtener acceso gratuito para siempre.",
+                m3_b2: "Ingreso Extra:",
+                m3_p2: "herramientas, scripts y estrategias para construir un ingreso independiente del trading.",
+                c_step: "04 — LA ELECCIÓN",
+                c_h1_html: "En 6 meses estarás en el mismo punto.<br>O tres niveles por encima.",
+                c_bad_badge: "Si no haces nada",
+                c_bad_title: "Status Quo.",
+                c_bad_1: "Sigues comprando señales al azar.",
+                c_bad_2: "Miras a otros obtener márgenes en redes sociales.",
+                c_bad_3: "Sigues siendo un espectador en una industria en auge.",
+                c_good_badge: "Si te inscribes",
+                c_good_title: "Tres Niveles Arriba.",
+                c_good_1: "3 noches de sistema exacto, cero humo.",
+                c_good_2: "Aprendes la habilidad matemática del Exchange.",
+                c_good_3: "Entras al network y escalas comisiones reales.",
+                f_title: "LA ÚLTIMA LLAMADA.",
+                f_sub: "El taller es gratis. Tus próximos 12 meses, no.",
+                f_btn: "Sube e Inscríbete Gratis",
+                f_terms: "Términos y Condiciones",
+                f_privacy: "Política de Privacidad",
+                f_cookie: "Política de Cookies",
+                f_disc1: "DESCARGO DE RESPONSABILIDAD: El trading deportivo (Betting Exchange) implica un alto nivel de riesgo y puede no ser adecuado para todos. Antes de decidir invertir, debes considerar cuidadosamente tus objetivos, nivel de experiencia y apetito por el riesgo. Existe la posibilidad de que pierdas parte o la totalidad de tu inversión inicial. No inviertas dinero que no puedas permitirte perder.",
+                f_disc2: "Los resultados mostrados representan las experiencias de personas que han aplicado las metodologías. Unirse no garantiza resultados. El éxito depende de tu compromiso.",
+                sticky_btn: "Inscríbeme Gratis en el Taller",
+                wa_msg: "¡Hola! Quiero acceder a la Betting Exchange Room. Nombre: {name}, Correo: {email}"
+            },
+            pt: {
+                hero_badge: "3 NOITES AO VIVO · ACESSO ELITE",
+                hero_subtitle: "Sala de Betting Exchange",
+                hero_title_html: "Obtenha o sistema <span class='gradient-text'>exato</span> para escalar seus ganhos com o Exchange.",
+                hero_desc: "Em 3 noites, descubra nossa Academia Zero to Hero, aprenda a operar com nossa Sala de Sinais de alto nível e descubra como zerar sua assinatura criando uma renda independente do trading.",
+                trust_1: "100% Grátis",
+                trust_2: "Sem Cartão",
+                trust_3: "Acesso Imediato",
+                form_title: "Garanta seu lugar",
+                form_sub: "As vagas ao vivo são limitadas. Inscreva-se agora.",
+                form_name: "Seu Nome",
+                form_email: "E-mail Principal",
+                form_whatsapp: "WhatsApp (Para o link ao vivo)",
+                btn_submit: "Inscreva-me Grátis",
+                privacy_1: "Aceito a",
+                privacy_2: "Política de Privacidade",
+                privacy_3: "e concordo em receber comunicações por E-mail/WhatsApp para acessar o workshop e os bônus.",
+                bonus_badge: "DESBLOQUEIO IMEDIATO",
+                bonus_exclusive: "Acesso Exclusivo",
+                bonus_gift: "🎁 Presente Imediato com a Inscrição",
+                bonus_h2: "Receba imediatamente o pacote completo da 1ª Lição da Academia e Acesso à Sala de Sinais Gratuita.",
+                bonus_p: "Assim que confirmar a inscrição acima, você desbloqueia acesso imediato a todo o módulo introdutório de nossa Academia 'Zero to Hero' (não apenas um vídeo, mas um verdadeiro ecossistema educacional) e entrada exclusiva para nossa Sala de Sinais gratuita.",
+                bonus_li1_b: "Kit da 1ª Lição Multi-Formato:",
+                bonus_li1_p: "Experiência imersiva que inclui Vídeos, Podcasts, eBooks, Quizzes de verificação, Demos, uma Simulação Interativa de Trade e um Jogo Educacional para aprender sem riscos.",
+                bonus_li2_b: "Acesso à Sala de Sinais (Grátis):",
+                bonus_li2_p: "Entre na comunidade, observe a operação real e veja como as primeiras operações de mercado são compartilhadas.",
+                bonus_footer: "Os links de acesso chegarão por E-mail e WhatsApp em 5 minutos.",
+                p_step1: "Onde você está agora",
+                p_h1: "É domingo à noite.<br>E você percebe...",
+                p_p1: "Você seguiu mais um 'tipster' no Telegram. Três apostas múltiplas de 10 euros. Você abre o aplicativo para ver os resultados e a 'lista infalível' falhou por causa do empate de um time norueguês da Série B.",
+                p_p2: "Então, no seu feed do Instagram, aparece o cara que trabalhava na fábrica com você há 6 meses. Agora ele posta capturas de tela de lucros no Exchange e viaja graças às comissões de sua equipe.",
+                p_quote: "O pensamento que fica não é 'sorte a dele'. É pior. É: <b>\"Se eu continuar apostando aleatoriamente esperando pela sorte, daqui a um ano ainda estarei aqui.\"</b>",
+                p_p3: "Esse pensamento é chamado de <i>lacuna de sistema</i>. Não lhe falta 'sorte'. Falta-lhe um ecossistema que trabalhe para você.",
+                p_step2: "O ponto cego",
+                p_h2: "O que lhe venderam até ontem estava errado.",
+                p_p4: "Não por má-fé. <i>Errado.</i> Disseram que bastava comprar o pacote VIP do Guru da vez e copiar as jogadas cegamente.",
+                p_p5: "O resultado? Um buraco na carteira. É hora de dizer a verdade que dói:",
+                p_p5b: "o Betting tradicional é estruturado matematicamente para fazer você perder.",
+                p_p6: "O dinheiro real é feito com o Exchange (lay) e construindo uma <b>Rede</b>. Um sistema onde você aprende uma habilidade e é pago para construir sua rede. 9 em cada 10 pessoas ignoram este mundo. Este workshop começa exatamente aqui.",
+                m_step: "03 — O SISTEMA",
+                m_h1_html: "Três noites. Um <span class='gradient-text'>sistema operacional</span><br class='hidden md:block'> que funciona sozinho.",
+                m1_badge: "Noite 1",
+                m1_title_html: "A Academia Zero to Hero:<br>Construa as Fundações",
+                m1_b1: "Treinamento Imersivo:",
+                m1_p1: "30 vídeo-aulas, podcasts, eBooks, quizzes, demos, simulações e jogos educacionais.",
+                m1_b2: "Teoria e Prática:",
+                m1_p2: "aprenda estratégias avançadas e descubra como ler e interpretar sinais com total autonomia.",
+                m2_badge: "Noite 2",
+                m2_title_html: "A Sala de Sinais:<br>Execução de Alto Nível",
+                m2_b1: "Por Trás das Câmeras:",
+                m2_p1: "descubra exatamente como nossos sinais lucrativos são gerados, filtrados e distribuídos.",
+                m2_b2: "Seu Primeiro Trade:",
+                m2_p2: "mostramos ao vivo como pegar um sinal, abrir o Exchange e aplicá-lo em segundos.",
+                m3_badge: "Noite 3 — Masterclass",
+                m3_tag: "O Negócio Escalável",
+                m3_title_html: "Traga um Amigo:<br>Crie uma Renda Paralela",
+                m3_subtitle: "O módulo para criar uma renda completamente independente do resultado das partidas.",
+                m3_b1: "Zere a Assinatura:",
+                m3_p1: "o sistema exato para convidar outras pessoas e obter acesso gratuito para sempre.",
+                m3_b2: "Renda Extra:",
+                m3_p2: "ferramentas, scripts e estratégias para construir uma renda independente de trading.",
+                c_step: "04 — A ESCOLHA",
+                c_h1_html: "Em 6 meses você estará no mesmo lugar.<br>Ou três níveis acima.",
+                c_bad_badge: "Se não fizer nada",
+                c_bad_title: "Status Quo.",
+                c_bad_1: "Continua comprando sinais aleatórios.",
+                c_bad_2: "Vê outros obterem margens nas redes sociais.",
+                c_bad_3: "Continua sendo espectador em uma indústria em expansão.",
+                c_good_badge: "Se se inscrever",
+                c_good_title: "Três Níveis Acima.",
+                c_good_1: "3 noites de sistema exato, sem enrolação.",
+                c_good_2: "Aprende a habilidade matemática do Exchange.",
+                c_good_3: "Entra na rede e escala comissões reais.",
+                f_title: "A ÚLTIMA CHAMADA.",
+                f_sub: "O workshop é grátis. Seus próximos 12 meses, não.",
+                f_btn: "Suba e Inscreva-se Grátis",
+                f_terms: "Termos e Condições",
+                f_privacy: "Política de Privacidade",
+                f_cookie: "Política de Cookies",
+                f_disc1: "AVISO LEGAL: O trading esportivo (Betting Exchange) envolve alto nível de risco e pode não ser adequado para todos. Antes de decidir investir, você deve considerar cuidadosamente seus objetivos, nível de experiência e apetite pelo risco. Existe a possibilidade de você perder parte ou a totalidade do seu investimento inicial. Não invista dinheiro que não pode perder.",
+                f_disc2: "Os resultados mostrados representam experiências de pessoas que aplicaram as metodologias. A adesão não garante resultados. O sucesso depende do seu empenho.",
+                sticky_btn: "Inscreva-me Grátis no Workshop",
+                wa_msg: "Olá! Quero acessar a Betting Exchange Room. Nome: {name}, Email: {email}"
+            },
+            it: {
+                hero_badge: "3 SERATE LIVE · ACCESSO ELITE",
+                hero_subtitle: "Betting Exchange Room",
+                hero_title_html: "Ottieni il sistema <span class='gradient-text'>esatto</span> per scalare le tue entrate con l'Exchange.",
+                hero_desc: "In 3 sere scopri la nostra Accademia Zero to Hero, impari a operare con la nostra Sala Segnali di altissimo livello e scopri come azzerare l'abbonamento creando una rendita slegata dal trading.",
+                trust_1: "100% Gratuito",
+                trust_2: "Nessuna Carta",
+                trust_3: "Accesso Immediato",
+                form_title: "Riserva il tuo posto",
+                form_sub: "I posti per le dirette sono limitati. Iscriviti ora.",
+                form_name: "Il tuo Nome",
+                form_email: "Email principale",
+                form_whatsapp: "WhatsApp (Per il link live)",
+                btn_submit: "Iscrivimi Gratis",
+                privacy_1: "Accetto la",
+                privacy_2: "Privacy Policy",
+                privacy_3: "e acconsento a ricevere comunicazioni via Email/WhatsApp per accedere al workshop e ai bonus.",
+                bonus_badge: "SBLOCCO IMMEDIATO",
+                bonus_exclusive: "Accesso Esclusivo",
+                bonus_gift: "🎁 Regalo Immediato con l'Iscrizione",
+                bonus_h2: "Ricevi subito il pacchetto completo della 1ª Lezione dell'Academy e l'Accesso alla Sala Segnali Free.",
+                bonus_p: "Appena confermi l'iscrizione in alto, sblocchi l'accesso immediato all'intero modulo introduttivo della nostra Accademia 'Zero to Hero' (non solo un video, ma un vero ecosistema formativo) e l'ingresso esclusivo alla nostra Sala Segnali gratuita.",
+                bonus_li1_b: "Il Kit della 1ª Lezione Multi-Formato:",
+                bonus_li1_p: "Esperienza immersiva che include Video, Podcast, eBook, Quiz di verifica, Demo, una Simulazione di Trade Interattiva e un Gioco Educativo per imparare senza rischi.",
+                bonus_li2_b: "Accesso alla Sala Segnali (Free):",
+                bonus_li2_p: "Entra nella community, osserva l'operatività reale e guarda come vengono condivise le prime operazioni di mercato.",
+                bonus_footer: "I link di accesso arriveranno via Email e WhatsApp entro 5 minuti.",
+                p_step1: "Dove sei adesso",
+                p_h1: "È domenica sera.<br>E ti rendi conto di...",
+                p_p1: "Hai seguito l'ennesimo 'tipster' su Telegram. Tre multiple da 10 euro. Apri l'app per i risultati e il 'listone infallibile' è saltato per il pareggio di una squadra norvegese di Serie B.",
+                p_p2: "Poi nel feed di Instagram compare quello che fino a 6 mesi fa lavorava in fabbrica con te. Adesso posta screenshot di profitti sull'Exchange e viaggia grazie alle commissioni del suo team.",
+                p_quote: "Il pensiero che ti rimane non è 'beato lui'. È peggio. È: <b>\"Se continuo a scommettere a caso sperando nella fortuna, tra un anno sarò ancora qui.\"</b>",
+                p_p3: "Quel pensiero si chiama <i>gap di sistema</i>. Non ti manca la 'fortuna'. Ti manca un ecosistema che lavora al posto tuo.",
+                p_step2: "Il punto cieco",
+                p_h2: "Quello che ti hanno venduto fino a ieri era sbagliato.",
+                p_p4: "Non in malafede. <i>Sbagliato.</i> Ti hanno detto che bastava comprare il pacchetto VIP del Guru di turno e copiare le giocate ad occhi chiusi.",
+                p_p5: "Il risultato? Un buco nel portafoglio. È il momento di dire la verità che fa male:",
+                p_p5b: "il Betting tradizionale è matematicamente strutturato per farti perdere.",
+                p_p6: "I soldi veri si fanno con l'Exchange (bancare quote) e costruendo un <b>Network</b>. Un sistema dove impari una competenza e vieni pagato per creare la tua rete. 9 persone su 10 ignorano questo mondo. Questo workshop parte esattamente da qui.",
+                m_step: "03 — IL SISTEMA",
+                m_h1_html: "Tre serate. Un <span class='gradient-text'>sistema operativo</span><br class='hidden md:block'> che gira da solo.",
+                m1_badge: "Serata 1",
+                m1_title_html: "L'Accademia Zero to Hero:<br>Costruisci le Fondamenta",
+                m1_b1: "Formazione Immersiva:",
+                m1_p1: "30 video lezioni, podcast, eBook, quiz, demo, simulazioni e giochi educativi.",
+                m1_b2: "Teoria e Pratica:",
+                m1_p2: "impara le strategie avanzate e scopri come leggere e interpretare i segnali in totale autonomia.",
+                m2_badge: "Serata 2",
+                m2_title_html: "La Sala Segnali:<br>Esecuzione di Altissimo Livello",
+                m2_b1: "Dietro le Quinte:",
+                m2_p1: "scopri esattamente come vengono generati, filtrati e distribuiti i nostri segnali profittevoli.",
+                m2_b2: "Il Tuo Primo Trade:",
+                m2_p2: "ti mostriamo live come prendere un segnale, aprire l'Exchange e applicarlo in pochi secondi.",
+                m3_badge: "Serata 3 — Masterclass",
+                m3_tag: "Il Business Scalabile",
+                m3_title_html: "Porta un Amico:<br>Crea una Rendita Parallela",
+                m3_subtitle: "Il modulo per creare un'entrata completamente slegata dall'esito delle partite.",
+                m3_b1: "Azzera l'Abbonamento:",
+                m3_p1: "il sistema esatto per invitare altre persone e ottenere l'accesso gratuito per sempre.",
+                m3_b2: "Rendita Extra:",
+                m3_p2: "strumenti, script e strategie per costruire un reddito slegato dal trading.",
+                c_step: "04 — LA SCELTA",
+                c_h1_html: "Tra 6 mesi sarai nello stesso punto.<br>O tre livelli sopra.",
+                c_bad_badge: "Se non fai niente",
+                c_bad_title: "Status Quo.",
+                c_bad_1: "Continui a comprare segnali a caso.",
+                c_bad_2: "Guardi gli altri fare margini sui social.",
+                c_bad_3: "Rimani spettatore di un'industria in boom.",
+                c_good_badge: "Se ti iscrivi",
+                c_good_title: "Tre Livelli Sopra.",
+                c_good_1: "3 serate di sistema esatto, zero fuffa.",
+                c_good_2: "Impari la competenza matematica dell'Exchange.",
+                c_good_3: "Entri nel network e scali le commissioni vere.",
+                f_title: "L'ULTIMA CHIAMATA.",
+                f_sub: "Il workshop è gratuito. I tuoi prossimi 12 mesi, no.",
+                f_btn: "Torna su e Iscriviti Gratis",
+                f_terms: "Termini e Condizioni",
+                f_privacy: "Privacy Policy",
+                f_cookie: "Cookie Policy",
+                f_disc1: "DISCLAIMER: Il trading sportivo (Betting Exchange) comporta un alto livello di rischio e potrebbe non essere adatto a tutti. Prima di decidere di investire, dovresti considerare attentamente i tuoi obiettivi, il livello di esperienza e la propensione al rischio. Esiste la possibilità di subire una perdita parziale o totale del tuo investimento iniziale. Non investire denaro che non puoi permetterti di perdere.",
+                f_disc2: "I risultati mostrati rappresentano esperienze di persone che hanno applicato le metodologie. L'adesione non costituisce garanzia di risultati. Il successo dipende dal tuo impegno.",
+                sticky_btn: "Iscrivimi Gratis al Workshop",
+                wa_msg: "Ciao! Vorrei accedere alla Betting Exchange Room. Nome: {name}, Email: {email}"
+            }
+        };
+
+        let currentLang = 'en';
+
+        // Auto-detect language
+        function initLanguage() {
+            const userLang = navigator.language || navigator.userLanguage;
+            if(userLang.startsWith('es')) currentLang = 'es';
+            else if(userLang.startsWith('pt')) currentLang = 'pt';
+            else if(userLang.startsWith('it')) currentLang = 'it';
+            
+            document.getElementById('lang-selector').value = currentLang;
+            document.documentElement.lang = currentLang;
+            applyTranslations(currentLang);
+        }
+
+        // Apply translations to DOM
+        function applyTranslations(lang) {
+            const dict = translations[lang];
+            
+            // Standard data-i18n tags
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            // Special HTML IDs
+            const htmlIds = ['hero_title', 'm_h1', 'm1_title', 'm2_title', 'm3_title', 'c_h1'];
+            htmlIds.forEach(id => {
+                const el = document.getElementById(id);
+                if(el && dict[id + '_html']) {
+                    el.innerHTML = dict[id + '_html'];
+                }
+            });
+            
+            // Update phone prefix default based on lang
+            const prefixSelect = document.getElementById('phone-prefix');
+            if(lang === 'it') prefixSelect.value = '+39';
+            if(lang === 'es') prefixSelect.value = '+34';
+            if(lang === 'pt') prefixSelect.value = '+55';
+            if(lang === 'en') prefixSelect.value = '+44';
+        }
+
+        // Language Selector Listener
+        document.getElementById('lang-selector').addEventListener('change', function(e) {
+            currentLang = e.target.value;
+            document.documentElement.lang = currentLang;
+            applyTranslations(currentLang);
+        });
+
+        /* --- FORM HANDLING (WA & EMAIL) --- */
+        document.getElementById('optin-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop standard behavior temporarily
+            
+            const form = this;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // 1. WhatsApp Action (Opens in new tab)
+            let waMsgTemplate = translations[currentLang].wa_msg;
+            waMsgTemplate = waMsgTemplate.replace('{name}', name).replace('{email}', email);
+            const waUrl = `https://wa.me/393482487172?text=${encodeURIComponent(waMsgTemplate)}`;
+            window.open(waUrl, '_blank');
+
+            // 2. Email Action (Uses Formsubmit to send to Xandra and redirect current page)
+            form.action = "https://formsubmit.co/xandra.marini@gmail.com";
+            form.method = "POST";
+            
+            // Helper to dynamically inject hidden inputs for Formsubmit
+            const addHiddenInput = (name, value) => {
+                let input = form.querySelector(`input[name="${name}"]`);
+                if (!input) {
+                    input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = name;
+                    form.appendChild(input);
+                }
+                input.value = value;
+            };
+
+            // Set Redirect URL and bypass Captcha for seamless experience
+            addHiddenInput('_next', 'https://full-zero-to-hero-academy-betting-e.vercel.app/');
+            addHiddenInput('_captcha', 'false');
+            addHiddenInput('_subject', `Nuovo Lead Room - ${name}`);
+
+            // Programmatically submit the form to send the email and trigger the redirect
+            form.submit();
+        });
+
+        /* --- STICKY BAR LOGIC --- */
         document.addEventListener("DOMContentLoaded", function() {
+            initLanguage(); // Fire i18n
+            
             const form = document.getElementById('hero-form');
             const stickyBtn = document.getElementById('sticky-bar');
             
-            // Intersection Observer controlla se il form è visibile nello schermo
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Se il form principale è visibile, nascondi la sticky bar
                         stickyBtn.style.opacity = '0';
                         stickyBtn.style.pointerEvents = 'none';
                         stickyBtn.style.transform = 'translateY(20px)';
                     } else {
-                        // Se l'utente ha scrollato oltre il form, mostra la sticky bar
                         stickyBtn.style.opacity = '1';
                         stickyBtn.style.pointerEvents = 'auto';
                         stickyBtn.style.transform = 'translateY(0)';
                     }
                 });
-            }, { 
-                threshold: 0.1 // Si attiva quando almeno il 10% del form è visibile
-            });
+            }, { threshold: 0.1 });
             
-            if(form) {
-                observer.observe(form);
-            }
+            if(form) observer.observe(form);
         });
     </script>
 </body>

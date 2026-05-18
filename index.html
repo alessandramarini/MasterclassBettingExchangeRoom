@@ -3,30 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Meta tag per sicurezza base e performance -->
+    <!-- Security and Performance Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta name="description" content="Betting Exchange Room - 3 Serate Live. Ottieni il sistema esatto per scalare le tue entrate.">
-    <title>Betting Exchange Room | 3 Live Nights | Exclusive Access</title>
+    <meta name="description" id="meta-description" content="Betting Exchange Room - 3 Live Nights. Get the exact system to scale your income.">
+    <title id="page-title">Betting Exchange Room | 3 Live Nights</title>
     
     <!-- Preload critical fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
+        :root {
+            --accent-color: #ccff00;
+            --accent-glow: rgba(204, 255, 0, 0.3);
+            --bg-dark: #030303;
+            --glass-bg: rgba(15, 15, 15, 0.6);
+        }
+
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #030303; 
+            background-color: var(--bg-dark); 
             color: #f3f4f6; 
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* Prevent horizontal scroll globally */
         }
         
-        /* Colori e Gradienti Premium (Verde Acido/Nero) */
-        .text-accent { color: #ccff00; } 
-        .bg-accent { background-color: #ccff00; }
+        /* Premium Gradients and Colors */
+        .text-accent { color: var(--accent-color); } 
+        .bg-accent { background-color: var(--accent-color); }
         
         .gradient-text { 
             background: linear-gradient(135deg, #eaff80 0%, #ccff00 50%, #7aa300 100%); 
@@ -39,21 +49,22 @@
             background: radial-gradient(circle at 50% 0%, #111111 0%, #030303 70%);
         }
 
-        /* Glassmorphism Cards Elite */
+        /* Elite Glassmorphism Cards */
         .glass-card { 
-            background: rgba(15, 15, 15, 0.6);
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(204, 255, 0, 0.1); 
             box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9);
-            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
             border-color: rgba(204, 255, 0, 0.3);
-            box-shadow: 0 30px 60px -15px rgba(204, 255, 0, 0.1);
+            box-shadow: 0 20px 40px -10px var(--accent-glow);
+            transform: translateY(-2px);
         }
 
-        /* Reset iOS/Safari Form */
+        /* Form Elements Reset for iOS/Safari uniformity */
         input, select {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -61,15 +72,15 @@
             background-color: rgba(0,0,0,0.6) !important;
         }
         
-        /* Checkbox Bianca Universale */
+        /* Universal Custom Checkbox */
         .white-checkbox {
             appearance: none;
             -webkit-appearance: none;
-            background-color: #ffffff !important;
-            border: 2px solid #ffffff;
+            background-color: transparent !important;
+            border: 2px solid #555;
             border-radius: 4px;
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             display: inline-block;
             position: relative;
             cursor: pointer;
@@ -77,42 +88,45 @@
             transition: all 0.2s ease;
         }
         .white-checkbox:checked {
-            background-color: #ccff00 !important;
-            border-color: #ccff00;
+            background-color: var(--accent-color) !important;
+            border-color: var(--accent-color);
         }
         .white-checkbox:checked::after {
             content: '';
             position: absolute;
-            left: 5px;
+            left: 6px;
             top: 2px;
             width: 5px;
-            height: 10px;
+            height: 11px;
             border: solid #000;
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
         }
 
-        /* Custom Select Arrow Verde Acido */
+        /* Custom Select Arrow */
         .custom-select {
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ccff00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
             background-repeat: no-repeat;
-            background-position: right 1rem center;
+            background-position: right 0.75rem center;
             background-size: 1em;
         }
 
-        /* Pulsante Animato Verde Acido Elegante */
+        /* Animated Accent Button */
         .btn-accent {
             background: linear-gradient(90deg, #5c7a00, #ccff00, #eaff80, #ccff00, #5c7a00);
             background-size: 200% auto;
             color: #000 !important;
             animation: accentShine 4s linear infinite;
-            box-shadow: 0 0 25px rgba(204, 255, 0, 0.25);
-            border: 1px solid rgba(234, 255, 128, 0.6);
-            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(204, 255, 0, 0.2);
+            border: 1px solid rgba(234, 255, 128, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .btn-accent:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 35px rgba(204, 255, 0, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(204, 255, 0, 0.4);
+        }
+        .btn-accent:active {
+            transform: scale(0.98);
         }
 
         @keyframes accentShine {
@@ -123,16 +137,16 @@
         /* Floating 3D Gift Animation */
         @keyframes float3d {
             0% { transform: translateY(0) rotate(-5deg); }
-            50% { transform: translateY(-10px) rotate(5deg) scale(1.05); }
+            50% { transform: translateY(-8px) rotate(5deg) scale(1.05); }
             100% { transform: translateY(0) rotate(-5deg); }
         }
         .animate-float-3d {
             animation: float3d 4s ease-in-out infinite;
             display: inline-block;
-            filter: drop-shadow(0px 10px 15px rgba(204, 255, 0, 0.3));
+            filter: drop-shadow(0px 10px 10px rgba(204, 255, 0, 0.2));
         }
 
-        /* Linee verticali per i moduli */
+        /* Timeline vertical line */
         .timeline-line::before {
             content: '';
             position: absolute;
@@ -140,186 +154,180 @@
             left: 0;
             width: 3px;
             height: 100%;
-            background: linear-gradient(to bottom, #ccff00, transparent);
+            background: linear-gradient(to bottom, var(--accent-color), transparent);
             border-radius: 4px;
             z-index: 0;
         }
 
-        /* Wrapper Sticky Bar */
-        #sticky-bar {
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        /* Number Watermark for Cards */
+        /* Watermark Numbers inside Cards */
         .card-number {
             position: absolute;
-            right: -10px;
-            bottom: -20px;
-            font-size: 120px; /* Reduced for better mobile fit */
+            right: -5%;
+            bottom: -10%;
+            font-size: 8rem;
             font-weight: 900;
             color: rgba(255, 255, 255, 0.02);
             line-height: 1;
             pointer-events: none;
             transition: all 0.5s ease;
             z-index: 0;
+            user-select: none;
         }
-        @media (min-width: 640px) {
-            .card-number { font-size: 150px; }
+        @media (min-width: 768px) {
+            .card-number { font-size: 12rem; right: -2%; }
         }
         .glass-card:hover .card-number {
-            color: rgba(204, 255, 0, 0.05);
-            transform: scale(1.1) rotate(-5deg);
+            color: rgba(204, 255, 0, 0.04);
+            transform: scale(1.05) rotate(-3deg);
         }
 
-        /* Custom Scrollbar Modal Privacy */
+        /* Custom Scrollbar */
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(204, 255, 0, 0.3); border-radius: 10px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(204, 255, 0, 0.6); }
 
-        /* Fix for language menu clickability */
-        .lang-menu-content {
-            display: none;
-        }
-        .lang-menu-content.show {
-            display: block;
-        }
+        /* Utilities */
+        .text-balance { text-wrap: balance; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="overflow-x-hidden bg-radial-dark pb-24">
+<body class="bg-radial-dark pb-24 selection:bg-[#ccff00] selection:text-black">
 
-    <!-- Menu Selezione Lingua -->
+    <!-- Language Selector Menu -->
     <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-[60]">
         <div class="relative inline-block text-left" id="language-menu-container">
-            <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-700/50 shadow-sm px-4 py-2 bg-black/80 backdrop-blur-sm text-sm font-medium text-white hover:bg-black focus:outline-none focus:ring-1 focus:ring-[#ccff00] transition-colors" id="language-menu-button" aria-haspopup="true" aria-expanded="false">
-                <span id="current-lang-display" class="uppercase">EN</span>
-                <svg class="-mr-1 ml-2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <button type="button" class="inline-flex justify-center items-center w-full rounded-lg border border-gray-700/50 shadow-sm px-4 py-2.5 bg-black/80 backdrop-blur-md text-sm font-bold text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-[#ccff00]/50 transition-all" id="language-menu-button" aria-haspopup="true" aria-expanded="false">
+                <span id="current-lang-display" class="uppercase tracking-wider">EN</span>
+                <svg class="-mr-1 ml-2 h-4 w-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
             </button>
-            <div id="language-dropdown" class="origin-top-right absolute right-0 mt-2 w-28 rounded-md shadow-lg bg-[#0a0a0a] ring-1 ring-white/10 ring-opacity-5 lang-menu-content z-[60] backdrop-blur-md">
+            <div id="language-dropdown" class="origin-top-right absolute right-0 mt-2 w-32 rounded-xl shadow-2xl bg-[#0a0a0a] border border-white/10 hidden z-[60] backdrop-blur-xl overflow-hidden transition-all transform opacity-0 scale-95" style="display: none;">
                 <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="language-menu-button">
-                    <!-- EN, ES, PT, IT order -->
-                    <button type="button" onclick="changeLanguage('en')" class="w-full text-left block px-4 py-2 text-sm text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">English</button>
-                    <button type="button" onclick="changeLanguage('es')" class="w-full text-left block px-4 py-2 text-sm text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Español</button>
-                    <button type="button" onclick="changeLanguage('pt')" class="w-full text-left block px-4 py-2 text-sm text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Português</button>
-                    <button type="button" onclick="changeLanguage('it')" class="w-full text-left block px-4 py-2 text-sm text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Italiano</button>
+                    <!-- Ordered: EN, ES, PT, IT -->
+                    <button type="button" onclick="changeLanguage('en')" class="w-full text-left block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">English</button>
+                    <button type="button" onclick="changeLanguage('es')" class="w-full text-left block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Español</button>
+                    <button type="button" onclick="changeLanguage('pt')" class="w-full text-left block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Português</button>
+                    <button type="button" onclick="changeLanguage('it')" class="w-full text-left block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-[#ccff00]/10 hover:text-[#ccff00] transition-colors" role="menuitem">Italiano</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- HERO SECTION CON FORM ABOVE THE FOLD -->
-    <header class="relative pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
-        <!-- Glow background effect -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-[#ccff00]/10 blur-[130px] rounded-full pointer-events-none"></div>
+    <header class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+        <!-- Ambient Glow Background -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] max-w-4xl h-[600px] bg-[#ccff00]/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
         <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             
-            <!-- Logo Aziendale -->
-            <div class="mb-8 lg:mb-12 flex items-center justify-center lg:justify-start gap-3 sm:gap-4">
-                <img src="https://placehold.co/100x100/000000/ccff00?text=BER" alt="Betting Exchange Room Logo" class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)] object-cover bg-black flex-shrink-0" onerror="this.src='https://placehold.co/100x100/000000/ccff00?text=BER'">
-                <span class="text-white font-black text-sm min-[400px]:text-base sm:text-xl md:text-2xl tracking-widest uppercase truncate">
+            <!-- Branding / Logo -->
+            <div class="mb-10 lg:mb-16 flex items-center justify-center lg:justify-start gap-4">
+                <img src="logo-tondo.jpeg" alt="Betting Exchange Room Logo" class="w-14 h-14 sm:w-20 sm:h-20 rounded-full border-2 border-[#ccff00] shadow-[0_0_25px_rgba(204,255,0,0.2)] object-cover bg-black flex-shrink-0" onerror="this.src='https://placehold.co/100x100/000000/ccff00?text=BER'">
+                <span class="text-white font-black text-lg sm:text-2xl md:text-3xl tracking-widest uppercase truncate text-balance">
                     Betting Exchange <span class="text-accent">Room</span>
                 </span>
             </div>
 
-            <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
                 
-                <!-- Colonna Testo (Sinistra) -->
-                <div class="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
-                    <div class="inline-flex items-center glass-card text-gray-300 px-3 sm:px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-4 border border-[#ccff00]/30 w-auto">
-                        <span class="relative flex h-2 w-2 sm:h-3 sm:w-3 mr-2 sm:mr-3">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ccff00] opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 sm:h-3 sm:w-3 bg-[#ccff00]"></span>
-                        </span>
-                        <span class="text-[#ccff00]" data-i18n="hero_badge">3 LIVE NIGHTS · MASTERCLASS</span>
+                <!-- Left Column: Copy & Video -->
+                <div class="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start w-full">
+                    
+                    <!-- Top Badges -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
+                        <div class="inline-flex items-center glass-card text-gray-200 px-4 py-2 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase border border-[#ccff00]/30 shadow-sm">
+                            <span class="relative flex h-2.5 w-2.5 mr-3">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ccff00] opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ccff00]"></span>
+                            </span>
+                            <span class="text-[#ccff00]" data-i18n="hero_badge">3 LIVE NIGHTS · MASTERCLASS</span>
+                        </div>
+                        <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] sm:text-xs font-medium text-gray-300">
+                            <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <span data-i18n="hero_schedule" class="tracking-wide">Monday, Tuesday and Wednesday at 9:30 PM</span>
+                        </div>
                     </div>
 
-                    <!-- Nuova Riga Date e Orari -->
-                    <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm text-gray-300 mb-6 sm:mb-8 w-auto">
-                        <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <span data-i18n="hero_schedule" class="font-medium tracking-wide">Monday, Tuesday and Wednesday at 9:30 PM</span>
-                    </div>
-
-                    <!-- Video Container Responsive -->
-                    <div class="w-full max-w-2xl mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(204,255,0,0.15)] relative bg-black aspect-video group">
-                        <div class="absolute inset-0 bg-[#ccff00]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10 mix-blend-overlay"></div>
-                        <!-- Video requires muted for autoplay on most browsers -->
-                        <video id="hero-video" class="w-full h-full object-cover relative z-0" autoplay muted loop playsinline controls poster="https://placehold.co/800x450/111111/333333?text=Video+Loading...">
+                    <!-- Video Container -->
+                    <div class="w-full max-w-2xl mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(204,255,0,0.1)] relative bg-black aspect-video group">
+                        <div class="absolute inset-0 bg-[#ccff00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10 mix-blend-overlay"></div>
+                        <video id="hero-video" class="w-full h-full object-cover relative z-0" autoplay muted loop playsinline controls poster="https://placehold.co/800x450/111111/222222?text=Video+Loading...">
                             <source id="hero-video-source" src="spotencapture.mp4" type="video/mp4">
                             <span data-i18n="video_fallback">Your browser does not support the video tag.</span>
                         </video>
                     </div>
                     
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-6 text-white w-full" data-i18n="hero_title">
+                    <!-- Main Headline -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-6 text-white w-full text-balance" data-i18n="hero_title">
                         Get the <span class="gradient-text">exact</span> system to scale your income with the Exchange.
                     </h1>
                     
-                    <p class="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed font-light w-full" data-i18n="hero_subtitle">
+                    <p class="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed font-light w-full text-balance" data-i18n="hero_subtitle">
                         In 3 nights discover our Zero to Hero Academy, learn to operate with our top-tier Signal Room, and find out how to zero your subscription by creating a trading-free income.
                     </p>
 
-                    <!-- Trust Badges Visivi su Desktop -->
-                    <div class="hidden lg:flex flex-wrap items-center gap-4 xl:gap-6 text-xs xl:text-sm font-bold text-gray-500 uppercase tracking-wider">
+                    <!-- Trust Badges Desktop -->
+                    <div class="hidden lg:flex flex-wrap items-center gap-6 text-xs xl:text-sm font-bold text-gray-500 uppercase tracking-wider">
                         <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> <span data-i18n="trust_1">100% Free</span></div>
                         <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> <span data-i18n="trust_2">No Card Needed</span></div>
                         <div class="flex items-center gap-2"><svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> <span data-i18n="trust_3">Instant Access</span></div>
                     </div>
                 </div>
 
-                <!-- Colonna Form (Destra) -->
-                <div class="lg:col-span-5 w-full max-w-md mx-auto" id="hero-form">
-                    <div class="glass-card rounded-3xl p-5 sm:p-8 relative overflow-hidden group shadow-[0_0_40px_rgba(204,255,0,0.08)]">
-                        <!-- Barra top glowing verde acido -->
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#7aa300] via-[#ccff00] to-[#7aa300]"></div>
+                <!-- Right Column: Registration Form -->
+                <div class="lg:col-span-5 w-full max-w-md mx-auto relative" id="hero-form">
+                    <div class="glass-card rounded-[2rem] p-6 sm:p-8 relative overflow-hidden group">
+                        <!-- Top Accent Bar -->
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#7aa300] via-[#ccff00] to-[#7aa300]"></div>
                         
-                        <div class="text-center mb-6 mt-2">
-                            <h3 class="text-xl sm:text-2xl lg:text-3xl font-black text-white mb-2" data-i18n="form_title">Reserve Your Seat</h3>
-                            <p class="text-xs sm:text-sm text-gray-400 font-medium" data-i18n="form_subtitle">Live seats are limited. Register now.</p>
+                        <div class="text-center mb-8 mt-4">
+                            <h3 class="text-2xl sm:text-3xl font-black text-white mb-2 tracking-tight" data-i18n="form_title">Reserve Your Seat</h3>
+                            <p class="text-sm text-gray-400 font-medium" data-i18n="form_subtitle">Live seats are limited. Register now.</p>
                         </div>
 
-                        <form class="space-y-4" onsubmit="submitForm(event)" id="registrationForm">
+                        <form class="space-y-5" onsubmit="submitForm(event)" id="registrationForm">
                             <div>
-                                <label class="block text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="label_name" for="nome">Your Name</label>
-                                <input type="text" id="nome" required pattern="[a-zA-ZÀ-ÿ\s]+" title="Letters and spaces only" class="w-full border border-gray-700/50 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600 text-sm sm:text-base" placeholder="E.g. John Doe" data-i18n-ph="ph_name" data-i18n-title="title_name">
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_name" for="nome">Your Name</label>
+                                <input type="text" id="nome" required pattern="[a-zA-ZÀ-ÿ\s]+" title="Letters and spaces only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="E.g. John Doe" data-i18n-ph="ph_name" data-i18n-title="title_name">
                             </div>
                             
                             <div>
-                                <label class="block text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="label_email" for="email">Primary Email</label>
-                                <input type="email" id="email" required class="w-full border border-gray-700/50 rounded-xl px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600 text-sm sm:text-base" placeholder="Your best email" data-i18n-ph="ph_email">
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_email" for="email">Primary Email</label>
+                                <input type="email" id="email" required class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="Your best email" data-i18n-ph="ph_email">
                             </div>
                             
                             <div>
-                                <label class="block text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 pl-1" data-i18n="label_phone" for="phone">WhatsApp (For live link)</label>
+                                <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_phone" for="phone">WhatsApp (For live link)</label>
                                 <div class="flex gap-2">
-                                    <select id="prefix" aria-label="Country Code" class="custom-select border border-gray-700/50 rounded-xl px-2 sm:px-3 py-3 sm:py-3.5 text-white focus:outline-none focus:border-accent w-[80px] sm:w-[100px] flex-shrink-0 cursor-pointer text-xs sm:text-sm">
-                                        <option value="+39">+39 (IT)</option>
+                                    <select id="prefix" aria-label="Country Code" class="custom-select bg-black/50 border border-gray-700/50 rounded-xl px-3 py-3.5 text-white focus:outline-none focus:border-[#ccff00] w-[110px] flex-shrink-0 cursor-pointer text-sm font-medium">
+                                        <option value="+44">+44 (UK)</option>
                                         <option value="+1">+1 (US)</option>
                                         <option value="+34">+34 (ES)</option>
                                         <option value="+351">+351 (PT)</option>
-                                        <option value="+44">+44 (UK)</option>
+                                        <option value="+39">+39 (IT)</option>
                                         <option value="+41">+41 (CH)</option>
                                         <option value="+55">+55 (BR)</option>
                                         <option value="+52">+52 (MX)</option>
                                     </select>
-                                    <input type="tel" id="phone" required pattern="[0-9]+" title="Numbers only" class="w-full border border-gray-700/50 rounded-xl px-3 sm:px-4 py-3 sm:py-3.5 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all placeholder-gray-600 text-sm sm:text-base" placeholder="555 1234567" data-i18n-ph="ph_phone" data-i18n-title="title_phone">
+                                    <input type="tel" id="phone" required pattern="[0-9]+" title="Numbers only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="555 1234567" data-i18n-ph="ph_phone" data-i18n-title="title_phone">
                                 </div>
                             </div>
 
                             <div class="pt-4">
-                                <button type="submit" id="submit-btn" class="btn-accent w-full font-black text-base sm:text-lg lg:text-xl px-4 sm:px-6 py-3 sm:py-4 rounded-xl uppercase tracking-wider">
+                                <button type="submit" id="submit-btn" class="btn-accent w-full font-black text-lg sm:text-xl px-6 py-4 rounded-xl uppercase tracking-widest flex justify-center items-center gap-2">
                                     <span data-i18n="btn_submit">Register for Free</span>
+                                    <svg class="w-5 h-5 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                 </button>
-                                <!-- Testo info link -->
-                                <p class="text-center text-[11px] sm:text-[12px] text-accent mt-3 font-semibold" data-i18n="form_notice">
+                                <p class="text-center text-xs text-[#ccff00] mt-4 font-semibold tracking-wide" data-i18n="form_notice">
                                     Access links will arrive via Email and WhatsApp within 5 minutes.
                                 </p>
                             </div>
                             
-                            <div class="flex items-start mt-4 p-1">
+                            <div class="flex items-start mt-4 bg-white/5 p-3 rounded-lg border border-white/5">
                                 <input type="checkbox" required class="white-checkbox mt-0.5" id="privacy-check">
-                                <label for="privacy-check" class="ml-3 text-[10px] sm:text-[11px] text-gray-400 leading-tight cursor-pointer">
+                                <label for="privacy-check" class="ml-3 text-[11px] sm:text-xs text-gray-400 leading-snug cursor-pointer select-none">
                                     <span data-i18n="privacy_1">I accept the</span> <a href="#" onclick="openPrivacyModal(event)" class="text-white font-bold underline hover:text-[#ccff00] transition-colors" data-i18n="privacy_2">Privacy Policy</a> <span data-i18n="privacy_3">and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.</span>
                                 </label>
                             </div>
@@ -331,170 +339,175 @@
         </div>
     </header>
 
-    <!-- BONUS SECTION -->
-    <section class="container mx-auto px-4 sm:px-6 py-12 lg:py-20 max-w-6xl">
-        <div class="glass-card rounded-3xl p-6 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+    <section class="container mx-auto px-4 sm:px-6 py-12 lg:py-24 max-w-6xl relative z-20">
+        <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 border border-[#ccff00]/20">
+            <!-- 3D Card Graphic -->
             <div class="w-full lg:w-1/3 flex justify-center order-2 lg:order-1 relative">
-                <div class="absolute inset-0 bg-[#ccff00]/10 blur-[60px] rounded-full pointer-events-none"></div>
+                <div class="absolute inset-0 bg-[#ccff00]/20 blur-[80px] rounded-full pointer-events-none"></div>
                 
-                <div class="relative bg-gradient-to-br from-gray-900 via-black to-[#111] w-48 sm:w-64 h-72 sm:h-96 border border-[#ccff00]/30 shadow-[0_30px_60px_rgba(0,0,0,0.9)] flex items-center justify-center text-center p-4 sm:p-6 rounded-2xl transform lg:-rotate-6 hover:rotate-0 transition duration-500 z-10 overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-12 sm:w-16 h-12 sm:h-16 bg-[#ccff00]/10 rounded-bl-full pointer-events-none"></div>
-                    <div class="absolute bottom-0 left-0 w-12 sm:w-16 h-12 sm:h-16 bg-[#ccff00]/10 rounded-tr-full pointer-events-none"></div>
+                <div class="relative bg-gradient-to-br from-gray-900 via-[#0a0a0a] to-[#111] w-56 sm:w-72 aspect-[3/4] border border-[#ccff00]/40 shadow-[0_40px_80px_rgba(0,0,0,0.9)] flex items-center justify-center text-center p-6 rounded-3xl transform lg:-rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500 z-10 overflow-hidden group">
+                    <!-- Decor elements -->
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-[#ccff00]/10 rounded-bl-full pointer-events-none transition-transform group-hover:scale-125"></div>
+                    <div class="absolute bottom-0 left-0 w-20 h-20 bg-[#ccff00]/10 rounded-tr-full pointer-events-none transition-transform group-hover:scale-125"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-gradient-to-b from-transparent to-[#ccff00]/5 pointer-events-none"></div>
                     
-                    <div class="flex flex-col items-center relative z-20">
-                        <p class="text-[9px] sm:text-xs text-accent font-black mb-3 sm:mb-4 tracking-widest border border-[#ccff00]/40 px-2 sm:px-3 py-1 rounded-full" data-i18n="bonus_badge">INSTANT UNLOCK</p>
-                        <h3 class="text-xl sm:text-3xl font-black text-white leading-tight uppercase mb-3 sm:mb-4" data-i18n="bonus_title_card">Academy<br><span class="text-[#ccff00]">+</span><br>Free Room</h3>
+                    <div class="flex flex-col items-center relative z-20 w-full">
+                        <p class="text-[10px] sm:text-xs text-black bg-[#ccff00] font-black mb-6 tracking-widest px-4 py-1.5 rounded-full shadow-[0_0_15px_rgba(204,255,0,0.5)]" data-i18n="bonus_badge">INSTANT UNLOCK</p>
+                        <h3 class="text-2xl sm:text-4xl font-black text-white leading-tight uppercase mb-6 drop-shadow-lg" data-i18n="bonus_title_card">Academy<br><span class="text-[#ccff00] my-2 block text-5xl">+</span>Room</h3>
                         
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#ccff00]/10 flex items-center justify-center border border-[#ccff00]/50 mb-3 sm:mb-4 shadow-[0_0_15px_rgba(204,255,0,0.4)] group-hover:scale-110 transition-transform">
-                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-accent ml-0.5 sm:ml-1" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="w-16 h-16 rounded-full bg-black flex items-center justify-center border-2 border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)] mt-2">
+                            <svg class="w-8 h-8 text-[#ccff00] ml-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
                             </svg>
                         </div>
-                        
-                        <p class="text-[9px] sm:text-xs text-gray-400 uppercase tracking-widest font-bold" data-i18n="bonus_sub_card">Exclusive Access</p>
                     </div>
                 </div>
             </div>
+            
+            <!-- Bonus Text Copy -->
             <div class="w-full lg:w-2/3 order-1 lg:order-2 text-center lg:text-left">
-                <div class="inline-flex items-center justify-center lg:justify-start border border-accent/30 bg-accent/10 text-accent px-3 py-1.5 rounded-full font-black uppercase tracking-widest text-[10px] sm:text-xs mb-6 break-words">
-                    <span class="text-base sm:text-lg mr-1 sm:mr-2 animate-float-3d shrink-0">🎁</span> <span data-i18n="bonus_pill">Instant Gift with Registration</span>
+                <div class="inline-flex items-center justify-center lg:justify-start border border-[#ccff00]/30 bg-[#ccff00]/10 text-[#ccff00] px-4 py-2 rounded-full font-black uppercase tracking-widest text-xs mb-8">
+                    <span class="text-lg mr-2 animate-float-3d shrink-0">🎁</span> <span data-i18n="bonus_pill">Instant Gift with Registration</span>
                 </div>
-                <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight text-white" data-i18n="bonus_h2">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 leading-[1.1] text-white text-balance" data-i18n="bonus_h2">
                     Instantly receive the complete 1st Lesson package of the Academy and Access to the Free Signal Room.
                 </h2>
-                <p class="text-sm sm:text-lg text-gray-400 mb-6 sm:mb-8 leading-relaxed" data-i18n="bonus_p">
+                <p class="text-base sm:text-lg text-gray-400 mb-8 leading-relaxed font-light" data-i18n="bonus_p">
                     As soon as you confirm your registration above, you unlock instant access to the entire introductory module of our "Zero to Hero" Academy and exclusive entry to our free Signal Room.
                 </p>
-                <ul class="text-gray-300 space-y-4 sm:space-y-5 text-left max-w-2xl mx-auto lg:mx-0">
-                    <li class="flex items-start glass-card p-3 sm:p-4 rounded-xl border border-white/5 hover:border-accent/30 transition-colors">
-                        <div class="bg-[#ccff00]/10 p-1.5 sm:p-2 rounded-lg mr-3 sm:mr-4 mt-1 shrink-0"><svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                        <span class="leading-relaxed text-sm sm:text-base" data-i18n="bonus_list_1"><b class="text-white">The Multi-Format 1st Lesson Kit:</b> Immersive experience including Video, Podcast, eBook, Quiz, and Interactive Simulation.</span>
+                <ul class="space-y-4 text-left max-w-2xl mx-auto lg:mx-0">
+                    <li class="flex items-start glass-card p-4 sm:p-5 rounded-2xl border border-white/5 hover:border-[#ccff00]/40 transition-colors group">
+                        <div class="bg-black border border-[#ccff00]/30 p-2 rounded-xl mr-4 mt-1 shrink-0 group-hover:bg-[#ccff00]/10 transition-colors"><svg class="w-5 h-5 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <span class="leading-relaxed text-sm sm:text-base text-gray-300" data-i18n="bonus_list_1"><b class="text-white font-bold">The Multi-Format 1st Lesson Kit:</b> Immersive experience including Video, Podcast, eBook, Quiz, and Interactive Simulation.</span>
                     </li>
-                    <li class="flex items-start glass-card p-3 sm:p-4 rounded-xl border border-white/5 hover:border-accent/30 transition-colors">
-                        <div class="bg-[#ccff00]/10 p-1.5 sm:p-2 rounded-lg mr-3 sm:mr-4 mt-1 shrink-0"><svg class="w-4 h-4 sm:w-5 sm:h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg></div>
-                        <span class="leading-relaxed text-sm sm:text-base" data-i18n="bonus_list_2"><b class="text-white">Access to the Signal Room (Free):</b> Join the community, observe real operations, and see how trades are shared.</span>
+                    <li class="flex items-start glass-card p-4 sm:p-5 rounded-2xl border border-white/5 hover:border-[#ccff00]/40 transition-colors group">
+                        <div class="bg-black border border-[#ccff00]/30 p-2 rounded-xl mr-4 mt-1 shrink-0 group-hover:bg-[#ccff00]/10 transition-colors"><svg class="w-5 h-5 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg></div>
+                        <span class="leading-relaxed text-sm sm:text-base text-gray-300" data-i18n="bonus_list_2"><b class="text-white font-bold">Access to the Signal Room (Free):</b> Join the community, observe real operations, and see how trades are shared.</span>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- IL PROBLEMA & LA SOLUZIONE -->
-    <section class="py-16 sm:py-20 bg-[#020202] relative border-y border-white/5">
-        <div class="container mx-auto px-4 sm:px-6 max-w-3xl">
+    <section class="py-20 sm:py-28 bg-[#020202] relative border-y border-white/5">
+        <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
             
-            <div class="mb-20 sm:mb-24">
-                <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <span class="text-3xl sm:text-4xl font-black text-gray-800">01</span>
-                    <h3 class="text-accent font-black text-xs sm:text-base uppercase tracking-widest" data-i18n="prob_sub">Where you are now</h3>
+            <!-- Problem -->
+            <div class="mb-24 sm:mb-32">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-4xl sm:text-5xl font-black text-gray-800 tracking-tighter">01</span>
+                    <h3 class="text-[#ccff00] font-black text-sm sm:text-lg uppercase tracking-widest" data-i18n="prob_sub">Where you are now</h3>
                 </div>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mb-6 sm:mb-8 text-white leading-tight" data-i18n="prob_title">It's Sunday night.<br>And you realize...</h2>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black mb-8 text-white leading-[1.1] text-balance" data-i18n="prob_title">It's Sunday night.<br>And you realize...</h2>
                 
-                <div class="prose prose-invert prose-base sm:prose-lg max-w-none text-gray-400 leading-relaxed font-light">
+                <div class="prose prose-invert prose-lg sm:prose-xl max-w-none text-gray-400 leading-relaxed font-light space-y-6">
                     <p data-i18n="prob_p1">You followed yet another Telegram "tipster". Three 10-euro parlays. You open the app for results and the "infallible list" blew up.</p>
                     <p data-i18n="prob_p2">Then someone doing your same job 6 months ago pops up on your feed posting Exchange profit screenshots.</p>
-                    <blockquote class="border-l-4 border-accent pl-4 sm:pl-6 py-2 my-6 sm:my-8 bg-accent/5 rounded-r-xl italic text-gray-300 text-sm sm:text-base">
-                        <span data-i18n="prob_quote">The thought left isn't "lucky him". It's: <b>"If I keep betting randomly, a year from now I'll still be here."</b></span>
+                    <blockquote class="border-l-4 border-[#ccff00] pl-6 sm:pl-8 py-4 my-10 bg-[#ccff00]/5 rounded-r-2xl italic text-gray-200 font-medium text-lg sm:text-2xl leading-snug">
+                        <span data-i18n="prob_quote">The thought left isn't "lucky him". It's: <br><b class="text-white mt-2 block">"If I keep betting randomly, a year from now I'll still be here."</b></span>
                     </blockquote>
-                    <p data-i18n="prob_p3">That thought is called a <i>system gap</i>. You don't lack luck. You lack an ecosystem that works for you.</p>
+                    <p data-i18n="prob_p3">That thought is called a <i class="text-white font-medium">system gap</i>. You don't lack luck. You lack an ecosystem that works for you.</p>
                 </div>
             </div>
 
+            <!-- Solution -->
             <div>
-                <div class="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <span class="text-3xl sm:text-4xl font-black text-gray-800">02</span>
-                    <h3 class="text-accent font-black text-xs sm:text-base uppercase tracking-widest" data-i18n="sol_sub">The blind spot</h3>
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="text-4xl sm:text-5xl font-black text-gray-800 tracking-tighter">02</span>
+                    <h3 class="text-[#ccff00] font-black text-sm sm:text-lg uppercase tracking-widest" data-i18n="sol_sub">The blind spot</h3>
                 </div>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mb-6 sm:mb-8 text-white leading-tight" data-i18n="sol_title">What they sold you until yesterday was wrong.</h2>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black mb-8 text-white leading-[1.1] text-balance" data-i18n="sol_title">What they sold you until yesterday was wrong.</h2>
                 
-                <div class="prose prose-invert prose-base sm:prose-lg max-w-none text-gray-400 leading-relaxed font-light">
+                <div class="prose prose-invert prose-lg sm:prose-xl max-w-none text-gray-400 leading-relaxed font-light space-y-6">
                     <p data-i18n="sol_p1">They told you buying the Guru's VIP package and copying blindly was enough.</p>
-                    <p data-i18n="sol_p2">The result? A hole in your wallet. It's time for the truth: <b class="text-white">traditional Betting is mathematically structured to make you lose.</b></p>
-                    <p data-i18n="sol_p3">Real money is made with the Exchange and building a <b>Network</b>. A system where you learn a skill and get paid to create your network. This workshop starts here.</p>
+                    <p class="text-white font-medium" data-i18n="sol_p2">The result? A hole in your wallet. It's time for the truth: <b class="text-[#ccff00]">traditional Betting is mathematically structured to make you lose.</b></p>
+                    <p data-i18n="sol_p3">Real money is made with the Exchange and building a <b class="text-white">Network</b>. A system where you learn a skill and get paid to create your network. This workshop starts here.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- I MODULI DEL WORKSHOP -->
-    <section class="py-16 sm:py-20 lg:py-32 relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-[#ccff00]/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <section class="py-20 sm:py-28 lg:py-40 relative overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[800px] bg-[#ccff00]/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
         <div class="container mx-auto px-4 sm:px-6 max-w-5xl relative z-10">
-            <div class="text-center mb-12 sm:mb-16 lg:mb-24">
-                <span class="inline-block text-gray-600 font-black text-sm sm:text-lg mb-4 uppercase tracking-widest border border-gray-800 rounded-full px-4 sm:px-6 py-1.5 sm:py-2" data-i18n="mod_badge">03 — THE SYSTEM</span>
-                <h2 class="text-3xl sm:text-5xl md:text-6xl font-black text-white leading-tight" data-i18n="mod_title">
+            <div class="text-center mb-16 sm:mb-24">
+                <span class="inline-block text-gray-400 font-black text-sm sm:text-base mb-6 uppercase tracking-widest border border-gray-700 rounded-full px-6 py-2 bg-black/50" data-i18n="mod_badge">03 — THE SYSTEM</span>
+                <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight text-balance" data-i18n="mod_title">
                     Three nights. An <span class="gradient-text">operating system</span><br class="hidden md:block"> that runs itself.
                 </h2>
             </div>
 
-            <div class="space-y-8 sm:space-y-12 md:space-y-16 ml-2 sm:ml-0">
-                <!-- SERATA 1 -->
-                <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 relative timeline-line pl-8 sm:pl-10 md:pl-12 overflow-hidden">
-                    <span class="card-number text-[80px] sm:text-[120px] right-0 bottom-[-10px] sm:bottom-[-20px]">1</span>
-                    <div class="absolute left-[-1px] top-6 sm:top-8 w-1 h-16 sm:h-20 bg-accent rounded-r-lg shadow-[0_0_15px_rgba(204,255,0,0.6)] z-10"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 gap-3 sm:gap-4 border-b border-white/5 pb-4 sm:pb-6 relative z-10">
-                        <div>
-                            <span class="text-accent font-black tracking-widest text-xs sm:text-sm uppercase block mb-1.5 sm:mb-2" data-i18n="mod1_sub">Night 1</span>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight" data-i18n="mod1_title">Zero to Hero Academy:<br>Build the Foundation</h3>
-                        </div>
+            <div class="space-y-12 sm:space-y-16 md:space-y-20 pl-4 sm:pl-0">
+                
+                <!-- MODULE 1 -->
+                <div class="glass-card rounded-[2rem] p-6 sm:p-10 md:p-14 relative timeline-line pl-10 sm:pl-14 md:pl-20 overflow-hidden group hover:bg-white/[0.02]">
+                    <span class="card-number" aria-hidden="true">1</span>
+                    <div class="absolute left-[-1px] top-10 sm:top-14 w-1.5 h-20 bg-[#ccff00] rounded-r-lg shadow-[0_0_20px_rgba(204,255,0,0.8)] z-10"></div>
+                    
+                    <div class="mb-8 border-b border-white/10 pb-6 relative z-10">
+                        <span class="text-[#ccff00] font-black tracking-widest text-xs sm:text-sm uppercase block mb-3" data-i18n="mod1_sub">Night 1</span>
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-tight" data-i18n="mod1_title">Zero to Hero Academy:<br>Build the Foundation</h3>
                     </div>
-                    <ul class="grid md:grid-cols-2 gap-4 sm:gap-6 text-gray-400 text-sm sm:text-base relative z-10">
+                    <ul class="grid md:grid-cols-2 gap-6 sm:gap-8 text-gray-400 text-base sm:text-lg relative z-10 font-light">
                         <li class="flex items-start">
-                            <span class="text-accent text-lg sm:text-xl mr-2 sm:mr-3 mt-0.5 sm:mt-1 shrink-0">✓</span> 
-                            <span data-i18n="mod1_l1"><b class="text-gray-200">Immersive Training:</b> 30 video lessons, podcasts, eBooks, quizzes, and simulations.</span>
+                            <span class="text-[#ccff00] font-bold text-xl mr-3 mt-0.5 shrink-0">✓</span> 
+                            <span data-i18n="mod1_l1"><b class="text-white font-semibold">Immersive Training:</b> 30 video lessons, podcasts, eBooks, quizzes, and simulations.</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-accent text-lg sm:text-xl mr-2 sm:mr-3 mt-0.5 sm:mt-1 shrink-0">✓</span> 
-                            <span data-i18n="mod1_l2"><b class="text-gray-200">Theory and Practice:</b> learn advanced strategies and how to read signals autonomously.</span>
+                            <span class="text-[#ccff00] font-bold text-xl mr-3 mt-0.5 shrink-0">✓</span> 
+                            <span data-i18n="mod1_l2"><b class="text-white font-semibold">Theory and Practice:</b> learn advanced strategies and how to read signals autonomously.</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- SERATA 2 -->
-                <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 relative timeline-line pl-8 sm:pl-10 md:pl-12 overflow-hidden">
-                    <span class="card-number text-[80px] sm:text-[120px] right-0 bottom-[-10px] sm:bottom-[-20px]">2</span>
-                    <div class="absolute left-[-1px] top-6 sm:top-8 w-1 h-16 sm:h-20 bg-accent rounded-r-lg shadow-[0_0_15px_rgba(204,255,0,0.6)] z-10"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 gap-3 sm:gap-4 border-b border-white/5 pb-4 sm:pb-6 relative z-10">
-                        <div>
-                            <span class="text-accent font-black tracking-widest text-xs sm:text-sm uppercase block mb-1.5 sm:mb-2" data-i18n="mod2_sub">Night 2</span>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight" data-i18n="mod2_title">The Signal Room:<br>Top-Tier Execution</h3>
-                        </div>
+                <!-- MODULE 2 -->
+                <div class="glass-card rounded-[2rem] p-6 sm:p-10 md:p-14 relative timeline-line pl-10 sm:pl-14 md:pl-20 overflow-hidden group hover:bg-white/[0.02]">
+                    <span class="card-number" aria-hidden="true">2</span>
+                    <div class="absolute left-[-1px] top-10 sm:top-14 w-1.5 h-20 bg-[#ccff00] rounded-r-lg shadow-[0_0_20px_rgba(204,255,0,0.8)] z-10"></div>
+                    
+                    <div class="mb-8 border-b border-white/10 pb-6 relative z-10">
+                        <span class="text-[#ccff00] font-black tracking-widest text-xs sm:text-sm uppercase block mb-3" data-i18n="mod2_sub">Night 2</span>
+                        <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-tight" data-i18n="mod2_title">The Signal Room:<br>Top-Tier Execution</h3>
                     </div>
-                    <ul class="grid md:grid-cols-2 gap-4 sm:gap-6 text-gray-400 text-sm sm:text-base relative z-10">
+                    <ul class="grid md:grid-cols-2 gap-6 sm:gap-8 text-gray-400 text-base sm:text-lg relative z-10 font-light">
                         <li class="flex items-start">
-                            <span class="text-accent text-lg sm:text-xl mr-2 sm:mr-3 mt-0.5 sm:mt-1 shrink-0">✓</span> 
-                            <span data-i18n="mod2_l1"><b class="text-gray-200">Behind the Scenes:</b> discover how our signals are generated and filtered.</span>
+                            <span class="text-[#ccff00] font-bold text-xl mr-3 mt-0.5 shrink-0">✓</span> 
+                            <span data-i18n="mod2_l1"><b class="text-white font-semibold">Behind the Scenes:</b> discover how our signals are generated and filtered.</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-accent text-lg sm:text-xl mr-2 sm:mr-3 mt-0.5 sm:mt-1 shrink-0">✓</span> 
-                            <span data-i18n="mod2_l2"><b class="text-gray-200">Your First Trade:</b> we show you live how to take a signal and apply it.</span>
+                            <span class="text-[#ccff00] font-bold text-xl mr-3 mt-0.5 shrink-0">✓</span> 
+                            <span data-i18n="mod2_l2"><b class="text-white font-semibold">Your First Trade:</b> we show you live how to take a signal and apply it.</span>
                         </li>
                     </ul>
                 </div>
 
-                <!-- SERATA 3 -->
-                <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 relative border-accent/40 shadow-[0_0_30px_rgba(204,255,0,0.1)] timeline-line pl-8 sm:pl-10 md:pl-12 bg-gradient-to-br from-[#0f0f0f] to-[#ccff00]/10 overflow-hidden">
-                    <span class="card-number text-[80px] sm:text-[120px] right-0 bottom-[-10px] sm:bottom-[-20px]" style="color: rgba(204,255,0,0.05);">3</span>
-                    <div class="absolute left-[-1px] top-6 sm:top-8 w-1 h-16 sm:h-20 bg-gradient-to-b from-[#eaff80] to-[#7aa300] rounded-r-lg shadow-[0_0_20px_rgba(204,255,0,0.8)] z-10"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 sm:mb-8 gap-3 sm:gap-4 border-b border-white/10 pb-4 sm:pb-6 relative z-10">
+                <!-- MODULE 3 (Masterclass Highlight) -->
+                <div class="glass-card rounded-[2rem] p-6 sm:p-10 md:p-14 relative border-[#ccff00]/40 shadow-[0_0_40px_rgba(204,255,0,0.1)] timeline-line pl-10 sm:pl-14 md:pl-20 overflow-hidden bg-gradient-to-br from-[#0a0a0a] to-[#ccff00]/10 transform md:scale-[1.02]">
+                    <span class="card-number !text-[rgba(204,255,0,0.05)]" aria-hidden="true">3</span>
+                    <div class="absolute left-[-1px] top-10 sm:top-14 w-2 h-24 bg-gradient-to-b from-[#eaff80] to-[#7aa300] rounded-r-lg shadow-[0_0_25px_rgba(204,255,0,0.8)] z-10"></div>
+                    
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-[#ccff00]/20 pb-6 relative z-10">
                         <div>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#eaff80] to-[#99cc00] font-black tracking-widest text-xs sm:text-sm uppercase block mb-1.5 sm:mb-2" data-i18n="mod3_sub">Night 3 — Masterclass</span>
-                            <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight" data-i18n="mod3_title">Bring a Friend:<br>Create a Parallel Income</h3>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#eaff80] to-[#99cc00] font-black tracking-widest text-xs sm:text-sm uppercase block mb-3" data-i18n="mod3_sub">Night 3 — Masterclass</span>
+                            <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-tight" data-i18n="mod3_title">Bring a Friend:<br>Create a Parallel Income</h3>
                         </div>
-                        <div class="bg-[#ccff00]/10 border border-[#ccff00]/30 text-accent text-[10px] sm:text-xs font-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-full uppercase tracking-widest inline-block" data-i18n="mod3_badge">
+                        <div class="bg-black border border-[#ccff00] text-[#ccff00] text-xs font-black px-5 py-2.5 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(204,255,0,0.3)] shrink-0" data-i18n="mod3_badge">
                             The Scalable Business
                         </div>
                     </div>
-                    <p class="text-white font-bold mb-4 sm:mb-6 text-sm sm:text-lg border-l-2 border-accent pl-3 sm:pl-4 relative z-10" data-i18n="mod3_desc">The module to create an income completely disconnected from match outcomes.</p>
-                    <ul class="grid md:grid-cols-2 gap-4 sm:gap-6 text-gray-300 text-sm sm:text-base relative z-10">
+                    
+                    <p class="text-white font-semibold mb-8 text-base sm:text-xl border-l-4 border-[#ccff00] pl-4 sm:pl-6 relative z-10 leading-relaxed" data-i18n="mod3_desc">The module to create an income completely disconnected from match outcomes.</p>
+                    
+                    <ul class="grid md:grid-cols-2 gap-6 sm:gap-8 text-gray-300 text-base sm:text-lg relative z-10 font-light">
                         <li class="flex items-start">
-                            <span class="text-accent text-lg sm:text-xl mr-2 sm:mr-3 mt-0.5 sm:mt-1 shrink-0">✓</span> 
-                            <span data-i18n="mod3_l1"><b class="text-white">Zero your Subscription:</b> the exact system to invite people and get free access.</span>
+                            <span class="text-[#ccff00] font-bold text-xl mr-3 mt-0.5 shrink-0">✓</span> 
+                            <span data-i18n="mod3_l1"><b class="text-white font-semibold">Zero your Subscription:</b> the exact system to invite people and get free access.</span>
                         </li>
                         <li class="flex items-start">
-                            <span class="text-accent text-lg sm:text-xl mr-2 sm:mr-3 mt-0.5 sm:mt-1 shrink-0">✓</span> 
-                            <span data-i18n="mod3_l2"><b class="text-white">Extra Income:</b> tools and scripts to build a trading-free revenue.</span>
+                            <span class="text-[#ccff00] font-bold text-xl mr-3 mt-0.5 shrink-0">✓</span> 
+                            <span data-i18n="mod3_l2"><b class="text-white font-semibold">Extra Income:</b> tools and scripts to build a trading-free revenue.</span>
                         </li>
                     </ul>
                 </div>
@@ -502,42 +515,41 @@
         </div>
     </section>
 
-    <!-- LA SCELTA -->
-    <section class="py-16 sm:py-20 bg-[#020202] border-t border-white/5">
-        <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <div class="text-center mb-12 sm:mb-16">
-                <span class="inline-block text-gray-600 font-black text-sm sm:text-lg mb-4 uppercase tracking-widest border border-gray-800 rounded-full px-4 sm:px-6 py-1.5 sm:py-2" data-i18n="choice_badge">04 — THE CHOICE</span>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight" data-i18n="choice_title">
+    <section class="py-20 sm:py-28 bg-[#020202] border-t border-white/5 relative">
+        <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+            <div class="text-center mb-16 sm:mb-24">
+                <span class="inline-block text-gray-500 font-black text-sm sm:text-base mb-6 uppercase tracking-widest border border-gray-800 rounded-full px-6 py-2" data-i18n="choice_badge">04 — THE CHOICE</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.1] text-balance" data-i18n="choice_title">
                     In 6 months you'll be in the same spot.<br>Or three levels up.
                 </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <div class="grid md:grid-cols-2 gap-6 sm:gap-10">
                 <!-- Bad Choice -->
-                <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 border-gray-800 opacity-80 md:opacity-60 hover:opacity-100 transition-opacity">
-                    <div class="text-gray-500 font-black tracking-widest text-[10px] sm:text-sm mb-4 sm:mb-6 uppercase flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-600"></span> <span data-i18n="bad_badge">If you do nothing</span>
+                <div class="glass-card rounded-[2rem] p-8 sm:p-12 border-gray-800/80 bg-black/40 hover:bg-black/60 transition-colors">
+                    <div class="text-gray-500 font-black tracking-widest text-xs sm:text-sm mb-6 uppercase flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-gray-600"></span> <span data-i18n="bad_badge">If you do nothing</span>
                     </div>
-                    <h3 class="text-xl sm:text-2xl font-black text-gray-300 mb-4 sm:mb-6" data-i18n="bad_title">Status Quo.</h3>
-                    <ul class="space-y-3 sm:space-y-5 text-gray-500 text-sm sm:text-base">
-                        <li class="flex gap-2 sm:gap-3"><span class="text-gray-700 mt-0.5 sm:mt-1 shrink-0">—</span> <span data-i18n="bad_l1">Keep buying random signals.</span></li>
-                        <li class="flex gap-2 sm:gap-3"><span class="text-gray-700 mt-0.5 sm:mt-1 shrink-0">—</span> <span data-i18n="bad_l2">Watch others make margins on socials.</span></li>
-                        <li class="flex gap-2 sm:gap-3"><span class="text-gray-700 mt-0.5 sm:mt-1 shrink-0">—</span> <span data-i18n="bad_l3">Remain a spectator of a booming industry.</span></li>
+                    <h3 class="text-2xl sm:text-3xl font-black text-gray-400 mb-8" data-i18n="bad_title">Status Quo.</h3>
+                    <ul class="space-y-4 sm:space-y-6 text-gray-500 text-base sm:text-lg font-light">
+                        <li class="flex gap-4"><span class="text-gray-700 mt-1 shrink-0">✕</span> <span data-i18n="bad_l1">Keep buying random signals.</span></li>
+                        <li class="flex gap-4"><span class="text-gray-700 mt-1 shrink-0">✕</span> <span data-i18n="bad_l2">Watch others make margins on socials.</span></li>
+                        <li class="flex gap-4"><span class="text-gray-700 mt-1 shrink-0">✕</span> <span data-i18n="bad_l3">Remain a spectator of a booming industry.</span></li>
                     </ul>
                 </div>
                 
                 <!-- Good Choice -->
-                <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 border-accent relative shadow-[0_0_40px_rgba(204,255,0,0.15)] flex flex-col justify-between overflow-hidden">
+                <div class="glass-card rounded-[2rem] p-8 sm:p-12 border-[#ccff00]/50 relative shadow-[0_0_50px_rgba(204,255,0,0.1)] overflow-hidden bg-gradient-to-b from-[#111] to-[#000]">
                     <div class="absolute inset-0 bg-gradient-to-br from-[#ccff00]/10 to-transparent pointer-events-none"></div>
                     <div class="relative z-10">
-                        <div class="text-accent font-black tracking-widest text-[10px] sm:text-sm mb-4 sm:mb-6 uppercase flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.8)]"></span> <span data-i18n="good_badge">If you register</span>
+                        <div class="text-[#ccff00] font-black tracking-widest text-xs sm:text-sm mb-6 uppercase flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.8)]"></span> <span data-i18n="good_badge">If you register</span>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6" data-i18n="good_title">Three Levels Up.</h3>
-                        <ul class="space-y-3 sm:space-y-5 text-gray-200 text-sm sm:text-base font-medium">
-                            <li class="flex gap-2 sm:gap-3 items-start"><span class="text-accent text-lg sm:text-xl leading-none shrink-0">✓</span> <span data-i18n="good_l1">3 nights of exact system, zero fluff.</span></li>
-                            <li class="flex gap-2 sm:gap-3 items-start"><span class="text-accent text-lg sm:text-xl leading-none shrink-0">✓</span> <span data-i18n="good_l2">Learn the mathematical skill of the Exchange.</span></li>
-                            <li class="flex gap-2 sm:gap-3 items-start"><span class="text-accent text-lg sm:text-xl leading-none shrink-0">✓</span> <span data-i18n="good_l3">Enter the network and scale commissions.</span></li>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white mb-8" data-i18n="good_title">Three Levels Up.</h3>
+                        <ul class="space-y-4 sm:space-y-6 text-gray-200 text-base sm:text-lg font-medium">
+                            <li class="flex gap-4 items-start"><span class="text-[#ccff00] text-xl leading-none shrink-0 mt-1">✓</span> <span data-i18n="good_l1">3 nights of exact system, zero fluff.</span></li>
+                            <li class="flex gap-4 items-start"><span class="text-[#ccff00] text-xl leading-none shrink-0 mt-1">✓</span> <span data-i18n="good_l2">Learn the mathematical skill of the Exchange.</span></li>
+                            <li class="flex gap-4 items-start"><span class="text-[#ccff00] text-xl leading-none shrink-0 mt-1">✓</span> <span data-i18n="good_l3">Enter the network and scale commissions.</span></li>
                         </ul>
                     </div>
                 </div>
@@ -545,65 +557,68 @@
         </div>
     </section>
 
-    <!-- FOOTER CTA & DISCLAIMERS -->
-    <footer class="py-12 sm:py-16 md:py-24 border-t border-white/5 relative overflow-hidden text-center">
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-[#ccff00]/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <footer class="py-16 sm:py-24 md:py-32 border-t border-white/5 relative overflow-hidden text-center bg-black">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[400px] bg-[#ccff00]/5 blur-[150px] rounded-full pointer-events-none"></div>
         
         <div class="container mx-auto px-4 sm:px-6 max-w-4xl relative z-10">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6 uppercase tracking-tight" data-i18n="foot_title">THE LAST CALL.</h2>
-            <p class="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-12 font-light" data-i18n="foot_sub">The workshop is free. Your next 12 months are not.</p>
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter" data-i18n="foot_title">THE LAST CALL.</h2>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-400 mb-12 sm:mb-16 font-light" data-i18n="foot_sub">The workshop is free. Your next 12 months are not.</p>
             
-            <a href="#hero-form" class="btn-accent inline-block font-black text-base sm:text-lg md:text-xl px-6 sm:px-10 py-4 sm:py-5 rounded-xl uppercase tracking-widest w-full sm:w-auto">
+            <a href="#hero-form" class="btn-accent inline-flex items-center justify-center font-black text-base sm:text-lg md:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-2xl uppercase tracking-widest w-full sm:w-auto shadow-2xl transition-transform hover:-translate-y-1">
                 <span data-i18n="foot_btn">Go Back and Register Free</span>
             </a>
 
-            <div class="mt-16 sm:mt-20 pt-8 sm:pt-10 border-t border-white/10 text-[9px] sm:text-[10px] md:text-xs text-gray-600 space-y-4 sm:space-y-6 max-w-3xl mx-auto leading-relaxed text-left sm:text-center">
-                <p class="font-bold text-gray-500 uppercase tracking-widest">Betting Exchange Room | ©2026 | All Rights Reserved</p>
-                <div class="flex flex-col sm:flex-row flex-wrap justify-start sm:justify-center gap-3 sm:gap-6">
-                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_terms">Terms and Conditions</a>
-                    <a href="#" onclick="openPrivacyModal(event)" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_privacy">Privacy Policy</a>
-                    <a href="#" class="hover:text-gray-400 transition-colors uppercase font-bold tracking-wider" data-i18n="f_cookie">Cookie Policy</a>
+            <div class="mt-20 sm:mt-28 pt-10 sm:pt-12 border-t border-white/10 text-xs text-gray-600 space-y-6 max-w-3xl mx-auto leading-relaxed text-left sm:text-center font-medium">
+                <p class="font-bold text-gray-500 uppercase tracking-widest">Betting Exchange Room | © <span id="current-year"></span> | All Rights Reserved</p>
+                <div class="flex flex-col sm:flex-row flex-wrap justify-start sm:justify-center gap-4 sm:gap-8 text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors uppercase tracking-wider" data-i18n="f_terms">Terms and Conditions</a>
+                    <a href="#" onclick="openPrivacyModal(event)" class="hover:text-white transition-colors uppercase tracking-wider" data-i18n="f_privacy">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors uppercase tracking-wider" data-i18n="f_cookie">Cookie Policy</a>
                 </div>
-                <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
-                <p data-i18n="foot_disc1">DISCLAIMER: Sports trading carries a high level of risk. Consider your objectives and risk before investing. Do not invest money you cannot afford to lose.</p>
-                <p data-i18n="foot_disc2">Results shown represent experiences of people who applied the methodologies. Success depends on your commitment.</p>
+                <div class="space-y-4 pt-4 border-t border-white/5">
+                    <p>This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+                    <p data-i18n="foot_disc1">DISCLAIMER: Sports trading carries a high level of risk. Consider your objectives and risk before investing. Do not invest money you cannot afford to lose.</p>
+                    <p data-i18n="foot_disc2">Results shown represent experiences of people who applied the methodologies. Success depends on your commitment.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- STICKY BOTTOM BUTTON SCROLL -->
-    <div id="sticky-bar" class="fixed bottom-0 left-0 w-full z-50 p-3 sm:p-4 md:p-6 bg-gradient-to-t from-black via-black/90 to-transparent flex justify-center pointer-events-none opacity-0 translate-y-5">
-        <a href="#hero-form" class="btn-accent pointer-events-auto inline-flex items-center justify-center font-black text-xs sm:text-sm md:text-lg px-4 sm:px-6 py-3 sm:py-4 rounded-xl uppercase tracking-widest w-full max-w-md text-center shadow-[0_10px_40px_rgba(0,0,0,0.8)] border-t border-[#ccff00]/30">
+    <div id="sticky-bar" class="fixed bottom-0 left-0 w-full z-40 p-4 sm:p-6 bg-gradient-to-t from-black via-black/90 to-transparent flex justify-center pointer-events-none opacity-0 translate-y-10 transition-all duration-500">
+        <a href="#hero-form" class="btn-accent pointer-events-auto inline-flex items-center justify-center font-black text-sm sm:text-base md:text-lg px-6 py-4 rounded-xl uppercase tracking-widest w-full max-w-md text-center shadow-[0_10px_40px_rgba(0,0,0,0.9)] border-t border-[#ccff00]/40">
             <span data-i18n="sticky_btn">Register Free for the Workshop</span>
         </a>
     </div>
 
-    <!-- MODAL PRIVACY POLICY HTML -->
-    <div id="privacy-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300 bg-black/80 backdrop-blur-md p-4" aria-modal="true" role="dialog" aria-labelledby="privacy-modal-title">
-        <div class="glass-card bg-[#0a0a0a] border border-[#ccff00]/20 rounded-2xl p-5 sm:p-8 max-w-2xl w-full max-h-[85vh] flex flex-col shadow-[0_0_50px_rgba(0,0,0,0.8)] relative">
-            <!-- Pulsante Chiudi X -->
-            <button type="button" onclick="closePrivacyModal()" class="absolute top-3 sm:top-4 right-3 sm:right-4 text-gray-400 hover:text-[#ccff00] transition-colors p-2" aria-label="Close">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <div id="privacy-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300 bg-black/90 backdrop-blur-sm p-4 sm:p-6" aria-modal="true" role="dialog" aria-labelledby="privacy-modal-title">
+        <div class="glass-card bg-[#050505] border border-[#ccff00]/20 rounded-3xl p-6 sm:p-10 max-w-3xl w-full max-h-[85vh] flex flex-col shadow-[0_0_80px_rgba(0,0,0,0.9)] relative transform scale-95 transition-transform duration-300" id="privacy-modal-inner">
+            
+            <button type="button" onclick="closePrivacyModal()" class="absolute top-4 sm:top-6 right-4 sm:right-6 text-gray-500 hover:text-[#ccff00] bg-white/5 hover:bg-[#ccff00]/10 rounded-full p-2 transition-all" aria-label="Close">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             
-            <h3 id="privacy-modal-title" class="text-xl sm:text-2xl font-black text-white mb-4 sm:mb-6 uppercase tracking-widest border-b border-white/10 pb-3 sm:pb-4 pr-8" data-i18n="privacy_modal_title">Privacy Policy</h3>
+            <h3 id="privacy-modal-title" class="text-2xl sm:text-3xl font-black text-white mb-6 uppercase tracking-widest border-b border-white/10 pb-4 pr-10" data-i18n="privacy_modal_title">Privacy Policy</h3>
             
-            <div class="overflow-y-auto pr-2 custom-scrollbar text-gray-400 text-xs sm:text-sm leading-relaxed space-y-4" id="privacy-modal-content">
-                <!-- Content injected via JS -->
+            <div class="overflow-y-auto pr-4 custom-scrollbar text-gray-400 text-sm sm:text-base leading-relaxed space-y-6 font-light flex-1" id="privacy-modal-content">
+                <!-- Content injected via JS based on language -->
             </div>
             
-            <div class="mt-4 sm:mt-6 pt-4 border-t border-white/10 text-right">
-                <button type="button" onclick="closePrivacyModal()" class="px-4 sm:px-6 py-2 border border-[#ccff00]/30 text-[#ccff00] rounded-xl hover:bg-[#ccff00]/10 transition-colors font-bold tracking-widest uppercase text-xs sm:text-sm" data-i18n="privacy_modal_close">Close</button>
+            <div class="mt-6 sm:mt-8 pt-6 border-t border-white/10 flex justify-end shrink-0">
+                <button type="button" onclick="closePrivacyModal()" class="px-8 py-3 border-2 border-[#ccff00]/30 text-[#ccff00] rounded-xl hover:bg-[#ccff00] hover:text-black hover:border-[#ccff00] transition-all font-black tracking-widest uppercase text-sm" data-i18n="privacy_modal_close">Close</button>
             </div>
         </div>
     </div>
 
     <script>
-        // --- 1. DATI DELLE LINGUE (i18n) e PRIVACY POLICY COMPLETA ---
-        // L'ordine qui determina l'ordine logico (EN, ES, PT, IT)
+        // Set dynamic year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- 1. TRANSLATION DICTIONARY (i18n) ---
         const translations = {
             en: {
-                // Meta & Generic
+                meta_title: "Betting Exchange Room | 3 Live Nights",
+                meta_desc: "Get the exact system to scale your income with the Exchange. 3 Free Live Nights. Register now.",
+                
                 hero_badge: "3 LIVE NIGHTS · MASTERCLASS",
                 hero_schedule: "Monday, Tuesday and Wednesday at 9:30 PM",
                 hero_title: "Get the <span class='gradient-text'>exact</span> system to scale your income with the Exchange.",
@@ -611,7 +626,6 @@
                 video_fallback: "Your browser does not support the video tag.",
                 trust_1: "100% Free", trust_2: "No Card Needed", trust_3: "Instant Access",
                 
-                // Form
                 form_title: "Reserve Your Seat", form_subtitle: "Live seats are limited. Register now.",
                 label_name: "Your Name", ph_name: "E.g. John Doe", title_name: "Letters and spaces only",
                 label_email: "Primary Email", ph_email: "Your best email",
@@ -621,76 +635,63 @@
                 privacy_1: "I accept the", privacy_2: "Privacy Policy", privacy_3: "and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.",
                 btn_sending: "Sending...",
                 
-                // Bonus
-                bonus_badge: "INSTANT UNLOCK", bonus_title_card: "Academy<br><span class='text-[#ccff00]'>+</span><br>Free Room", bonus_sub_card: "Exclusive Access",
+                bonus_badge: "INSTANT UNLOCK", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Room", 
                 bonus_pill: "Instant Gift with Registration",
                 bonus_h2: "Instantly receive the complete 1st Lesson package of the Academy and Access to the Free Signal Room.",
                 bonus_p: "As soon as you confirm your registration above, you unlock instant access to the entire introductory module of our 'Zero to Hero' Academy and exclusive entry to our free Signal Room.",
-                bonus_list_1: "<b class='text-white'>The Multi-Format 1st Lesson Kit:</b> Immersive experience including Video, Podcast, eBook, Quiz, and Interactive Simulation.",
-                bonus_list_2: "<b class='text-white'>Access to the Signal Room (Free):</b> Join the community, observe real operations, and see how trades are shared.",
+                bonus_list_1: "<b class='text-white font-bold'>The Multi-Format 1st Lesson Kit:</b> Immersive experience including Video, Podcast, eBook, Quiz, and Interactive Simulation.",
+                bonus_list_2: "<b class='text-white font-bold'>Access to the Signal Room (Free):</b> Join the community, observe real operations, and see how trades are shared.",
                 
-                // Problem
                 prob_sub: "Where you are now", prob_title: "It's Sunday night.<br>And you realize...",
                 prob_p1: "You followed yet another Telegram 'tipster'. Three 10-euro parlays. You open the app and the 'infallible list' blew up.",
                 prob_p2: "Then someone doing your same job 6 months ago pops up on your feed posting Exchange profit screenshots.",
-                prob_quote: "The thought left isn't 'lucky him'. It's: <b>'If I keep betting randomly, a year from now I'll still be here.'</b>",
-                prob_p3: "That thought is called a <i>system gap</i>. You don't lack luck. You lack an ecosystem that works for you.",
+                prob_quote: "The thought left isn't 'lucky him'. It's: <br><b class='text-white mt-2 block'>'If I keep betting randomly, a year from now I'll still be here.'</b>",
+                prob_p3: "That thought is called a <i class='text-white font-medium'>system gap</i>. You don't lack luck. You lack an ecosystem that works for you.",
                 
-                // Solution
                 sol_sub: "The blind spot", sol_title: "What they sold you until yesterday was wrong.",
                 sol_p1: "They told you buying the Guru's VIP package and copying blindly was enough.",
-                sol_p2: "The result? A hole in your wallet. It's time for the truth: <b class='text-white'>traditional Betting is mathematically structured to make you lose.</b>",
-                sol_p3: "Real money is made with the Exchange and building a <b>Network</b>. A system where you learn a skill and get paid to create your network. This workshop starts here.",
+                sol_p2: "The result? A hole in your wallet. It's time for the truth: <b class='text-[#ccff00]'>traditional Betting is mathematically structured to make you lose.</b>",
+                sol_p3: "Real money is made with the Exchange and building a <b class='text-white'>Network</b>. A system where you learn a skill and get paid to create your network. This workshop starts here.",
                 
-                // Modules
                 mod_badge: "03 — THE SYSTEM", mod_title: "Three nights. An <span class='gradient-text'>operating system</span><br class='hidden md:block'> that runs itself.",
                 mod1_sub: "Night 1", mod1_title: "Zero to Hero Academy:<br>Build the Foundation",
-                mod1_l1: "<b class='text-gray-200'>Immersive Training:</b> 30 video lessons, podcasts, eBooks, quizzes, and simulations.",
-                mod1_l2: "<b class='text-gray-200'>Theory and Practice:</b> learn advanced strategies and how to read signals autonomously.",
+                mod1_l1: "<b class='text-white font-semibold'>Immersive Training:</b> 30 video lessons, podcasts, eBooks, quizzes, and simulations.",
+                mod1_l2: "<b class='text-white font-semibold'>Theory and Practice:</b> learn advanced strategies and how to read signals autonomously.",
                 mod2_sub: "Night 2", mod2_title: "The Signal Room:<br>Top-Tier Execution",
-                mod2_l1: "<b class='text-gray-200'>Behind the Scenes:</b> discover how our signals are generated and filtered.",
-                mod2_l2: "<b class='text-gray-200'>Your First Trade:</b> we show you live how to take a signal and apply it.",
+                mod2_l1: "<b class='text-white font-semibold'>Behind the Scenes:</b> discover how our signals are generated and filtered.",
+                mod2_l2: "<b class='text-white font-semibold'>Your First Trade:</b> we show you live how to take a signal and apply it.",
                 mod3_sub: "Night 3 — Masterclass", mod3_title: "Bring a Friend:<br>Create a Parallel Income", mod3_badge: "The Scalable Business",
                 mod3_desc: "The module to create an income completely disconnected from match outcomes.",
-                mod3_l1: "<b class='text-white'>Zero your Subscription:</b> the exact system to invite people and get free access.",
-                mod3_l2: "<b class='text-white'>Extra Income:</b> tools and scripts to build a trading-free revenue.",
+                mod3_l1: "<b class='text-white font-semibold'>Zero your Subscription:</b> the exact system to invite people and get free access.",
+                mod3_l2: "<b class='text-white font-semibold'>Extra Income:</b> tools and scripts to build a trading-free revenue.",
                 
-                // Choice
                 choice_badge: "04 — THE CHOICE", choice_title: "In 6 months you'll be in the same spot.<br>Or three levels up.",
                 bad_badge: "If you do nothing", bad_title: "Status Quo.",
                 bad_l1: "Keep buying random signals.", bad_l2: "Watch others make margins on socials.", bad_l3: "Remain a spectator of a booming industry.",
                 good_badge: "If you register", good_title: "Three Levels Up.",
                 good_l1: "3 nights of exact system, zero fluff.", good_l2: "Learn the mathematical skill of the Exchange.", good_l3: "Enter the network and scale commissions.",
                 
-                // Footer
                 foot_title: "THE LAST CALL.", foot_sub: "The workshop is free. Your next 12 months are not.", foot_btn: "Go Back and Register Free",
                 f_terms: "Terms and Conditions", f_privacy: "Privacy Policy", f_cookie: "Cookie Policy",
                 foot_disc1: "DISCLAIMER: Sports trading carries a high level of risk. Consider your objectives and risk before investing. Do not invest money you cannot afford to lose.",
                 foot_disc2: "Results shown represent experiences of people who applied the methodologies. Success depends on your commitment.",
                 sticky_btn: "Register Free for the Workshop",
                 
-                // Privacy Modal (Comprehensive)
                 privacy_modal_title: "Privacy Policy", privacy_modal_close: "Close",
                 privacy_full_text: `
-                    <p><b>1. Data Controller</b><br>The Data Controller is Betting Exchange Room. For any privacy requests or concerns regarding the processing of your personal data, you can contact us via email provided in our official communications.</p>
-                    <p><b>2. Purpose of Processing</b><br>Your personal data (specifically: name, email address, and phone number/WhatsApp) are processed strictly for the following purposes:<br>
-                    - To allow and confirm your registration to the free workshop.<br>
-                    - To send necessary access links and reminders via WhatsApp and Email.<br>
-                    - To deliver the promised digital bonus materials (Academy access, Signal Room links).<br>
-                    - To provide customer support related to the event.</p>
-                    <p><b>3. Legal Basis for Processing</b><br>The processing of your data is based entirely on your explicit consent, which you provide freely by ticking the mandatory checkbox during the registration process on this page.</p>
-                    <p><b>4. Data Retention</b><br>Your data will be retained only for as long as necessary to fulfill the purposes mentioned above, or until you explicitly request its deletion or withdraw your consent.</p>
-                    <p><b>5. Data Sharing and Third Parties</b><br>Your data will <b>never</b> be sold or rented to third parties for marketing purposes. Your data may be processed by technical partners acting as Data Processors (e.g., email marketing providers, CRM platforms, hosting services) solely for the technical delivery of the requested services. These partners are required to comply with strict privacy standards.</p>
-                    <p><b>6. User Rights (GDPR / CCPA)</b><br>Under applicable data protection laws, you have the right at any time to:<br>
-                    - Request access to your stored personal data.<br>
-                    - Request the rectification of incorrect or incomplete data.<br>
-                    - Request the deletion ("right to be forgotten") of your data.<br>
-                    - Withdraw your consent at any time (e.g., by clicking "unsubscribe" in our emails or contacting support).<br>
-                    - File a complaint with a supervisory authority if you believe your data is being misused.</p>
-                    <p>By submitting the registration form, you acknowledge that you have read and understood this Privacy Policy.</p>
+                    <p><b class="text-white">1. Data Controller</b><br>The Data Controller is Betting Exchange Room. For any privacy requests, contact us via official communications.</p>
+                    <p><b class="text-white">2. Purpose of Processing</b><br>Your personal data (name, email, phone) are processed strictly for:<br>
+                    - Workshop registration confirmation.<br>- Access links via WhatsApp/Email.<br>- Bonus delivery.<br>- Event support.</p>
+                    <p><b class="text-white">3. Legal Basis</b><br>Processing is based on your explicit consent provided during registration.</p>
+                    <p><b class="text-white">4. Data Retention</b><br>Data is retained only as long as necessary or until deletion request.</p>
+                    <p><b class="text-white">5. Third Parties</b><br>Data is <b>never</b> sold. Processed by technical partners (e.g., email providers) solely for service delivery under strict privacy standards.</p>
+                    <p><b class="text-white">6. Your Rights (GDPR)</b><br>You can request access, rectification, deletion, or withdraw consent at any time.</p>
                 `
             },
             es: {
+                meta_title: "Betting Exchange Room | 3 Noches en Vivo",
+                meta_desc: "Obtén el sistema exacto para escalar tus ingresos con el Exchange. 3 Noches Gratis. Regístrate ahora.",
+                
                 hero_badge: "3 NOCHES EN VIVO · MASTERCLASS",
                 hero_schedule: "Lunes, Martes y Miércoles a las 21:30",
                 hero_title: "Obtén el sistema <span class='gradient-text'>exacto</span> para escalar tus ingresos con el Exchange.",
@@ -703,77 +704,72 @@
                 label_email: "Email principal", ph_email: "Tu mejor email",
                 label_phone: "WhatsApp (Para el enlace)", ph_phone: "600 123456", title_phone: "Solo números",
                 btn_submit: "Inscríbeme Gratis",
-                form_notice: "Los enlaces de acceso llegarán por Email y WhatsApp en 5 minutos.",
-                privacy_1: "Acepto la", privacy_2: "Política de Privacidad", privacy_3: "y consiento recibir comunicaciones por Email/WhatsApp para acceder al workshop y bonos.",
+                form_notice: "Los enlaces llegarán por Email y WhatsApp en 5 minutos.",
+                privacy_1: "Acepto la", privacy_2: "Política de Privacidad", privacy_3: "y consiento recibir comunicaciones por Email/WhatsApp para el workshop.",
                 btn_sending: "Enviando...",
                 
-                bonus_badge: "DESBLOQUEO INMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00]'>+</span><br>Sala Gratis", bonus_sub_card: "Acceso Exclusivo",
+                bonus_badge: "DESBLOQUEO INMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
                 bonus_pill: "Regalo Inmediato al Inscribirte",
-                bonus_h2: "Recibe al instante el paquete completo de la 1ª Lección de la Academia y Acceso a la Sala de Señales.",
-                bonus_p: "En cuanto confirmes tu inscripción, desbloqueas el acceso inmediato al módulo introductorio de nuestra Academia 'Zero to Hero' y entrada exclusiva a nuestra Sala de Señales gratuita.",
-                bonus_list_1: "<b class='text-white'>El Kit de la 1ª Lección:</b> Experiencia inmersiva que incluye Video, Podcast, eBook, Quiz y Simulación Interactiva.",
-                bonus_list_2: "<b class='text-white'>Acceso a la Sala de Señales:</b> Únete a la comunidad, observa operaciones reales y ve cómo se comparten.",
+                bonus_h2: "Recibe al instante la 1ª Lección de la Academia y Acceso a la Sala de Señales.",
+                bonus_p: "Al confirmar tu inscripción, desbloqueas acceso inmediato al módulo introductorio de nuestra Academia 'Zero to Hero' y entrada a la Sala de Señales.",
+                bonus_list_1: "<b class='text-white font-bold'>El Kit de la 1ª Lección:</b> Experiencia inmersiva que incluye Video, Podcast, eBook, Quiz y Simulación.",
+                bonus_list_2: "<b class='text-white font-bold'>Acceso a la Sala de Señales:</b> Únete a la comunidad, observa operaciones reales y ve cómo se comparten.",
                 
-                prob_sub: "Dónde estás ahora", prob_title: "Es domingo por la noche.<br>Y te das cuenta de...",
-                prob_p1: "Seguiste a otro 'tipster' de Telegram. Tres combinadas de 10 euros. Abres la app y la 'lista infalible' fracasó.",
-                prob_p2: "Luego alguien que hacía tu mismo trabajo hace 6 meses publica capturas de ganancias en el Exchange.",
-                prob_quote: "El pensamiento no es 'qué suerte'. Es: <b>'Si sigo apostando al azar, en un año seguiré aquí.'</b>",
-                prob_p3: "Ese pensamiento se llama <i>brecha de sistema</i>. No te falta suerte. Te falta un ecosistema que trabaje por ti.",
+                prob_sub: "Dónde estás ahora", prob_title: "Es domingo por la noche.<br>Y te das cuenta...",
+                prob_p1: "Seguiste a otro 'tipster'. Tres combinadas de 10 euros. Abres la app y la 'lista infalible' fracasó.",
+                prob_p2: "Luego alguien de tu sector publica capturas de ganancias en el Exchange.",
+                prob_quote: "El pensamiento no es 'qué suerte'. Es: <br><b class='text-white mt-2 block'>'Si sigo apostando al azar, en un año seguiré aquí.'</b>",
+                prob_p3: "Ese pensamiento se llama <i class='text-white font-medium'>brecha de sistema</i>. No te falta suerte. Te falta un ecosistema.",
                 
                 sol_sub: "El punto ciego", sol_title: "Lo que te vendieron hasta ayer estaba mal.",
                 sol_p1: "Te dijeron que bastaba comprar el paquete VIP del Gurú y copiar a ciegas.",
-                sol_p2: "¿El resultado? Un agujero en tu cartera. Es hora de la verdad: <b class='text-white'>las apuestas tradicionales están diseñadas matemáticamente para hacerte perder.</b>",
-                sol_p3: "El dinero real se hace con el Exchange y construyendo una <b>Red</b>. Este workshop empieza aquí.",
+                sol_p2: "¿El resultado? Un agujero en tu cartera. La verdad: <b class='text-[#ccff00]'>las apuestas tradicionales están diseñadas para hacerte perder.</b>",
+                sol_p3: "El dinero real se hace con el Exchange y construyendo una <b class='text-white'>Red</b>. Este workshop empieza aquí.",
                 
                 mod_badge: "03 — EL SISTEMA", mod_title: "Tres noches. Un <span class='gradient-text'>sistema operativo</span><br class='hidden md:block'> que funciona solo.",
                 mod1_sub: "Noche 1", mod1_title: "Academia Zero to Hero:<br>Construye los Cimientos",
-                mod1_l1: "<b class='text-gray-200'>Formación Inmersiva:</b> 30 videolecciones, podcasts, eBooks, quizzes y simulaciones.",
-                mod1_l2: "<b class='text-gray-200'>Teoría y Práctica:</b> aprende estrategias avanzadas y a leer señales de forma autónoma.",
+                mod1_l1: "<b class='text-white font-semibold'>Formación Inmersiva:</b> 30 videolecciones, podcasts, eBooks, quizzes y simulaciones.",
+                mod1_l2: "<b class='text-white font-semibold'>Teoría y Práctica:</b> aprende estrategias avanzadas y a leer señales de forma autónoma.",
                 mod2_sub: "Noche 2", mod2_title: "La Sala de Señales:<br>Ejecución de Alto Nivel",
-                mod2_l1: "<b class='text-gray-200'>Detrás de Escena:</b> descubre cómo generamos y filtramos nuestras señales.",
-                mod2_l2: "<b class='text-gray-200'>Tu Primer Trade:</b> te mostramos en vivo cómo tomar una señal y aplicarla.",
+                mod2_l1: "<b class='text-white font-semibold'>Detrás de Escena:</b> descubre cómo generamos y filtramos nuestras señales.",
+                mod2_l2: "<b class='text-white font-semibold'>Tu Primer Trade:</b> te mostramos en vivo cómo aplicar una señal.",
                 mod3_sub: "Noche 3 — Masterclass", mod3_title: "Trae un Amigo:<br>Crea un Ingreso Paralelo", mod3_badge: "El Negocio Escalable",
-                mod3_desc: "El módulo para crear un ingreso completamente desconectado de los resultados de los partidos.",
-                mod3_l1: "<b class='text-white'>Anula tu Suscripción:</b> el sistema exacto para invitar a otros y obtener acceso gratuito.",
-                mod3_l2: "<b class='text-white'>Ingreso Extra:</b> herramientas y scripts para construir ingresos pasivos.",
+                mod3_desc: "El módulo para crear un ingreso desconectado de los resultados deportivos.",
+                mod3_l1: "<b class='text-white font-semibold'>Anula tu Suscripción:</b> el sistema exacto para obtener acceso gratuito.",
+                mod3_l2: "<b class='text-white font-semibold'>Ingreso Extra:</b> herramientas para construir ingresos pasivos.",
                 
-                choice_badge: "04 — LA ELECCIÓN", choice_title: "En 6 meses estarás en el mismo lugar.<br>O tres niveles arriba.",
+                choice_badge: "04 — LA ELECCIÓN", choice_title: "En 6 meses estarás igual.<br>O tres niveles arriba.",
                 bad_badge: "Si no haces nada", bad_title: "Status Quo.",
-                bad_l1: "Sigues comprando señales al azar.", bad_l2: "Miras a otros ganar dinero en redes.", bad_l3: "Te quedas de espectador en una industria en auge.",
+                bad_l1: "Sigues comprando señales al azar.", bad_l2: "Miras a otros ganar dinero en redes.", bad_l3: "Te quedas de espectador.",
                 good_badge: "Si te inscribes", good_title: "Tres Niveles Arriba.",
                 good_l1: "3 noches de sistema exacto, sin relleno.", good_l2: "Aprendes la habilidad matemática del Exchange.", good_l3: "Entras en la red y escalas comisiones.",
                 
                 foot_title: "LA ÚLTIMA LLAMADA.", foot_sub: "El workshop es gratis. Tus próximos 12 meses no.", foot_btn: "Vuelve arriba e Inscríbete",
                 f_terms: "Términos y Condiciones", f_privacy: "Política de Privacidad", f_cookie: "Política de Cookies",
-                foot_disc1: "DISCLAIMER: El trading deportivo conlleva un alto riesgo. Considera tus objetivos antes de invertir. No inviertas dinero que no puedas perder.",
-                foot_disc2: "Los resultados mostrados representan experiencias de personas que aplicaron las metodologías. El éxito depende de tu compromiso.",
+                foot_disc1: "DISCLAIMER: El trading deportivo conlleva un alto riesgo. No inviertas dinero que no puedas perder.",
+                foot_disc2: "Los resultados mostrados representan experiencias reales. El éxito depende de tu compromiso.",
                 sticky_btn: "Inscríbeme Gratis al Workshop",
                 
                 privacy_modal_title: "Política de Privacidad", privacy_modal_close: "Cerrar",
                 privacy_full_text: `
-                    <p><b>1. Responsable del Tratamiento</b><br>El Responsable es Betting Exchange Room. Para cualquier solicitud relacionada con la privacidad, puede contactarnos a través del correo electrónico proporcionado en nuestras comunicaciones.</p>
-                    <p><b>2. Finalidad del Tratamiento</b><br>Sus datos personales (nombre, correo electrónico y teléfono) se procesan estrictamente para:<br>
-                    - Permitir y confirmar su registro al workshop gratuito.<br>
-                    - Enviar enlaces de acceso y recordatorios vía WhatsApp y Email.<br>
-                    - Entregar los materiales de bonificación prometidos.<br>
-                    - Proporcionar soporte relacionado con el evento.</p>
-                    <p><b>3. Base Legal</b><br>El procesamiento se basa en su consentimiento explícito, otorgado al marcar la casilla obligatoria durante el registro.</p>
-                    <p><b>4. Conservación de Datos</b><br>Sus datos se conservarán solo el tiempo necesario para cumplir con los fines mencionados, o hasta que solicite su eliminación.</p>
-                    <p><b>5. Compartir Datos</b><br>Sus datos <b>nunca</b> serán vendidos a terceros. Pueden ser procesados por socios técnicos (proveedores de email, CRM) únicamente para la prestación de los servicios solicitados. Estos socios cumplen con estrictos estándares de privacidad.</p>
-                    <p><b>6. Derechos del Usuario (GDPR)</b><br>Usted tiene derecho en cualquier momento a:<br>
-                    - Solicitar acceso a sus datos.<br>
-                    - Solicitar la rectificación de datos incorrectos.<br>
-                    - Solicitar la eliminación de sus datos.<br>
-                    - Retirar su consentimiento (ej. cancelando la suscripción a nuestros correos).</p>
-                    <p>Al enviar el formulario, reconoce haber leído y comprendido esta Política.</p>
+                    <p><b class="text-white">1. Responsable</b><br>El Responsable es Betting Exchange Room. Contáctenos vía comunicaciones oficiales.</p>
+                    <p><b class="text-white">2. Finalidad</b><br>Sus datos (nombre, email, teléfono) se procesan para:<br>
+                    - Confirmar registro.<br>- Enviar accesos vía WhatsApp/Email.<br>- Entregar bonos.<br>- Soporte.</p>
+                    <p><b class="text-white">3. Base Legal</b><br>El procesamiento se basa en su consentimiento explícito.</p>
+                    <p><b class="text-white">4. Conservación</b><br>Los datos se conservan el tiempo necesario o hasta solicitar eliminación.</p>
+                    <p><b class="text-white">5. Terceros</b><br>Sus datos <b>nunca</b> son vendidos. Procesados solo por socios técnicos para entregar el servicio.</p>
+                    <p><b class="text-white">6. Sus Derechos (GDPR)</b><br>Puede solicitar acceso, rectificación, eliminación o retirar consentimiento.</p>
                 `
             },
             pt: {
+                meta_title: "Betting Exchange Room | 3 Noites ao Vivo",
+                meta_desc: "Obtenha o sistema exato para escalar sua renda com o Exchange. 3 Noites Grátis. Inscreva-se agora.",
+                
                 hero_badge: "3 NOITES AO VIVO · MASTERCLASS",
                 hero_schedule: "Segunda, Terça e Quarta às 21:30",
                 hero_title: "Obtenha o sistema <span class='gradient-text'>exato</span> para escalar sua renda com o Exchange.",
                 hero_subtitle: "Em 3 noites descubra nossa Academia Zero to Hero, aprenda a operar com nossa Sala de Sinais e descubra como zerar sua assinatura criando uma renda passiva.",
-                video_fallback: "Seu navegador não suporta a tag de vídeo.",
+                video_fallback: "Seu navegador não suporta vídeo.",
                 trust_1: "100% Grátis", trust_2: "Sem Cartão", trust_3: "Acesso Imediato",
                 
                 form_title: "Reserve seu lugar", form_subtitle: "As vagas ao vivo são limitadas. Inscreva-se agora.",
@@ -781,72 +777,67 @@
                 label_email: "E-mail principal", ph_email: "Seu melhor e-mail",
                 label_phone: "WhatsApp (Para o link)", ph_phone: "900 123456", title_phone: "Apenas números",
                 btn_submit: "Inscreva-me Grátis",
-                form_notice: "Os links de acesso chegarão por E-mail e WhatsApp em até 5 minutos.",
-                privacy_1: "Eu aceito a", privacy_2: "Política de Privacidade", privacy_3: "e concordo em receber comunicações por E-mail/WhatsApp para acessar o workshop.",
+                form_notice: "Os links chegarão por E-mail e WhatsApp em até 5 minutos.",
+                privacy_1: "Eu aceito a", privacy_2: "Política de Privacidade", privacy_3: "e concordo em receber comunicações para acessar o workshop.",
                 btn_sending: "Enviando...",
                 
-                bonus_badge: "DESBLOQUEIO IMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00]'>+</span><br>Sala Grátis", bonus_sub_card: "Acesso Exclusivo",
+                bonus_badge: "DESBLOQUEIO IMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
                 bonus_pill: "Presente Imediato com a Inscrição",
-                bonus_h2: "Receba instantaneamente o pacote completo da 1ª Aula da Academia e Acesso à Sala de Sinais Livre.",
-                bonus_p: "Assim que confirmar sua inscrição, você desbloqueia acesso imediato ao módulo introdutório de nossa Academia 'Zero to Hero' e entrada exclusiva para nossa Sala de Sinais.",
-                bonus_list_1: "<b class='text-white'>O Kit da 1ª Aula:</b> Experiência imersiva que inclui Vídeo, Podcast, eBook, Quiz e Simulação Interativa.",
-                bonus_list_2: "<b class='text-white'>Acesso à Sala de Sinais:</b> Junte-se à comunidade, observe operações reais e veja como são compartilhadas.",
+                bonus_h2: "Receba instantaneamente a 1ª Aula da Academia e Acesso à Sala de Sinais Livre.",
+                bonus_p: "Assim que confirmar sua inscrição, você desbloqueia acesso imediato ao módulo introdutório da Academia 'Zero to Hero' e entrada para a Sala de Sinais.",
+                bonus_list_1: "<b class='text-white font-bold'>O Kit da 1ª Aula:</b> Experiência imersiva que inclui Vídeo, Podcast, eBook, Quiz e Simulação.",
+                bonus_list_2: "<b class='text-white font-bold'>Acesso à Sala de Sinais:</b> Junte-se à comunidade, observe operações reais e veja como são compartilhadas.",
                 
                 prob_sub: "Onde você está agora", prob_title: "É domingo à noite.<br>E você percebe...",
-                prob_p1: "Você seguiu mais um 'tipster' do Telegram. Três múltiplas de 10 euros. Você abre o app e a 'lista infalível' falhou.",
-                prob_p2: "Então alguém que fazia o seu trabalho há 6 meses posta lucros do Exchange no feed.",
-                prob_quote: "O pensamento não é 'sortudo'. É: <b>'Se eu continuar apostando aleatoriamente, daqui a um ano estarei no mesmo lugar.'</b>",
-                prob_p3: "Esse pensamento chama-se <i>lacuna de sistema</i>. Não te falta sorte. Falta um ecossistema que trabalhe por você.",
+                prob_p1: "Você seguiu mais um 'tipster'. Três múltiplas de 10 euros. Você abre o app e a 'lista infalível' falhou.",
+                prob_p2: "Então alguém do seu setor posta lucros do Exchange no feed.",
+                prob_quote: "O pensamento não é 'sortudo'. É: <br><b class='text-white mt-2 block'>'Se eu continuar apostando aleatoriamente, daqui a um ano estarei no mesmo lugar.'</b>",
+                prob_p3: "Esse pensamento chama-se <i class='text-white font-medium'>lacuna de sistema</i>. Não te falta sorte. Falta um ecossistema.",
                 
                 sol_sub: "O ponto cego", sol_title: "O que te venderam até ontem estava errado.",
                 sol_p1: "Disseram que bastava comprar o pacote VIP do Guru e copiar às cegas.",
-                sol_p2: "O resultado? Um buraco na carteira. É hora da verdade: <b class='text-white'>as apostas tradicionais são estruturadas matematicamente para fazer você perder.</b>",
-                sol_p3: "O dinheiro real é feito com o Exchange e construindo uma <b>Rede</b>. Este workshop começa aqui.",
+                sol_p2: "O resultado? Um buraco na carteira. A verdade: <b class='text-[#ccff00]'>as apostas tradicionais são estruturadas para fazer você perder.</b>",
+                sol_p3: "O dinheiro real é feito com o Exchange e construindo uma <b class='text-white'>Rede</b>. Este workshop começa aqui.",
                 
                 mod_badge: "03 — O SISTEMA", mod_title: "Três noites. Um <span class='gradient-text'>sistema operacional</span><br class='hidden md:block'> que roda sozinho.",
                 mod1_sub: "Noite 1", mod1_title: "Academia Zero to Hero:<br>Construa as Fundações",
-                mod1_l1: "<b class='text-gray-200'>Treinamento Imersivo:</b> 30 videoaulas, podcasts, eBooks, quizzes e simulações.",
-                mod1_l2: "<b class='text-gray-200'>Teoria e Prática:</b> aprenda estratégias avançadas e a ler sinais de forma autônoma.",
+                mod1_l1: "<b class='text-white font-semibold'>Treinamento Imersivo:</b> 30 videoaulas, podcasts, eBooks, quizzes e simulações.",
+                mod1_l2: "<b class='text-white font-semibold'>Teoria e Prática:</b> aprenda estratégias avançadas e a ler sinais de forma autônoma.",
                 mod2_sub: "Noite 2", mod2_title: "A Sala de Sinais:<br>Execução de Alto Nível",
-                mod2_l1: "<b class='text-gray-200'>Bastidores:</b> descubra como nossos sinais são gerados e filtrados.",
-                mod2_l2: "<b class='text-gray-200'>Seu Primeiro Trade:</b> mostramos ao vivo como pegar um sinal e aplicá-lo.",
+                mod2_l1: "<b class='text-white font-semibold'>Bastidores:</b> descubra como nossos sinais são gerados e filtrados.",
+                mod2_l2: "<b class='text-white font-semibold'>Seu Primeiro Trade:</b> mostramos ao vivo como aplicar um sinal.",
                 mod3_sub: "Noite 3 — Masterclass", mod3_title: "Traga um Amigo:<br>Crie uma Renda Paralela", mod3_badge: "O Negócio Escalável",
-                mod3_desc: "O módulo para criar uma renda completamente desconectada dos resultados das partidas.",
-                mod3_l1: "<b class='text-white'>Zere sua Assinatura:</b> o sistema exato para convidar pessoas e obter acesso gratuito.",
-                mod3_l2: "<b class='text-white'>Renda Extra:</b> ferramentas e scripts para construir uma receita passiva.",
+                mod3_desc: "O módulo para criar uma renda desconectada dos resultados das partidas.",
+                mod3_l1: "<b class='text-white font-semibold'>Zere sua Assinatura:</b> o sistema exato para obter acesso gratuito.",
+                mod3_l2: "<b class='text-white font-semibold'>Renda Extra:</b> ferramentas para construir uma receita passiva.",
                 
-                choice_badge: "04 — A ESCOLHA", choice_title: "Em 6 meses você estará no mesmo lugar.<br>Ou três níveis acima.",
+                choice_badge: "04 — A ESCOLHA", choice_title: "Em 6 meses você estará igual.<br>Ou três níveis acima.",
                 bad_badge: "Se não fizer nada", bad_title: "Status Quo.",
-                bad_l1: "Continua comprando sinais aleatórios.", bad_l2: "Vê os outros ganharem dinheiro nas redes.", bad_l3: "Permanece espectador de uma indústria em expansão.",
+                bad_l1: "Continua comprando sinais aleatórios.", bad_l2: "Vê os outros ganharem dinheiro nas redes.", bad_l3: "Permanece espectador.",
                 good_badge: "Se você se inscrever", good_title: "Três Níveis Acima.",
                 good_l1: "3 noites de sistema exato, sem enrolação.", good_l2: "Aprende a habilidade matemática do Exchange.", good_l3: "Entra na rede e escala comissões.",
                 
                 foot_title: "A ÚLTIMA CHAMADA.", foot_sub: "O workshop é grátis. Seus próximos 12 meses não.", foot_btn: "Volte ao topo e Inscreva-se",
                 f_terms: "Termos e Condições", f_privacy: "Política de Privacidade", f_cookie: "Política de Cookies",
-                foot_disc1: "DISCLAIMER: O trading esportivo envolve alto risco. Considere seus objetivos antes de investir. Não invista dinheiro que não pode perder.",
-                foot_disc2: "Os resultados mostrados representam experiências de pessoas que aplicaram as metodologias. O sucesso depende do seu esforço.",
+                foot_disc1: "DISCLAIMER: O trading esportivo envolve alto risco. Não invista dinheiro que não pode perder.",
+                foot_disc2: "Os resultados mostrados representam experiências reais. O sucesso depende do seu esforço.",
                 sticky_btn: "Inscreva-me Grátis no Workshop",
                 
                 privacy_modal_title: "Política de Privacidade", privacy_modal_close: "Fechar",
                 privacy_full_text: `
-                    <p><b>1. Controlador de Dados</b><br>O Controlador é Betting Exchange Room. Para solicitações de privacidade, contate-nos pelo e-mail fornecido em nossas comunicações.</p>
-                    <p><b>2. Finalidade do Tratamento</b><br>Seus dados pessoais (nome, e-mail e telefone) são processados estritamente para:<br>
-                    - Permitir e confirmar seu registro no workshop gratuito.<br>
-                    - Enviar links de acesso e lembretes via WhatsApp e E-mail.<br>
-                    - Entregar os materiais bônus prometidos.<br>
-                    - Fornecer suporte relacionado ao evento.</p>
-                    <p><b>3. Base Legal</b><br>O processamento baseia-se no seu consentimento explícito, fornecido ao marcar a caixa obrigatória durante o registro.</p>
-                    <p><b>4. Retenção de Dados</b><br>Seus dados serão mantidos apenas pelo tempo necessário para cumprir os propósitos mencionados, ou até que você solicite sua exclusão.</p>
-                    <p><b>5. Compartilhamento de Dados</b><br>Seus dados <b>nunca</b> serão vendidos a terceiros. Podem ser processados por parceiros técnicos (provedores de e-mail, CRM) apenas para a entrega dos serviços solicitados.</p>
-                    <p><b>6. Direitos do Usuário (GDPR)</b><br>Você tem o direito a qualquer momento de:<br>
-                    - Solicitar acesso aos seus dados.<br>
-                    - Solicitar a retificação de dados incorretos.<br>
-                    - Solicitar a exclusão de seus dados.<br>
-                    - Retirar seu consentimento (ex. cancelando a inscrição em nossos e-mails).</p>
-                    <p>Ao enviar o formulário, você reconhece ter lido e compreendido esta Política.</p>
+                    <p><b class="text-white">1. Controlador de Dados</b><br>O Controlador é Betting Exchange Room. Contate-nos pelas comunicações oficiais.</p>
+                    <p><b class="text-white">2. Finalidade</b><br>Seus dados (nome, e-mail, telefone) são processados para:<br>
+                    - Confirmar registro.<br>- Enviar acessos via WhatsApp/E-mail.<br>- Entregar bônus.<br>- Suporte.</p>
+                    <p><b class="text-white">3. Base Legal</b><br>O processamento baseia-se no seu consentimento explícito.</p>
+                    <p><b class="text-white">4. Retenção</b><br>Os dados são mantidos pelo tempo necessário ou até solicitação de exclusão.</p>
+                    <p><b class="text-white">5. Terceiros</b><br>Seus dados <b>nunca</b> são vendidos. Processados por parceiros técnicos apenas para entrega do serviço.</p>
+                    <p><b class="text-white">6. Seus Direitos (GDPR)</b><br>Você pode solicitar acesso, retificação, exclusão ou retirar consentimento.</p>
                 `
             },
             it: {
+                meta_title: "Betting Exchange Room | 3 Serate Live",
+                meta_desc: "Ottieni il sistema esatto per scalare le tue entrate con l'Exchange. 3 Serate Gratuite. Iscriviti ora.",
+                
                 hero_badge: "3 SERATE LIVE · MASTERCLASS",
                 hero_schedule: "Lunedì, Martedì e Mercoledì ore 21:30",
                 hero_title: "Ottieni il sistema <span class='gradient-text'>esatto</span> per scalare le tue entrate con l'Exchange.",
@@ -860,74 +851,64 @@
                 label_phone: "WhatsApp (Per il link live)", ph_phone: "333 1234567", title_phone: "Solo numeri",
                 btn_submit: "Iscrivimi Gratis",
                 form_notice: "I link di accesso arriveranno via Email e WhatsApp entro 5 minuti.",
-                privacy_1: "Accetto la", privacy_2: "Privacy Policy", privacy_3: "e acconsento a ricevere comunicazioni via Email/WhatsApp per accedere al workshop e ai bonus.",
+                privacy_1: "Accetto la", privacy_2: "Privacy Policy", privacy_3: "e acconsento a ricevere comunicazioni per accedere al workshop.",
                 btn_sending: "Invio in corso...",
                 
-                bonus_badge: "SBLOCCO IMMEDIATO", bonus_title_card: "Academy<br><span class='text-[#ccff00]'>+</span><br>Sala Free", bonus_sub_card: "Accesso Esclusivo",
+                bonus_badge: "SBLOCCO IMMEDIATO", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
                 bonus_pill: "Regalo Immediato con l'Iscrizione",
-                bonus_h2: "Ricevi subito il pacchetto completo della 1ª Lezione dell'Academy e l'Accesso alla Sala Segnali Free.",
-                bonus_p: "Appena confermi l'iscrizione in alto, sblocchi l'accesso immediato all'intero modulo introduttivo della nostra Accademia 'Zero to Hero' e l'ingresso esclusivo alla nostra Sala Segnali gratuita.",
-                bonus_list_1: "<b class='text-white'>Il Kit della 1ª Lezione:</b> Esperienza immersiva che include Video, Podcast, eBook, Quiz e una Simulazione Interattiva.",
-                bonus_list_2: "<b class='text-white'>Accesso alla Sala Segnali (Free):</b> Entra nella community, osserva l'operatività reale e guarda come vengono condivise le operazioni.",
+                bonus_h2: "Ricevi subito la 1ª Lezione dell'Academy e l'Accesso alla Sala Segnali Free.",
+                bonus_p: "Appena confermi l'iscrizione, sblocchi l'accesso immediato all'intero modulo introduttivo della nostra Accademia 'Zero to Hero' e l'ingresso alla nostra Sala Segnali gratuita.",
+                bonus_list_1: "<b class='text-white font-bold'>Il Kit della 1ª Lezione:</b> Esperienza immersiva che include Video, Podcast, eBook, Quiz e Simulazione.",
+                bonus_list_2: "<b class='text-white font-bold'>Accesso alla Sala Segnali (Free):</b> Entra nella community, osserva l'operatività reale e guarda come vengono condivise le operazioni.",
                 
-                prob_sub: "Dove sei adesso", prob_title: "È domenica sera.<br>E ti rendi conto di...",
-                prob_p1: "Hai seguito l'ennesimo 'tipster' su Telegram. Tre multiple da 10 euro. Apri l'app e il 'listone infallibile' è saltato.",
-                prob_p2: "Poi nel feed compare chi fino a 6 mesi fa faceva il tuo stesso lavoro, e adesso posta screenshot di profitti sull'Exchange.",
-                prob_quote: "Il pensiero che ti rimane non è 'beato lui'. È: <b>'Se continuo a scommettere a caso, tra un anno sarò ancora qui.'</b>",
-                prob_p3: "Quel pensiero si chiama <i>gap di sistema</i>. Non ti manca la fortuna. Ti manca un ecosistema che lavora al posto tuo.",
+                prob_sub: "Dove sei adesso", prob_title: "È domenica sera.<br>E ti rendi conto...",
+                prob_p1: "Hai seguito l'ennesimo 'tipster'. Tre multiple da 10 euro. Apri l'app e il 'listone infallibile' è saltato.",
+                prob_p2: "Poi nel feed compare chi fino a 6 mesi fa faceva il tuo lavoro, mostrando profitti sull'Exchange.",
+                prob_quote: "Il pensiero che ti rimane non è 'beato lui'. È: <br><b class='text-white mt-2 block'>'Se continuo a scommettere a caso, tra un anno sarò ancora qui.'</b>",
+                prob_p3: "Quel pensiero si chiama <i class='text-white font-medium'>gap di sistema</i>. Non ti manca la fortuna. Ti manca un ecosistema.",
                 
                 sol_sub: "Il punto cieco", sol_title: "Quello che ti hanno venduto fino a ieri era sbagliato.",
-                sol_p1: "Ti hanno detto che bastava comprare il pacchetto VIP del Guru e copiare le giocate ad occhi chiusi.",
-                sol_p2: "Il risultato? Un buco nel portafoglio. È il momento di dire la verità: <b class='text-white'>il Betting tradizionale è matematicamente strutturato per farti perdere.</b>",
-                sol_p3: "I soldi veri si fanno con l'Exchange e costruendo un <b>Network</b>. Un sistema dove impari una competenza e vieni pagato. Questo workshop parte da qui.",
+                sol_p1: "Ti hanno detto che bastava comprare il pacchetto VIP del Guru e copiare a occhi chiusi.",
+                sol_p2: "Il risultato? Un buco nel portafoglio. La verità: <b class='text-[#ccff00]'>il Betting tradizionale è matematicamente strutturato per farti perdere.</b>",
+                sol_p3: "I soldi veri si fanno con l'Exchange e costruendo un <b class='text-white'>Network</b>. Questo workshop parte da qui.",
                 
                 mod_badge: "03 — IL SISTEMA", mod_title: "Tre serate. Un <span class='gradient-text'>sistema operativo</span><br class='hidden md:block'> che gira da solo.",
                 mod1_sub: "Serata 1", mod1_title: "L'Accademia Zero to Hero:<br>Costruisci le Fondamenta",
-                mod1_l1: "<b class='text-gray-200'>Formazione Immersiva:</b> 30 video lezioni, podcast, eBook, quiz e simulazioni.",
-                mod1_l2: "<b class='text-gray-200'>Teoria e Pratica:</b> impara le strategie avanzate e scopri come leggere i segnali in autonomia.",
-                mod2_sub: "Serata 2", mod2_title: "La Sala Segnali:<br>Esecuzione di Altissimo Livello",
-                mod2_l1: "<b class='text-gray-200'>Dietro le Quinte:</b> scopri come vengono generati e filtrati i nostri segnali.",
-                mod2_l2: "<b class='text-gray-200'>Il Tuo Primo Trade:</b> ti mostriamo live come prendere un segnale e applicarlo.",
+                mod1_l1: "<b class='text-white font-semibold'>Formazione Immersiva:</b> 30 video lezioni, podcast, eBook, quiz e simulazioni.",
+                mod1_l2: "<b class='text-white font-semibold'>Teoria e Pratica:</b> impara le strategie e scopri come leggere i segnali in autonomia.",
+                mod2_sub: "Serata 2", mod2_title: "La Sala Segnali:<br>Esecuzione di Livello",
+                mod2_l1: "<b class='text-white font-semibold'>Dietro le Quinte:</b> scopri come vengono generati e filtrati i nostri segnali.",
+                mod2_l2: "<b class='text-white font-semibold'>Il Tuo Primo Trade:</b> ti mostriamo live come applicare un segnale.",
                 mod3_sub: "Serata 3 — Masterclass", mod3_title: "Porta un Amico:<br>Crea una Rendita Parallela", mod3_badge: "Il Business Scalabile",
-                mod3_desc: "Il modulo per creare un'entrata completamente slegata dall'esito delle partite.",
-                mod3_l1: "<b class='text-white'>Azzera l'Abbonamento:</b> il sistema esatto per invitare persone e ottenere l'accesso gratuito.",
-                mod3_l2: "<b class='text-white'>Rendita Extra:</b> strumenti e script per costruire un reddito slegato dal trading.",
+                mod3_desc: "Il modulo per creare un'entrata slegata dall'esito delle partite.",
+                mod3_l1: "<b class='text-white font-semibold'>Azzera l'Abbonamento:</b> il sistema esatto per ottenere l'accesso gratuito.",
+                mod3_l2: "<b class='text-white font-semibold'>Rendita Extra:</b> strumenti per costruire un reddito passivo.",
                 
-                choice_badge: "04 — LA SCELTA", choice_title: "Tra 6 mesi sarai nello stesso punto.<br>O tre livelli sopra.",
+                choice_badge: "04 — LA SCELTA", choice_title: "Tra 6 mesi sarai allo stesso punto.<br>O tre livelli sopra.",
                 bad_badge: "Se non fai niente", bad_title: "Status Quo.",
-                bad_l1: "Continui a comprare segnali a caso.", bad_l2: "Guardi gli altri fare margini sui social.", bad_l3: "Rimani spettatore di un'industria in boom.",
+                bad_l1: "Continui a comprare segnali a caso.", bad_l2: "Guardi gli altri fare margini sui social.", bad_l3: "Rimani spettatore.",
                 good_badge: "Se ti iscrivi", good_title: "Tre Livelli Sopra.",
                 good_l1: "3 serate di sistema esatto, zero fuffa.", good_l2: "Impari la competenza matematica dell'Exchange.", good_l3: "Entri nel network e scali le commissioni.",
                 
-                foot_title: "L'ULTIMA CHIAMATA.", foot_sub: "Il workshop è gratuito. I tuoi prossimi 12 meses, no.", foot_btn: "Torna su e Iscriviti Gratis",
+                foot_title: "L'ULTIMA CHIAMATA.", foot_sub: "Il workshop è gratuito. I tuoi prossimi 12 mesi no.", foot_btn: "Torna su e Iscriviti Gratis",
                 f_terms: "Termini e Condizioni", f_privacy: "Privacy Policy", f_cookie: "Cookie Policy",
-                foot_disc1: "DISCLAIMER: Il trading sportivo comporta un alto rischio. Esiste la possibilità di subire una perdita parziale o totale. Non investire denaro che non puoi permetterti di perdere.",
-                foot_disc2: "I risultati mostrati rappresentano esperienze di persone che hanno applicato le metodologie. Il successo dipende dal tuo impegno.",
+                foot_disc1: "DISCLAIMER: Il trading sportivo comporta un alto rischio. Non investire denaro che non puoi permetterti di perdere.",
+                foot_disc2: "I risultati mostrati rappresentano esperienze reali. Il successo dipende dal tuo impegno.",
                 sticky_btn: "Iscrivimi Gratis al Workshop",
                 
                 privacy_modal_title: "Privacy Policy", privacy_modal_close: "Chiudi",
                 privacy_full_text: `
-                    <p><b>1. Titolare del Trattamento</b><br>Il Titolare del trattamento è Betting Exchange Room. Per qualsiasi richiesta o dubbio inerente alla privacy e al trattamento dei dati personali, puoi contattarci tramite l'indirizzo email fornito nelle nostre comunicazioni ufficiali.</p>
-                    <p><b>2. Finalità del Trattamento</b><br>I tuoi dati personali (nello specifico: nome, indirizzo email e numero di telefono/WhatsApp) vengono trattati strettamente ed esclusivamente per le seguenti finalità:<br>
-                    - Consentire e confermare l'iscrizione al workshop gratuito.<br>
-                    - Inviare i link di accesso necessari e i promemoria via WhatsApp e Email.<br>
-                    - Consegnare i materiali digitali bonus promessi (accesso Academy, link Sala Segnali).<br>
-                    - Fornire assistenza clienti relativa all'evento.</p>
-                    <p><b>3. Base Giuridica</b><br>Il trattamento si basa interamente sul tuo consenso esplicito, prestato liberamente spuntando la casella obbligatoria in fase di registrazione su questa pagina.</p>
-                    <p><b>4. Conservazione dei Dati</b><br>I tuoi dati saranno conservati solo per il tempo strettamente necessario a soddisfare le finalità di cui sopra, o fino a quando non richiederai esplicitamente la loro cancellazione o revocherai il consenso.</p>
-                    <p><b>5. Condivisione dei Dati e Terze Parti</b><br>I tuoi dati <b>non saranno mai</b> venduti o affittati a terzi per scopi di marketing. Potranno essere trattati da partner tecnici che agiscono come Responsabili del Trattamento (es. provider di email marketing, piattaforme CRM, servizi di hosting) unicamente per l'erogazione tecnica dei servizi richiesti. Tali partner sono tenuti a rispettare rigorosi standard di privacy.</p>
-                    <p><b>6. Diritti dell'Utente (GDPR)</b><br>Ai sensi delle leggi applicabili sulla protezione dei dati, hai il diritto in qualunque momento di:<br>
-                    - Richiedere l'accesso ai tuoi dati personali archiviati.<br>
-                    - Richiedere la rettifica di dati errati o incompleti.<br>
-                    - Richiedere la cancellazione ("diritto all'oblio") dei tuoi dati.<br>
-                    - Revocare il consenso (es. cliccando su "disiscriviti" nelle nostre email o contattando il supporto).<br>
-                    - Presentare un reclamo a un'autorità di controllo se ritieni che i tuoi dati siano stati utilizzati in modo improprio.</p>
-                    <p>Inviando il modulo di registrazione, dichiari di aver letto e compreso la presente Privacy Policy.</p>
+                    <p><b class="text-white">1. Titolare del Trattamento</b><br>Il Titolare è Betting Exchange Room. Contattaci tramite i canali ufficiali.</p>
+                    <p><b class="text-white">2. Finalità</b><br>I tuoi dati (nome, email, telefono) vengono trattati per:<br>
+                    - Confermare l'iscrizione.<br>- Inviare link di accesso via WhatsApp/Email.<br>- Consegnare bonus.<br>- Fornire assistenza.</p>
+                    <p><b class="text-white">3. Base Giuridica</b><br>Il trattamento si basa sul tuo consenso esplicito fornito in registrazione.</p>
+                    <p><b class="text-white">4. Conservazione</b><br>I dati sono conservati per il tempo strettamente necessario o fino a richiesta di cancellazione.</p>
+                    <p><b class="text-white">5. Terze Parti</b><br>I tuoi dati <b>non saranno mai</b> venduti. Trattati da partner tecnici solo per erogare il servizio.</p>
+                    <p><b class="text-white">6. Diritti dell'Utente (GDPR)</b><br>Puoi richiedere accesso, rettifica, cancellazione o revocare il consenso.</p>
                 `
             }
         };
 
-        // --- 2. GESTIONE LINGUE E VIDEO DINAMICI ---
         const videoMap = {
             'en': 'spotencapture.mp4',
             'es': 'spotescapture.mp4',
@@ -935,54 +916,60 @@
             'it': 'spotitcapture.mp4'
         };
 
+        // --- 2. LANGUAGE INITIALIZATION & HANDLING ---
         function initLanguage() {
             let lang = localStorage.getItem('userLang');
             if (!lang) {
-                // Rileva lingua del browser (es. "it-IT" -> "it")
+                // Auto-detect browser language
                 const browserLang = (navigator.language || navigator.userLanguage).split('-')[0].toLowerCase();
-                // Verifica se la lingua è supportata, altrimenti default "en"
+                // Map to supported languages, default to 'en'
                 lang = ['en', 'es', 'pt', 'it'].includes(browserLang) ? browserLang : 'en';
             }
             changeLanguage(lang);
         }
 
         function changeLanguage(lang) {
+            if (!translations[lang]) lang = 'en'; // Safe fallback
+            
             localStorage.setItem('userLang', lang);
             document.documentElement.lang = lang;
             document.getElementById('current-lang-display').textContent = lang.toUpperCase();
             
-            // Applica Traduzioni ai Testi (InnerHTML)
+            // Update Page Title and Meta Description dynamically
+            document.title = translations[lang]['meta_title'];
+            document.getElementById('meta-description').setAttribute('content', translations[lang]['meta_desc']);
+
+            // Translate innerHTML
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    // Se l'elemento è uno span all'interno di un bottone, o ha testo formattato
+                if (translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
 
-            // Applica Traduzioni ai Placeholder
+            // Translate Placeholders
             document.querySelectorAll('[data-i18n-ph]').forEach(el => {
                 const key = el.getAttribute('data-i18n-ph');
-                if (translations[lang] && translations[lang][key]) {
+                if (translations[lang][key]) {
                     el.placeholder = translations[lang][key];
                 }
             });
 
-            // Applica Traduzioni ai Title attributes
+            // Translate Title Attributes
             document.querySelectorAll('[data-i18n-title]').forEach(el => {
                 const key = el.getAttribute('data-i18n-title');
-                if (translations[lang] && translations[lang][key]) {
+                if (translations[lang][key]) {
                     el.title = translations[lang][key];
                 }
             });
 
-            // Inserisce Testo Privacy Modal
+            // Update Privacy Modal Content
             const privacyContent = document.getElementById('privacy-modal-content');
-            if(privacyContent && translations[lang] && translations[lang]['privacy_full_text']) {
+            if(privacyContent && translations[lang]['privacy_full_text']) {
                 privacyContent.innerHTML = translations[lang]['privacy_full_text'];
             }
 
-            // Cambia Video in Base alla Lingua e gestisce l'autoplay
+            // Update Video dynamically ensuring cross-browser autoplay rules
             const videoElement = document.getElementById('hero-video');
             const sourceElement = document.getElementById('hero-video-source');
             if (videoElement && sourceElement && videoMap[lang]) {
@@ -990,130 +977,147 @@
                 if (currentSrc !== videoMap[lang]) {
                     sourceElement.setAttribute('src', videoMap[lang]);
                     videoElement.load();
-                    // Assicura che il video sia muto per permettere l'autoplay su tutti i browser
-                    videoElement.muted = true;
+                    videoElement.muted = true; // Crucial for autoplay
                     const playPromise = videoElement.play();
                     if (playPromise !== undefined) {
                         playPromise.catch(error => {
-                            console.log("Autoplay prevented or interrupted:", error);
+                            console.log("Autoplay handled natively:", error);
                         });
                     }
                 }
             }
 
-            // Aggiorna il prefisso telefonico di default basato sulla lingua se non è stato modificato
-            updateDefaultPrefix(lang);
-            
-            // Chiudi menu lingua se aperto
-            const dropdown = document.getElementById('language-dropdown');
-            if(dropdown.classList.contains('show')) {
-                dropdown.classList.remove('show');
-                document.getElementById('language-menu-button').setAttribute('aria-expanded', 'false');
-            }
-        }
-
-        function updateDefaultPrefix(lang) {
+            // Set default phone prefix based on language
             const prefixSelect = document.getElementById('prefix');
-            // Imposta solo se l'utente non ha già interagito (opzionale, qui forziamo per UX)
             const prefixMap = { 'it': '+39', 'es': '+34', 'pt': '+351', 'en': '+44' };
             if(prefixMap[lang]) {
                 prefixSelect.value = prefixMap[lang];
             }
+            
+            // Close dropdown if open
+            closeLanguageMenu();
         }
 
-        // --- 3. UI INTERACTIONS (Modal, Menu, Sticky) ---
+        // --- 3. UI INTERACTIONS ---
+        const langBtn = document.getElementById('language-menu-button');
+        const langDropdown = document.getElementById('language-dropdown');
+        const langContainer = document.getElementById('language-menu-container');
+
+        function toggleLanguageMenu(e) {
+            e.stopPropagation();
+            const isHidden = langDropdown.style.display === 'none';
+            if (isHidden) {
+                langDropdown.style.display = 'block';
+                // Trigger reflow for animation
+                void langDropdown.offsetWidth;
+                langDropdown.classList.remove('opacity-0', 'scale-95');
+                langDropdown.classList.add('opacity-100', 'scale-100');
+                langBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                closeLanguageMenu();
+            }
+        }
+
+        function closeLanguageMenu() {
+            langDropdown.classList.remove('opacity-100', 'scale-100');
+            langDropdown.classList.add('opacity-0', 'scale-95');
+            langBtn.setAttribute('aria-expanded', 'false');
+            setTimeout(() => {
+                langDropdown.style.display = 'none';
+            }, 150); // matches transition duration
+        }
+
+        langBtn.addEventListener('click', toggleLanguageMenu);
+
+        // Close menu clicking outside
+        document.addEventListener('click', function(e) {
+            if (!langContainer.contains(e.target)) {
+                closeLanguageMenu();
+            }
+        });
+
+        // Intersection Observer for Sticky Button
         document.addEventListener("DOMContentLoaded", function() {
             initLanguage(); 
             
-            // Language Menu Toggle
-            const langBtn = document.getElementById('language-menu-button');
-            const langDropdown = document.getElementById('language-dropdown');
-            const langContainer = document.getElementById('language-menu-container');
-
-            langBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                langDropdown.classList.toggle('show');
-                const isExpanded = langDropdown.classList.contains('show');
-                langBtn.setAttribute('aria-expanded', isExpanded);
-            });
-
-            // Close language menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!langContainer.contains(e.target) && langDropdown.classList.contains('show')) {
-                    langDropdown.classList.remove('show');
-                    langBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Sticky Bar Observer
             const form = document.getElementById('hero-form');
             const stickyBtn = document.getElementById('sticky-bar');
+            
             if(form && stickyBtn) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            stickyBtn.style.opacity = '0';
+                        if (entry.isIntersecting || window.scrollY < 200) {
+                            // Hide if form is visible OR at the very top of page
+                            stickyBtn.classList.add('opacity-0', 'translate-y-10');
+                            stickyBtn.classList.remove('opacity-100', 'translate-y-0');
                             stickyBtn.style.pointerEvents = 'none';
-                            stickyBtn.style.transform = 'translateY(20px)';
                         } else {
-                            stickyBtn.style.opacity = '1';
+                            // Show otherwise
+                            stickyBtn.classList.remove('opacity-0', 'translate-y-10');
+                            stickyBtn.classList.add('opacity-100', 'translate-y-0');
                             stickyBtn.style.pointerEvents = 'auto';
-                            stickyBtn.style.transform = 'translateY(0)';
                         }
                     });
                 }, { threshold: 0.1 });
                 observer.observe(form);
             }
-
-            // Chiusura Modal cliccando fuori
-            const privacyModal = document.getElementById('privacy-modal');
-            if(privacyModal) {
-                privacyModal.addEventListener('click', function(e) {
-                    if (e.target === privacyModal) closePrivacyModal();
-                });
-            }
-            
-            // Gestione tasto ESC per chiudere modal
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !document.getElementById('privacy-modal').classList.contains('hidden')) {
-                    closePrivacyModal();
-                }
-            });
         });
 
         // Modal Functions
         function openPrivacyModal(e) {
             if(e) e.preventDefault();
             const modal = document.getElementById('privacy-modal');
+            const inner = document.getElementById('privacy-modal-inner');
             if(modal) {
                 modal.classList.remove('hidden');
-                // Piccola pausa per permettere al display:block di applicarsi prima della transizione opacità
-                setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
-                document.body.style.overflow = 'hidden'; // Blocca scroll pagina
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                
+                // Animate in
+                requestAnimationFrame(() => {
+                    modal.classList.remove('opacity-0');
+                    inner.classList.remove('scale-95');
+                    inner.classList.add('scale-100');
+                });
             }
         }
         
         function closePrivacyModal() {
             const modal = document.getElementById('privacy-modal');
+            const inner = document.getElementById('privacy-modal-inner');
             if(modal) {
                 modal.classList.add('opacity-0');
+                inner.classList.remove('scale-100');
+                inner.classList.add('scale-95');
+                
                 setTimeout(() => { 
                     modal.classList.add('hidden'); 
-                    document.body.style.overflow = ''; // Sblocca scroll pagina
-                }, 300); // Match the CSS transition duration
+                    document.body.style.overflow = ''; // Restore scroll
+                }, 300); // Wait for transition
             }
         }
 
-        // --- 4. GESTIONE FORM E REDIRECT ---
+        // Close modal on outside click
+        document.getElementById('privacy-modal').addEventListener('click', function(e) {
+            if (e.target === this) closePrivacyModal();
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !document.getElementById('privacy-modal').classList.contains('hidden')) {
+                closePrivacyModal();
+            }
+        });
+
+        // --- 4. FORM SUBMISSION ---
         function submitForm(e) {
             e.preventDefault();
             
             const btn = document.getElementById('submit-btn');
-            const originalText = btn.innerHTML;
+            const originalHTML = btn.innerHTML;
             const lang = localStorage.getItem('userLang') || 'en';
             
-            // Imposta stato di caricamento tradotto
-            btn.innerHTML = `<span class="animate-pulse">${translations[lang]['btn_sending'] || 'Sending...'}</span>`;
+            // Set loading state
+            btn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> <span class="animate-pulse">${translations[lang]['btn_sending']}</span>`;
             btn.style.pointerEvents = 'none';
 
             const name = document.getElementById('nome').value;
@@ -1121,7 +1125,7 @@
             const phone = document.getElementById('phone').value;
             const prefix = document.getElementById('prefix').value;
 
-            // 1. Invia Dati via Email Silenziosamente
+            // 1. Background Form Submit
             fetch('https://formsubmit.co/ajax/xandra.marini@gmail.com', {
                 method: 'POST',
                 headers: { 
@@ -1135,9 +1139,9 @@
                     Telefono: prefix + phone,
                     Lingua: lang
                 })
-            }).catch(error => console.log('Email background issue, proceeding to redirect:', error));
+            }).catch(error => console.log('Email logging handled gracefully', error));
 
-            // 2. Prepara il testo WhatsApp
+            // 2. Prepare WhatsApp Text based on Language
             let waTextRaw = "Ciao! Ho appena completato l'iscrizione per le 3 Serate Live. Attendo i link di accesso e il materiale bonus!";
             if(lang === 'en') waTextRaw = "Hi! I just completed my registration for the 3 Live Nights. I'm waiting for the access links and bonus material!";
             if(lang === 'es') waTextRaw = "¡Hola! Acabo de completar mi registro para las 3 Noches en Vivo. ¡Espero los enlaces de acceso y el material extra!";
@@ -1146,22 +1150,21 @@
             const waText = encodeURIComponent(waTextRaw);
             const waLink = `https://wa.me/393482487172?text=${waText}`;
             
-            // 3. Prepara il link Accademia con lingua
+            // 3. Prepare Academy Redirect Link
             const academyLink = `https://full-zero-to-hero-academy-betting-e.vercel.app/?lang=${lang}`;
 
             setTimeout(() => {
-                // Tecnica Anti-Blocco per WebView (Telegram/IG):
-                // Apriamo WhatsApp in una nuova finestra
+                // Open WhatsApp in new tab
                 window.open(waLink, '_blank');
-                // E reindirizziamo la finestra corrente all'Accademia
+                // Redirect current window to Academy
                 window.location.href = academyLink;
                 
-                // Ripristina il pulsante in caso l'utente torni indietro (BFCache)
+                // Restore button state (Useful for BFCache if user presses back button)
                 setTimeout(() => {
-                    btn.innerHTML = originalText;
+                    btn.innerHTML = originalHTML;
                     btn.style.pointerEvents = 'auto';
                 }, 2000);
-            }, 500);
+            }, 600);
         }
     </script>
 </body>

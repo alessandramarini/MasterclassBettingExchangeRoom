@@ -119,6 +119,50 @@
             cursor: pointer;
             outline: none;
         }
+
+        /* Animazione 3D Regalo */
+        @keyframes float3d {
+            0% { transform: translateY(0) rotateX(0) rotateY(0); }
+            50% { transform: translateY(-8px) rotateX(10deg) rotateY(15deg); }
+            100% { transform: translateY(0) rotateX(0) rotateY(0); }
+        }
+        .gift-3d {
+            display: inline-block;
+            font-size: 1.5rem;
+            animation: float3d 3s ease-in-out infinite;
+            filter: drop-shadow(0 5px 15px rgba(204,255,0,0.5));
+        }
+
+        /* Checkbox Bianca Universale (Cross-Browser) */
+        .white-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            background-color: #fff !important;
+            border: 2px solid #fff;
+            border-radius: 4px;
+            width: 1.25rem;
+            height: 1.25rem;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        .white-checkbox:checked {
+            background-color: #ccff00 !important;
+            border-color: #ccff00;
+        }
+        .white-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid #000;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
     </style>
 </head>
 <body class="overflow-x-hidden bg-radial-dark pb-24">
@@ -133,10 +177,7 @@
             <!-- Top Bar: Logo & Lang Switcher -->
             <div class="mb-8 lg:mb-12 flex items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <!-- Placeholder Logo (used generic block color for robustness) -->
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)] bg-black flex items-center justify-center overflow-hidden">
-                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                    </div>
+                    <img src="logo-tondo.jpeg" alt="Betting Exchange Room" class="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)] object-cover bg-black">
                     <span class="text-white font-black text-lg md:text-2xl tracking-widest uppercase hidden sm:block">
                         Betting Exchange <span class="text-accent">Room</span>
                     </span>
@@ -233,9 +274,8 @@
                             </div>
                             
                             <div class="flex items-start mt-4 p-1">
-                                <!-- Casella Checkbox Bianca -->
-                                <input type="checkbox" required class="w-4 h-4 rounded border-2 border-white bg-white text-accent accent-white focus:ring-accent cursor-pointer mt-0.5">
-                                <p class="ml-2.5 text-[10px] text-gray-500 leading-tight">
+                                <input type="checkbox" required class="white-checkbox mt-0.5">
+                                <p class="ml-3 text-[10px] text-gray-400 leading-tight">
                                     <span data-i18n="privacy_1">Accetto la</span> <a href="#" class="text-white font-bold underline" data-i18n="privacy_2" onclick="openPrivacyModal(event)">Privacy Policy</a> <span data-i18n="privacy_3">e acconsento a ricevere comunicazioni via Email/WhatsApp per accedere al workshop e ai bonus.</span>
                                 </p>
                             </div>
@@ -273,8 +313,8 @@
                 </div>
             </div>
             <div class="w-full lg:w-2/3 order-1 lg:order-2 text-center lg:text-left">
-                <div class="inline-block border border-accent/30 bg-accent/10 text-accent px-4 py-1.5 rounded-full font-black uppercase tracking-widest text-xs mb-6 break-words whitespace-normal" data-i18n="bonus_gift">
-                    🎁 Instant Gift with Registration
+                <div class="inline-flex items-center gap-3 border border-accent/30 bg-accent/10 text-accent px-5 py-2 rounded-full font-black uppercase tracking-widest text-xs mb-6 shadow-[0_0_20px_rgba(204,255,0,0.15)]">
+                    <span class="gift-3d">🎁</span> <span data-i18n="bonus_gift">Instant Gift with Registration</span>
                 </div>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 leading-tight text-white" data-i18n="bonus_h2">
                     Immediately receive the complete 1st Academy Lesson package and access to the Free Signal Room.
@@ -351,15 +391,16 @@
 
             <div class="space-y-12 sm:space-y-16">
                 <!-- Night 1 -->
-                <div class="glass-card rounded-3xl p-8 md:p-12 relative timeline-line pl-10 md:pl-12">
+                <div class="glass-card rounded-3xl p-8 md:p-12 relative timeline-line pl-10 md:pl-12 overflow-hidden group hover:border-[#ccff00]/40 transition-colors duration-300">
+                    <div class="absolute -right-4 -bottom-8 text-[8rem] md:text-[12rem] font-black text-white/[0.03] select-none pointer-events-none transition-transform group-hover:scale-110 duration-500">01</div>
                     <div class="absolute left-[-1px] top-8 w-1 h-20 bg-accent rounded-r-lg shadow-[0_0_15px_rgba(204,255,0,0.6)]"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/5 pb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/5 pb-6 relative z-10">
                         <div>
                             <span class="text-accent font-black tracking-widest text-sm uppercase block mb-2" data-i18n="m1_badge">Evening 1</span>
                             <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight" id="m1_title"></h3>
                         </div>
                     </div>
-                    <ul class="grid md:grid-cols-2 gap-6 text-gray-400 text-sm sm:text-base">
+                    <ul class="grid md:grid-cols-2 gap-6 text-gray-400 text-sm sm:text-base relative z-10">
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
                             <span><b class="text-gray-200" data-i18n="m1_b1">Immersive Training:</b> <span data-i18n="m1_p1">30 video lessons, podcasts, eBooks, quizzes, demos, simulations, and educational games.</span></span>
@@ -372,15 +413,16 @@
                 </div>
 
                 <!-- Night 2 -->
-                <div class="glass-card rounded-3xl p-8 md:p-12 relative timeline-line pl-10 md:pl-12">
+                <div class="glass-card rounded-3xl p-8 md:p-12 relative timeline-line pl-10 md:pl-12 overflow-hidden group hover:border-[#ccff00]/40 transition-colors duration-300">
+                    <div class="absolute -right-4 -bottom-8 text-[8rem] md:text-[12rem] font-black text-white/[0.03] select-none pointer-events-none transition-transform group-hover:scale-110 duration-500">02</div>
                     <div class="absolute left-[-1px] top-8 w-1 h-20 bg-accent rounded-r-lg shadow-[0_0_15px_rgba(204,255,0,0.6)]"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/5 pb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/5 pb-6 relative z-10">
                         <div>
                             <span class="text-accent font-black tracking-widest text-sm uppercase block mb-2" data-i18n="m2_badge">Evening 2</span>
                             <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight" id="m2_title"></h3>
                         </div>
                     </div>
-                    <ul class="grid md:grid-cols-2 gap-6 text-gray-400 text-sm sm:text-base">
+                    <ul class="grid md:grid-cols-2 gap-6 text-gray-400 text-sm sm:text-base relative z-10">
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
                             <span><b class="text-gray-200" data-i18n="m2_b1">Behind the Scenes:</b> <span data-i18n="m2_p1">discover exactly how our profitable signals are generated, filtered, and distributed.</span></span>
@@ -393,9 +435,10 @@
                 </div>
 
                 <!-- Night 3 -->
-                <div class="glass-card rounded-3xl p-8 md:p-12 relative border-accent/40 shadow-[0_0_30px_rgba(204,255,0,0.1)] timeline-line pl-10 md:pl-12 bg-gradient-to-br from-[#0f0f0f] to-[#ccff00]/10">
+                <div class="glass-card rounded-3xl p-8 md:p-12 relative border-accent/40 shadow-[0_0_30px_rgba(204,255,0,0.1)] timeline-line pl-10 md:pl-12 bg-gradient-to-br from-[#0f0f0f] to-[#ccff00]/10 overflow-hidden group">
+                    <div class="absolute -right-4 -bottom-8 text-[8rem] md:text-[12rem] font-black text-accent/[0.05] select-none pointer-events-none transition-transform group-hover:scale-110 duration-500">03</div>
                     <div class="absolute left-[-1px] top-8 w-1 h-20 bg-gradient-to-b from-[#eaff80] to-[#7aa300] rounded-r-lg shadow-[0_0_20px_rgba(204,255,0,0.8)]"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/10 pb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4 border-b border-white/10 pb-6 relative z-10">
                         <div>
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#eaff80] to-[#99cc00] font-black tracking-widest text-sm uppercase block mb-2" data-i18n="m3_badge">Evening 3 — Masterclass</span>
                             <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight" id="m3_title"></h3>
@@ -404,8 +447,8 @@
                             The Scalable Business
                         </div>
                     </div>
-                    <p class="text-white font-bold mb-6 text-lg border-l-2 border-accent pl-4" data-i18n="m3_subtitle">The module to create an income completely independent of match outcomes.</p>
-                    <ul class="grid md:grid-cols-2 gap-6 text-gray-300 text-sm sm:text-base">
+                    <p class="text-white font-bold mb-6 text-lg border-l-2 border-accent pl-4 relative z-10" data-i18n="m3_subtitle">The module to create an income completely independent of match outcomes.</p>
+                    <ul class="grid md:grid-cols-2 gap-6 text-gray-300 text-sm sm:text-base relative z-10">
                         <li class="flex items-start">
                             <span class="text-accent text-xl mr-3 mt-1">✓</span> 
                             <span><b class="text-white" data-i18n="m3_b1">Zero the Subscription:</b> <span data-i18n="m3_p1">the exact system to invite other people and get free access forever.</span></span>

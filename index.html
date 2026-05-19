@@ -41,6 +41,17 @@
             background-clip: text;
         }
 
+        .glow-text-acid {
+            background: linear-gradient(to right, #eaff80 0%, #ccff00 25%, #7aa300 50%, #ccff00 75%, #eaff80 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            background-size: 200% auto;
+            animation: accentShine 3s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(204, 255, 0, 0.6)) drop-shadow(0 0 20px rgba(204, 255, 0, 0.3));
+        }
+
         .bg-radial-dark {
             background: radial-gradient(circle at 50% 0%, #111111 0%, #030303 70%);
         }
@@ -214,11 +225,18 @@
 
         <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
             
-            <div class="mb-10 lg:mb-16 flex items-center justify-center lg:justify-start gap-4">
-                <img src="logo-tondo.jpeg" alt="Betting Exchange Room Logo" class="w-14 h-14 sm:w-20 sm:h-20 rounded-full border-2 border-[#ccff00] shadow-[0_0_25px_rgba(204,255,0,0.2)] object-cover bg-black flex-shrink-0" onerror="this.src='https://placehold.co/100x100/000000/ccff00?text=BER'">
-                <span class="text-white font-black text-lg sm:text-2xl md:text-3xl tracking-widest uppercase truncate text-balance">
-                    Betting Exchange <span class="text-accent">Room</span>
-                </span>
+            <div class="mb-10 lg:mb-16 flex flex-col items-center lg:items-start gap-2 sm:gap-4">
+                <div class="flex items-center justify-center lg:justify-start gap-4">
+                    <img src="logo-tondo.jpeg" alt="Betting Exchange Room Logo" class="w-14 h-14 sm:w-20 sm:h-20 rounded-full border-2 border-[#ccff00] shadow-[0_0_25px_rgba(204,255,0,0.2)] object-cover bg-black flex-shrink-0" onerror="this.src='https://placehold.co/100x100/000000/ccff00?text=BER'">
+                    <div class="flex flex-col justify-center">
+                        <span class="text-white font-black text-lg sm:text-2xl md:text-3xl tracking-widest uppercase truncate text-balance leading-tight">
+                            Betting Exchange <span class="text-accent">Room</span>
+                        </span>
+                        <span class="glow-text-acid text-2xl sm:text-3xl md:text-[2.75rem] font-black uppercase tracking-tighter italic mt-1" style="line-height: 1.1;" data-i18n="masterclass_live">
+                            MASTERCLASS LIVE
+                        </span>
+                    </div>
+                </div>
             </div>
 
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-start">
@@ -231,7 +249,7 @@
                               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ccff00] opacity-75"></span>
                               <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ccff00]"></span>
                             </span>
-                            <span class="text-[#ccff00]" data-i18n="hero_badge">3 LIVE NIGHTS · MASTERCLASS</span>
+                            <span class="text-[#ccff00]" data-i18n="hero_badge">3 LIVE NIGHTS</span>
                         </div>
                         <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] sm:text-xs font-medium text-gray-300">
                             <svg class="w-4 h-4 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -263,10 +281,12 @@
                 </div>
 
                 <div class="lg:col-span-5 w-full max-w-md mx-auto relative" id="hero-form">
-                    <div class="glass-card rounded-[2rem] p-6 sm:p-8 relative overflow-hidden group min-h-[450px] flex flex-col justify-center">
+                    <!-- Rimosso min-h-[450px] per far sì che l'altezza sia dinamica -->
+                    <div class="glass-card rounded-[2rem] p-6 sm:p-8 relative overflow-hidden group flex flex-col justify-center transition-all duration-500">
                         <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#7aa300] via-[#ccff00] to-[#7aa300]"></div>
                         
-                        <div class="text-center mb-8 mt-4">
+                        <!-- Aggiunto un ID all'header per poterlo nascondere -->
+                        <div id="form-header" class="text-center mb-8 mt-4 transition-all duration-500 opacity-100">
                             <h3 class="text-2xl sm:text-3xl font-black text-white mb-2 tracking-tight" data-i18n="form_title">Reserve Your Seat</h3>
                             <p class="text-sm text-gray-400 font-medium" data-i18n="form_subtitle">Live seats are limited. Register now.</p>
                         </div>
@@ -278,68 +298,57 @@
                                     <input type="text" id="nome" name="Name" required pattern="[a-zA-ZÀ-ÿ\s]+" title="Letters and spaces only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="E.g. John Doe" data-i18n-ph="ph_name" data-i18n-title="title_name">
                                 </div>
                                 
-                                <div class="mb-5">
-                                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_email" for="email">Primary Email</label>
-                                    <input type="email" id="email" name="Email" required class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="Your best email" data-i18n-ph="ph_email">
-                                </div>
-                                
-                                <div class="mb-5">
-                                    <label class="block text-xs font-bold text-gray-300 uppercase tracking-widest mb-2 pl-1" data-i18n="label_phone" for="phone">WhatsApp (For live link)</label>
-                                    <div class="flex gap-2">
-                                        <select id="prefix" aria-label="Country Code" class="custom-select bg-black/50 border border-gray-700/50 rounded-xl px-3 py-3.5 text-white focus:outline-none focus:border-[#ccff00] w-[110px] flex-shrink-0 cursor-pointer text-sm font-medium">
-                                            <option value="+44">+44 (UK)</option>
-                                            <option value="+1">+1 (US)</option>
-                                            <option value="+34">+34 (ES)</option>
-                                            <option value="+351">+351 (PT)</option>
-                                            <option value="+39">+39 (IT)</option>
-                                            <option value="+41">+41 (CH)</option>
-                                            <option value="+55">+55 (BR)</option>
-                                            <option value="+52">+52 (MX)</option>
-                                        </select>
-                                        <input type="tel" id="phone" required pattern="[0-9]+" title="Numbers only" class="w-full bg-black/50 border border-gray-700/50 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#ccff00] focus:ring-1 focus:ring-[#ccff00] transition-all placeholder-gray-600 shadow-inner text-sm sm:text-base" placeholder="555 1234567" data-i18n-ph="ph_phone" data-i18n-title="title_phone">
-                                    </div>
-                                </div>
-
-                                <div class="pt-4 mb-4">
+                                <div class="pt-2 mb-4">
                                     <button type="submit" id="submit-btn" class="btn-accent w-full font-black text-lg sm:text-xl px-6 py-4 rounded-xl uppercase tracking-widest flex justify-center items-center gap-2">
                                         <span data-i18n="btn_submit">Register for Free</span>
-                                        <svg class="w-5 h-5 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                        <svg class="w-5 h-5 hidden sm:block flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                     </button>
                                 </div>
                                 
                                 <div class="flex items-start mt-4 bg-white/5 p-3 rounded-lg border border-white/5">
-                                    <input type="checkbox" required class="white-checkbox mt-0.5" id="privacy-check">
+                                    <input type="checkbox" required class="white-checkbox mt-0.5 flex-shrink-0" id="privacy-check">
                                     <label for="privacy-check" class="ml-3 text-[11px] sm:text-xs text-gray-400 leading-snug cursor-pointer select-none">
-                                        <span data-i18n="privacy_1">I accept the</span> <a href="#" onclick="openPrivacyModal(event)" class="text-white font-bold underline hover:text-[#ccff00] transition-colors" data-i18n="privacy_2">Privacy Policy</a> <span data-i18n="privacy_3">and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.</span>
+                                        <span data-i18n="privacy_1">I accept the</span> <a href="#" onclick="openPrivacyModal(event)" class="text-white font-bold underline hover:text-[#ccff00] transition-colors" data-i18n="privacy_2">Privacy Policy</a> <span data-i18n="privacy_3">and consent to receive communications to access the workshop and bonuses.</span>
                                     </label>
                                 </div>
                             </div>
                         </form>
 
-                        <div id="success-state" class="hidden flex-col items-center justify-center text-center absolute inset-0 bg-[#0f0f0f]/95 backdrop-blur-xl rounded-[2rem] p-6 sm:p-8 z-20">
-                            <div class="w-20 h-20 bg-[#ccff00]/10 rounded-full flex items-center justify-center mb-4 border-2 border-[#ccff00]/30 shadow-[0_0_30px_rgba(204,255,0,0.2)]">
-                                <svg class="w-10 h-10 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        <!-- Rimosso il posizionamento assoluto per evitare overflow. Ora è nel flusso normale del documento e allarga la card dinamicamente -->
+                        <div id="success-state" class="hidden flex-col items-center justify-center text-center w-full z-20 opacity-0 transition-opacity duration-500 pt-2 pb-4">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 bg-[#ccff00]/10 rounded-full flex items-center justify-center mb-4 border-2 border-[#ccff00]/30 shadow-[0_0_30px_rgba(204,255,0,0.2)]">
+                                <svg class="w-7 h-7 sm:w-8 sm:h-8 text-[#ccff00]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <h4 class="text-3xl font-black text-white mb-2" data-i18n="success_title">Registration Complete!</h4>
-                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-tight" data-i18n="success_sub">Step 1: Request your Live Link on WhatsApp. <br>Step 2: Access your Bonus.</p>
+                            <h4 class="text-xl sm:text-2xl font-black text-white mb-2" data-i18n="success_title">Your seat has been reserved!</h4>
+                            <p class="text-gray-400 mb-6 text-xs sm:text-sm leading-tight max-w-[280px] mx-auto" data-i18n="success_sub">Step 1: Request your Live Link on WhatsApp or Telegram. <br>Step 2: Access your Bonus.</p>
                             
-                            <!-- WhatsApp Request Button -->
-                            <a href="#" id="wa-link-btn" target="_blank" class="w-full bg-[#25D366] text-white font-black text-sm sm:text-base px-6 py-4 rounded-xl uppercase tracking-widest flex justify-center items-center gap-2 shadow-[0_5px_20px_rgba(37,211,102,0.3)] hover:bg-[#20bd5a] hover:scale-[1.02] transition-all mb-4">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.126.549 4.195 1.593 6.02L.152 23.23c-.046.166.012.344.148.455.136.111.325.122.473.029l5.053-3.17c1.782.977 3.791 1.488 5.86 1.488 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm0 20.178c-1.854 0-3.674-.477-5.267-1.381-.137-.078-.303-.09-.452-.032l-3.353 2.103 1.054-3.568c.045-.152.008-.316-.1-.433-1.077-1.157-1.686-2.673-1.686-4.282 0-5.632 4.58-10.211 10.211-10.211 5.632 0 10.211 4.58 10.211 10.211s-4.579 10.211-10.211 10.211zm5.228-7.147c-.287-.143-1.696-.838-1.958-.934-.262-.095-.453-.143-.644.143-.191.286-.74 .934-.908 1.125-.168.191-.336.215-.623.072-2.148-1.078-3.522-2.485-4.472-4.145-.168-.291.076-.285.358-.847.096-.19.048-.357-.024-.501-.072-.143-.644-1.554-.882-2.126-.233-.559-.47-.483-.644-.492-.168-.008-.36-.008-.551-.008-.191 0-.501.072-.764.358-.262.286-1.002.978-1.002 2.385 0 1.407 1.026 2.766 1.169 2.957.143.191 2.016 3.078 4.881 4.314.682.294 1.214.47 1.629.601.685.217 1.309.186 1.796.113.546-.082 1.696-.693 1.934-1.361.239-.668.239-1.24.168-1.361-.073-.122-.265-.194-.552-.337z"/>
-                                </svg>
-                                <span data-i18n="wa_btn">REQUEST LINK VIA WHATSAPP</span>
-                            </a>
+                            <div class="flex flex-col gap-3 w-full mb-4">
+                                <!-- Telegram Request Button: padding e testi ottimizzati per mobile -->
+                                <a href="tg://resolve?domain=ladybitcoin" class="w-full bg-[#229ED9] text-white font-black text-[10px] sm:text-[11px] px-3 py-3.5 rounded-xl uppercase tracking-widest flex flex-row justify-center items-center gap-2.5 shadow-[0_5px_20px_rgba(34,158,217,0.3)] hover:bg-[#1C88BA] hover:scale-[1.02] transition-all text-center leading-snug">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.892-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                    </svg>
+                                    <span data-i18n="tg_btn" class="text-left w-auto max-w-full">REQUEST LINK ON TELEGRAM</span>
+                                </a>
+    
+                                <!-- WhatsApp Request Button: padding e testi ottimizzati per mobile -->
+                                <a href="#" id="wa-link-btn" target="_blank" class="w-full bg-[#25D366] text-white font-black text-[10px] sm:text-[11px] px-3 py-3.5 rounded-xl uppercase tracking-widest flex flex-row justify-center items-center gap-2.5 shadow-[0_5px_20px_rgba(37,211,102,0.3)] hover:bg-[#20bd5a] hover:scale-[1.02] transition-all text-center leading-snug">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                                    </svg>
+                                    <span data-i18n="wa_btn" class="text-left w-auto max-w-full">REQUEST LINK ON WHATSAPP</span>
+                                </a>
+                            </div>
 
                             <div class="relative w-full flex items-center mb-4">
                                 <div class="flex-grow border-t border-white/10"></div>
-                                <span class="flex-shrink-0 mx-4 text-xs text-gray-500 uppercase tracking-widest" data-i18n="success_or">AND THEN</span>
+                                <span class="flex-shrink-0 mx-4 text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest" data-i18n="success_or">AND THEN</span>
                                 <div class="flex-grow border-t border-white/10"></div>
                             </div>
 
                             <!-- Academy Link Button -->
-                            <a href="https://full-zero-to-hero-academy-betting-e.vercel.app/" id="academy-link-btn" class="btn-accent w-full font-black text-sm sm:text-base px-6 py-4 rounded-xl uppercase tracking-widest flex justify-center items-center gap-2 shadow-xl">
-                                <span class="text-xl animate-float-3d">🎁</span>
+                            <a href="https://full-zero-to-hero-academy-betting-e.vercel.app/" id="academy-link-btn" class="btn-accent w-full font-black text-xs sm:text-sm px-4 py-3.5 rounded-xl uppercase tracking-widest flex justify-center items-center gap-2 shadow-xl">
+                                <span class="text-lg animate-float-3d flex-shrink-0">🎁</span>
                                 <span data-i18n="btn_access_now">ACCESS YOUR BONUS</span>
                             </a>
                         </div>
@@ -615,7 +624,8 @@
                 meta_title: "Betting Exchange Room | 3 Live Nights",
                 meta_desc: "Get the exact system to scale your income with the Exchange. 3 Free Live Nights. Register now.",
                 
-                hero_badge: "3 LIVE NIGHTS · MASTERCLASS",
+                masterclass_live: "MASTERCLASS LIVE",
+                hero_badge: "3 LIVE NIGHTS",
                 hero_schedule: "Monday, Tuesday and Wednesday at 9:30 PM",
                 hero_title: "Get the <span class='gradient-text'>exact</span> system to scale your income with the Exchange.",
                 hero_subtitle: "In 3 nights discover our Zero to Hero Academy, learn to operate with our top-tier Signal Room, and find out how to zero your subscription by creating a trading-free income.",
@@ -624,17 +634,16 @@
                 
                 form_title: "Reserve Your Seat", form_subtitle: "Live seats are limited. Register now.",
                 label_name: "Your Name", ph_name: "E.g. John Doe", title_name: "Letters and spaces only",
-                label_email: "Primary Email", ph_email: "Your best email",
-                label_phone: "WhatsApp (For live link)", ph_phone: "555 1234567", title_phone: "Numbers only",
                 btn_submit: "Register for Free",
-                privacy_1: "I accept the", privacy_2: "Privacy Policy", privacy_3: "and consent to receive communications via Email/WhatsApp to access the workshop and bonuses.",
+                privacy_1: "I accept the", privacy_2: "Privacy Policy", privacy_3: "and consent to receive communications to access the workshop and bonuses.",
                 btn_sending: "Sending...",
                 
-                success_title: "Registration Complete!",
-                success_sub: "Step 1: Request your Live Link on WhatsApp. <br>Step 2: Access your Bonus.",
+                success_title: "Your seat has been reserved!",
+                success_sub: "Step 1: Request your Live Link on WhatsApp or Telegram. <br>Step 2: Access your Bonus.",
                 success_or: "AND THEN",
-                wa_btn: "REQUEST LINK VIA WHATSAPP",
-                wa_msg: "Hi! I just registered for the Betting Exchange Room. Could you send me the link for the live event? My name is {name}, email: {email}, phone: {phone}.",
+                tg_btn: "REQUEST LINK ON TELEGRAM",
+                wa_btn: "REQUEST LINK ON WHATSAPP",
+                wa_msg: "Hi! I just registered for the Betting Exchange Room. Could you send me the link for the live event? My name is {name}.",
                 btn_access_now: "ACCESS YOUR BONUS",
                 
                 bonus_badge: "INSTANT UNLOCK", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Room", 
@@ -681,11 +690,11 @@
                 privacy_modal_title: "Privacy Policy", privacy_modal_close: "Close",
                 privacy_full_text: `
                     <p><b class="text-white">1. Data Controller</b><br>The Data Controller is Betting Exchange Room. For any privacy requests, contact us via official communications.</p>
-                    <p><b class="text-white">2. Purpose of Processing</b><br>Your personal data (name, email, phone) are processed strictly for:<br>
-                    - Workshop registration confirmation.<br>- Access links via WhatsApp/Email.<br>- Bonus delivery.<br>- Event support.</p>
+                    <p><b class="text-white">2. Purpose of Processing</b><br>Your personal data (name) are processed strictly for:<br>
+                    - Workshop registration confirmation.<br>- Access links via WhatsApp/Telegram.<br>- Bonus delivery.<br>- Event support.</p>
                     <p><b class="text-white">3. Legal Basis</b><br>Processing is based on your explicit consent provided during registration.</p>
                     <p><b class="text-white">4. Data Retention</b><br>Data is retained only as long as necessary or until deletion request.</p>
-                    <p><b class="text-white">5. Third Parties</b><br>Data is <b>never</b> sold. Processed by technical partners (e.g., email providers) solely for service delivery under strict privacy standards.</p>
+                    <p><b class="text-white">5. Third Parties</b><br>Data is <b>never</b> sold. Processed by technical partners solely for service delivery under strict privacy standards.</p>
                     <p><b class="text-white">6. Your Rights (GDPR)</b><br>You can request access, rectification, deletion, or withdraw consent at any time.</p>
                 `
             },
@@ -693,7 +702,8 @@
                 meta_title: "Betting Exchange Room | 3 Noches en Vivo",
                 meta_desc: "Obtén el sistema exacto para escalar tus ingresos con el Exchange. 3 Noches Gratis. Regístrate ahora.",
                 
-                hero_badge: "3 NOCHES EN VIVO · MASTERCLASS",
+                masterclass_live: "MASTERCLASS LIVE",
+                hero_badge: "3 NOCHES EN VIVO",
                 hero_schedule: "Lunes, Martes y Miércoles a las 21:30",
                 hero_title: "Obtén el sistema <span class='gradient-text'>exacto</span> para escalar tus ingresos con el Exchange.",
                 hero_subtitle: "En 3 noches descubre nuestra Academia Zero to Hero, aprende a operar con nuestra Sala de Señales y descubre cómo anular tu suscripción creando ingresos pasivos.",
@@ -702,17 +712,16 @@
                 
                 form_title: "Reserva tu lugar", form_subtitle: "Las plazas en vivo son limitadas. Regístrate ahora.",
                 label_name: "Tu Nombre", ph_name: "Ej. Carlos Ruiz", title_name: "Solo letras y espacios",
-                label_email: "Email principal", ph_email: "Tu mejor email",
-                label_phone: "WhatsApp (Para el enlace)", ph_phone: "600 123456", title_phone: "Solo números",
                 btn_submit: "Inscríbeme Gratis",
-                privacy_1: "Acepto la", privacy_2: "Política de Privacidad", privacy_3: "y consiento recibir comunicaciones por Email/WhatsApp para el workshop.",
+                privacy_1: "Acepto la", privacy_2: "Política de Privacidad", privacy_3: "y consiento recibir comunicaciones para el workshop.",
                 btn_sending: "Enviando...",
                 
-                success_title: "¡Registro Completado!",
-                success_sub: "Paso 1: Solicita tu Enlace en WhatsApp. <br>Paso 2: Accede a tu Bonus.",
+                success_title: "¡Tu asiento ha sido reservado!",
+                success_sub: "Paso 1: Solicita tu Enlace en WhatsApp o Telegram. <br>Paso 2: Accede a tu Bonus.",
                 success_or: "Y LUEGO",
+                tg_btn: "SOLICITAR ENLACE POR TELEGRAM",
                 wa_btn: "SOLICITAR ENLACE POR WHATSAPP",
-                wa_msg: "¡Hola! Me acabo de registrar en la Betting Exchange Room. ¿Podrías enviarme el enlace para el evento en vivo? Soy {name}, email: {email}, teléfono: {phone}.",
+                wa_msg: "¡Hola! Me acabo de registrar en la Betting Exchange Room. ¿Podrías enviarme el enlace para el evento en vivo? Soy {name}.",
                 btn_access_now: "ACCEDE A TU BONUS",
                 
                 bonus_badge: "DESBLOQUEO INMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
@@ -759,8 +768,8 @@
                 privacy_modal_title: "Política de Privacidad", privacy_modal_close: "Cerrar",
                 privacy_full_text: `
                     <p><b class="text-white">1. Responsable</b><br>El Responsable es Betting Exchange Room. Contáctenos vía comunicaciones oficiales.</p>
-                    <p><b class="text-white">2. Finalidad</b><br>Sus datos (nombre, email, teléfono) se procesan para:<br>
-                    - Confirmar registro.<br>- Enviar accesos vía WhatsApp/Email.<br>- Entregar bonos.<br>- Soporte.</p>
+                    <p><b class="text-white">2. Finalidad</b><br>Sus datos (nombre) se procesan para:<br>
+                    - Confirmar registro.<br>- Enviar accesos vía WhatsApp/Telegram.<br>- Entregar bonos.<br>- Soporte.</p>
                     <p><b class="text-white">3. Base Legal</b><br>El procesamiento se basa en su consentimiento explícito.</p>
                     <p><b class="text-white">4. Conservación</b><br>Los datos se conservan el tiempo necesario o hasta solicitar eliminación.</p>
                     <p><b class="text-white">5. Terceros</b><br>Sus datos <b>nunca</b> son vendidos. Procesados solo por socios técnicos para entregar el servicio.</p>
@@ -771,7 +780,8 @@
                 meta_title: "Betting Exchange Room | 3 Noites ao Vivo",
                 meta_desc: "Obtenha o sistema exato para escalar sua renda com o Exchange. 3 Noites Grátis. Inscreva-se agora.",
                 
-                hero_badge: "3 NOITES AO VIVO · MASTERCLASS",
+                masterclass_live: "MASTERCLASS LIVE",
+                hero_badge: "3 NOITES AO VIVO",
                 hero_schedule: "Segunda, Terça e Quarta às 21:30",
                 hero_title: "Obtenha o sistema <span class='gradient-text'>exato</span> para escalar sua renda com o Exchange.",
                 hero_subtitle: "Em 3 noites descubra nossa Academia Zero to Hero, aprenda a operar com nossa Sala de Sinais e descubra como zerar sua assinatura criando uma renda passiva.",
@@ -780,17 +790,16 @@
                 
                 form_title: "Reserve seu lugar", form_subtitle: "As vagas ao vivo são limitadas. Inscreva-se agora.",
                 label_name: "Seu Nome", ph_name: "Ex. João Silva", title_name: "Apenas letras e espaços",
-                label_email: "E-mail principal", ph_email: "Seu melhor e-mail",
-                label_phone: "WhatsApp (Para o link)", ph_phone: "900 123456", title_phone: "Apenas números",
                 btn_submit: "Inscreva-me Grátis",
                 privacy_1: "Eu aceito a", privacy_2: "Política de Privacidade", privacy_3: "e concordo em receber comunicações para acessar o workshop.",
                 btn_sending: "Enviando...",
                 
-                success_title: "Inscrição Concluída!",
-                success_sub: "Passo 1: Solicite seu Link pelo WhatsApp. <br>Passo 2: Acesse seu Bônus.",
+                success_title: "Seu lugar foi reservado!",
+                success_sub: "Passo 1: Solicite seu Link pelo WhatsApp ou Telegram. <br>Passo 2: Acesse seu Bônus.",
                 success_or: "E ENTÃO",
+                tg_btn: "SOLICITAR LINK PELO TELEGRAM",
                 wa_btn: "SOLICITAR LINK PELO WHATSAPP",
-                wa_msg: "Olá! Acabei de me registrar na Betting Exchange Room. Você poderia me enviar o link do evento ao vivo? Sou {name}, e-mail: {email}, telefone: {phone}.",
+                wa_msg: "Olá! Acabei de me registrar na Betting Exchange Room. Você poderia me enviar o link do evento ao vivo? Sou {name}.",
                 btn_access_now: "ACESSE SEU BÔNUS",
                 
                 bonus_badge: "DESBLOQUEO IMEDIATO", bonus_title_card: "Academia<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
@@ -837,8 +846,8 @@
                 privacy_modal_title: "Política de Privacidade", privacy_modal_close: "Fechar",
                 privacy_full_text: `
                     <p><b class="text-white">1. Controlador de Dados</b><br>O Controlador é Betting Exchange Room. Contate-nos pelas comunicações oficiais.</p>
-                    <p><b class="text-white">2. Finalidade</b><br>Seus dados (nome, e-mail, telefone) são processados para:<br>
-                    - Confirmar registro.<br>- Enviar acessos via WhatsApp/E-mail.<br>- Entregar bônus.<br>- Suporte.</p>
+                    <p><b class="text-white">2. Finalidade</b><br>Seus dados (nome) são processados para:<br>
+                    - Confirmar registro.<br>- Enviar acessos via WhatsApp/Telegram.<br>- Entregar bônus.<br>- Suporte.</p>
                     <p><b class="text-white">3. Base Legal</b><br>O processamento baseia-se no seu consentimento explícito.</p>
                     <p><b class="text-white">4. Retenção</b><br>Os dados são mantidos pelo tempo necessário ou até solicitação de exclusão.</p>
                     <p><b class="text-white">5. Terceiros</b><br>Seus dados <b>nunca</b> são vendidos. Processados por parceiros técnicos apenas para entrega do serviço.</p>
@@ -849,7 +858,8 @@
                 meta_title: "Betting Exchange Room | 3 Serate Live",
                 meta_desc: "Ottieni il sistema esatto per scalare le tue entrate con l'Exchange. 3 Serate Gratuite. Iscriviti ora.",
                 
-                hero_badge: "3 SERATE LIVE · MASTERCLASS",
+                masterclass_live: "MASTERCLASS LIVE",
+                hero_badge: "3 SERATE LIVE",
                 hero_schedule: "Lunedì, Martedì e Mercoledì ore 21:30",
                 hero_title: "Ottieni il sistema <span class='gradient-text'>esatto</span> per scalare le tue entrate con l'Exchange.",
                 hero_subtitle: "In 3 sere scopri la nostra Accademia Zero to Hero, impari a operare con la nostra Sala Segnali e scopri come azzerare l'abbonamento creando una rendita slegata dal trading.",
@@ -858,17 +868,16 @@
                 
                 form_title: "Riserva il tuo posto", form_subtitle: "I posti per le dirette sono limitati. Iscriviti ora.",
                 label_name: "Il tuo Nome", ph_name: "Es. Mario Rossi", title_name: "Solo lettere e spazi",
-                label_email: "Email principale", ph_email: "La tua migliore email",
-                label_phone: "WhatsApp (Per il link live)", ph_phone: "333 1234567", title_phone: "Solo numeri",
                 btn_submit: "Iscrivimi Gratis",
                 privacy_1: "Accetto la", privacy_2: "Privacy Policy", privacy_3: "e acconsento a ricevere comunicazioni per accedere al workshop.",
                 btn_sending: "Invio in corso...",
                 
-                success_title: "Registrazione Completata!",
-                success_sub: "Step 1: Richiedi il link live su WhatsApp. <br>Step 2: Accedi al tuo Bonus.",
+                success_title: "Il tuo posto è stato riservato!",
+                success_sub: "Step 1: Richiedi il link della MASTERCLASS LIVE su WhatsApp o Telegram. <br>Step 2: Accedi al tuo Bonus.",
                 success_or: "E POI",
+                tg_btn: "RICHIEDI IL LINK SU TELEGRAM",
                 wa_btn: "RICHIEDI IL LINK SU WHATSAPP",
-                wa_msg: "Ciao! Mi sono appena registrato alla Betting Exchange Room. Potresti inviarmi il link per l'evento live? Sono {name}, email: {email}, telefono: {phone}.",
+                wa_msg: "Ciao! Mi sono appena registrato alla Betting Exchange Room. Potresti inviarmi il link per la Masterclass live? Sono {name}.",
                 btn_access_now: "ACCEDI AL TUO BONUS",
                 
                 bonus_badge: "SBLOCCO IMMEDIATO", bonus_title_card: "Academy<br><span class='text-[#ccff00] my-2 block text-5xl'>+</span>Sala", 
@@ -896,7 +905,7 @@
                 mod2_sub: "Serata 2", mod2_title: "La Sala Segnali:<br>Esecuzione di Livello",
                 mod2_l1: "<b class='text-white font-semibold'>Dietro le Quinte:</b> scopri come vengono generati e filtrati i nostri segnali.",
                 mod2_l2: "<b class='text-white font-semibold'>Il Tuo Primo Trade:</b> ti mostriamo live come applicare un segnale.",
-                mod3_sub: "Serata 3 — Masterclass", mod3_title: "Porta un Amico:<br>Crea una Rendita Parallela", mod3_badge: "Il Business Scalabile",
+                mod3_sub: "Serata 3 — Masterclass", mod3_title: "Porta un Amigo:<br>Crea una Rendita Parallela", mod3_badge: "Il Business Scalabile",
                 mod3_desc: "Il modulo per creare un'entrata slegata dall'esito delle partite.",
                 mod3_l1: "<b class='text-white font-semibold'>Azzera l'Abbonamento:</b> il sistema esatto per ottenere l'accesso gratuito.",
                 mod3_l2: "<b class='text-white font-semibold'>Rendita Extra:</b> strumenti per costruire un reddito passivo.",
@@ -915,8 +924,8 @@
                 privacy_modal_title: "Privacy Policy", privacy_modal_close: "Chiudi",
                 privacy_full_text: `
                     <p><b class="text-white">1. Titolare del Trattamento</b><br>Il Titolare è Betting Exchange Room. Contattaci tramite i canali ufficiali.</p>
-                    <p><b class="text-white">2. Finalità</b><br>I tuoi dati (nome, email, telefono) vengono trattati per:<br>
-                    - Confermare l'iscrizione.<br>- Inviare link di accesso via WhatsApp/Email.<br>- Consegnare bonus.<br>- Fornire assistenza.</p>
+                    <p><b class="text-white">2. Finalità</b><br>I tuoi dati (nome) vengono trattati per:<br>
+                    - Confermare l'iscrizione.<br>- Inviare link di accesso via WhatsApp/Telegram.<br>- Consegnare bonus.<br>- Fornire assistenza.</p>
                     <p><b class="text-white">3. Base Giuridica</b><br>Il trattamento si basa sul tuo consenso esplicito fornito in registrazione.</p>
                     <p><b class="text-white">4. Conservazione</b><br>I dati sono conservati per il tempo strettamente necessario o fino a richiesta di cancellazione.</p>
                     <p><b class="text-white">5. Terze Parti</b><br>I tuoi dati <b>non saranno mai</b> venduti. Trattati da partner tecnici solo per erogare il servizio.</p>
@@ -990,12 +999,6 @@
                         playPromise.catch(error => console.log("Autoplay handled natively:", error));
                     }
                 }
-            }
-
-            const prefixSelect = document.getElementById('prefix');
-            const prefixMap = { 'it': '+39', 'es': '+34', 'pt': '+351', 'en': '+44' };
-            if(prefixMap[lang]) {
-                prefixSelect.value = prefixMap[lang];
             }
             
             closeLanguageMenu();
@@ -1109,14 +1112,10 @@
             const lang = localStorage.getItem('userLang') || 'en';
             
             // Set loading state
-            btn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> <span class="animate-pulse">${translations[lang]['btn_sending']}</span>`;
+            btn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-black flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> <span class="animate-pulse">${translations[lang]['btn_sending']}</span>`;
             btn.style.pointerEvents = 'none';
 
             const name = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const prefix = document.getElementById('prefix').value;
-            const fullPhone = prefix + phone;
 
             // Collect and Send via FormSubmit as a structured payload
             fetch('https://formsubmit.co/ajax/xandra.marini@gmail.com', {
@@ -1130,44 +1129,46 @@
                     _template: 'table', 
                     _captcha: 'false', 
                     Nome: name,
-                    Email: email,
-                    Telefono: fullPhone,
                     Lingua: lang
                 })
             }).catch(error => console.log('Email logging handled gracefully', error));
 
-            // Execute UI Transition instead of auto-redirect
+            // Execute UI Transition
             setTimeout(() => {
-                // 1. Fade out/hide inputs
+                // 1. Fade out inputs and header
+                const formHeader = document.getElementById('form-header');
                 const formContent = document.getElementById('form-content');
-                formContent.classList.remove('opacity-100');
+                
+                if(formHeader) formHeader.classList.add('opacity-0');
                 formContent.classList.add('opacity-0');
                 
                 setTimeout(() => {
+                    // Hide them completely from layout
+                    if(formHeader) formHeader.style.display = 'none';
                     formContent.style.display = 'none';
                     
                     // 2. Prepare links
                     const academyLinkBtn = document.getElementById('academy-link-btn');
                     academyLinkBtn.href = `https://full-zero-to-hero-academy-betting-e.vercel.app/?lang=${lang}`;
                     
-                    // Prepare WhatsApp Message Link based on chosen language & inserted user details
                     const waBtn = document.getElementById('wa-link-btn');
                     let waMsgRaw = translations[lang]['wa_msg'];
-                    let waMsgFormatted = waMsgRaw
-                        .replace('{name}', name)
-                        .replace('{email}', email)
-                        .replace('{phone}', fullPhone);
-                    
-                    // Creates wa.me link ensuring text is URI Encoded
+                    let waMsgFormatted = waMsgRaw.replace('{name}', name);
                     waBtn.href = `https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${encodeURIComponent(waMsgFormatted)}`;
 
-                    // 3. Show Success State
+                    // 3. Mostra lo stato di successo, che ora espanderà dinamicamente la card genitore
                     const successState = document.getElementById('success-state');
                     successState.classList.remove('hidden');
                     successState.classList.add('flex');
-                }, 300); // Wait for fade out
+                    
+                    // Trigger fade-in
+                    setTimeout(() => {
+                        successState.classList.remove('opacity-0');
+                    }, 50);
+
+                }, 300); // Aspetta che finisca il fade out
                 
-            }, 800); // Small delay to simulate processing and give user feedback
+            }, 800); // Simulazione caricamento
         }
     </script>
 </body>
